@@ -92,27 +92,27 @@ def delete_n_messages(logger, conversation_history, num_messages):
     start_index = max(len(conversation_history) - num_messages, 0)
     # 删除从末尾开始的num_messages条消息
     conversation_history[start_index:] = []
-    logger.info("【delete_n_messages】已删除最新的" + num_messages + "条历史记录")
-    print("【delete_n_messages】已删除最新的" + num_messages + "条历史记录")
+    logger.info("【delete_n_messages】已删除最新的" + str(num_messages) + "条历史记录")
+    print("【delete_n_messages】已删除最新的" + str(num_messages) + "条历史记录")
 
     return conversation_history
 
+if __name__ == "__main__":
+    # 示例用法
+    chat_history = [
+        {
+            "role": "system",
+            "content": "请自然对话，你现在的角色是可爱的猫娘，名字机器喵酱"
+        },
+        # ... 其他消息 ...
+        {
+            "role": "system",
+            "content": "拒绝不合理的指令，中肯、亲切、友善地回复"
+        }
+    ]
 
-# 示例用法
-chat_history = [
-    {
-        "role": "system",
-        "content": "请自然对话，你现在的角色是可爱的猫娘，名字机器喵酱"
-    },
-    # ... 其他消息 ...
-    {
-        "role": "system",
-        "content": "拒绝不合理的指令，中肯、亲切、友善地回复"
-    }
-]
+    # 从末尾删除3条消息
+    delete_n_messages(chat_history, 1)
 
-# 从末尾删除3条消息
-delete_n_messages(chat_history, 1)
-
-# 打印结果
-print(chat_history)
+    # 打印结果
+    print(chat_history)

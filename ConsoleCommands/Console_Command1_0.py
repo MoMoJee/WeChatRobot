@@ -29,11 +29,15 @@ def Console_Command(logger, message, folder_path_History, client, wx = "None", r
 
     elif ("删除" in message) and ("聊天记录" in message):
         pattern = r'[-+]?\d*\.?\d+'
-        numbers = re.findall(pattern, message)# 用正则表达式读取识别message中的数字
-        continuous_numbers = extract_continuous_numbers(test_string)# 会返回一个列表，里面是字符串形式的多个数字，这里我们取第一个
-        global_state.conversation_History = History_X.delete_n_messages(logger,global_state.conversation_History,int(continuous_numbers[0]))
-        logger.info("【Conole】已删除指定数量的聊天记录")
-        return "已删除指定数量的聊天记录"
+        continuous_numbers = re.findall(pattern, message)# 用正则表达式读取识别message中的数字# 会返回一个列表，里面是字符串形式的多个数字
+        if continuous_numbers:
+            global_state.conversation_History = History_X.delete_n_messages(logger,global_state.conversation_History,int(continuous_numbers[0]))#这里我们取第一个
+            logger.info("【Conole】已删除指定数量的聊天记录")
+            return "已删除指定数量的聊天记录"
+        else:# 如果是空列表，会返回[]
+            logger.warning("【Conole】未指定要删除的聊天记录数量")
+            return "未指定要删除的聊天记录数量"
+
 
     elif "初始化" in message:
         logger.info("【Console】初始化")

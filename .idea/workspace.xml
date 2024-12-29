@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="写了一些更新日志&#10;更新了responders，即为fcc的加入做准备">
-      <change afterPath="$PROJECT_DIR$/History/History1_1.py" afterDir="false" />
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="新增了删除n条历史记录功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/Reminder1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/Reminder1_0.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions/function_console_command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/function_console_command1_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/History1_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History1_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/Main2_0_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Responders/responders1_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Responders/responders1_1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,13 +142,22 @@
       <option name="project" value="LOCAL" />
       <updated>1735461429095</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="新增了删除n条历史记录功能">
+      <option name="closed" value="true" />
+      <created>1735471932819</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1735471932819</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="我也不知道这是啥，提交着玩玩儿" />
     <MESSAGE value="增加了fcc，后面会详细升级，用来" />
     <MESSAGE value="写了一些更新日志&#10;更新了responders，即为fcc的加入做准备" />
-    <option name="LAST_COMMIT_MESSAGE" value="写了一些更新日志&#10;更新了responders，即为fcc的加入做准备" />
+    <MESSAGE value="新增了删除n条历史记录功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增了删除n条历史记录功能" />
   </component>
 </project>

@@ -31,6 +31,9 @@ import globals
 from  globals import global_state
 import WeChatConnect
 from WeChatConnect import WeChatConnector1_0 as WeChatConnector_X
+import Functions
+from Functions import function_console_command1_0 as function_console_command_X
+from Functions import Reminder1_0 as Reminder_X
 
 '''
 2.0.1小优化：
@@ -107,6 +110,7 @@ while 1:
             if shutdown_password in msg.content:
                 print("【SuperCommand】收到强制关机密钥，程序已非正常停止运行")
                 logger.warning("【SuperCommand】收到强制关机密钥，程序已非正常停止运行")
+                History_X.save_conversation_history_to_file(logger,global_state.conversation_History)
                 OutBreak = 1
             if OutBreak:
                 break
@@ -117,6 +121,14 @@ while 1:
                     chat.SendMsg(responders_X.Authenticator_Distributor(logger,msg,client))
                 print("【ConsoleCommand】挂起中")
                 continue
+
+            #f = function_console_command_X.function_console_command(logger,msg)
+
+
+            Reminder_X.reminder(l1,"五号楼花果山", {"目标0": ["未定义提醒0", "2024-12-29 20:16:02.189115"]})
+            # 暂时还没想好这种实时监控的function和那种执行单词操作的function怎么分别处理
+            # 在挂起状态下，应当只接受实时监控的function。
+            # 反之则接收所以function，同时通过鉴权执行复杂function
 
 
             if msg.type == 'sys':

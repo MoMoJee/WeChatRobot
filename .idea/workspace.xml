@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="新增了删除n条历史记录功能">
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="又增加了reminder函数的支持，但说实话没写好，我也没想好">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions/Reminder1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/Reminder1_0.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions/function_console_command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/function_console_command1_0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/History1_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History1_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/Main2_0_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0_1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735471932819</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="又增加了reminder函数的支持，但说实话没写好，我也没想好">
+      <option name="closed" value="true" />
+      <created>1735474964419</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735474964419</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -158,6 +164,7 @@
     <MESSAGE value="增加了fcc，后面会详细升级，用来" />
     <MESSAGE value="写了一些更新日志&#10;更新了responders，即为fcc的加入做准备" />
     <MESSAGE value="新增了删除n条历史记录功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增了删除n条历史记录功能" />
+    <MESSAGE value="又增加了reminder函数的支持，但说实话没写好，我也没想好" />
+    <option name="LAST_COMMIT_MESSAGE" value="又增加了reminder函数的支持，但说实话没写好，我也没想好" />
   </component>
 </project>

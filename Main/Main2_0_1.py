@@ -59,7 +59,7 @@ client = AIConnect_X.AIConnector(logger)
 #开始监听
 OutBreak=0#创建终止关键字
 First = 1
-global_state.Suspend = 0
+global_state.Suspend = 1
 connect_retry_times = 0
 
 while 1:
@@ -115,6 +115,16 @@ while 1:
             if OutBreak:
                 break
 
+
+            #f = function_console_command_X.function_console_command(logger,msg)
+
+            Reminder_X.reminder(logger,"五号楼花果山", {"粉色妖精小姐♪": ["未定义提醒0", datetime.datetime(2024, 12, 29, 23, 0)]})
+
+            # 暂时还没想好这种实时监控的function和那种执行单词操作的function怎么分别处理
+            # 在挂起状态下，应当只接受实时监控的function。
+            # 反之则接收所以function，同时通过鉴权执行复杂function
+
+
             if global_state.Suspend:
                 if "#cc" in f'{msg.content}' and '喵酱' in f'{msg.content}':# 挂起状态下，为了减轻计算负担，这里严格检验条件，只允许#cc指令运行，同时让AD鉴权，使得CC操作仍能进行
                     logger.info('接收到关键词' + f'{msg.sender}：{msg.content}')
@@ -122,13 +132,7 @@ while 1:
                 print("【ConsoleCommand】挂起中")
                 continue
 
-            #f = function_console_command_X.function_console_command(logger,msg)
 
-
-            Reminder_X.reminder(l1,"五号楼花果山", {"目标0": ["未定义提醒0", "2024-12-29 20:16:02.189115"]})
-            # 暂时还没想好这种实时监控的function和那种执行单词操作的function怎么分别处理
-            # 在挂起状态下，应当只接受实时监控的function。
-            # 反之则接收所以function，同时通过鉴权执行复杂function
 
 
             if msg.type == 'sys':
@@ -187,5 +191,7 @@ while 1:
             elif msg.type == 'recall':
                 print(f'【撤回消息】{msg.content}')
     print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) # 获取当前时间并打印
-    time.sleep(0)
+    time.sleep(1)
+
+
 

@@ -1,6 +1,7 @@
 import datetime
+import Functions
 
-import Reminder1_0 as Reminder_x
+from Functions import Reminder1_0 as Reminder_x
 
 def function_console_command(logger, f_message, role = "New"):
 

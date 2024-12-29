@@ -6,12 +6,15 @@ import globals
 from  globals import global_state
 import Functions
 from Functions import function_console_command1_0 as function_console_command_X
+import History
+from History import History1_1 as History_X
 
 '''
 1.1更新
 1.优化AD函数处理逻辑
 2.增设respond_VIPuser功能
 3.VIP用户专用的function功能的引入
+4.完善了对空消息回复的保护
 '''
 
 def  Authenticator_Distributor(logger, msg, client, role = "New"):
@@ -57,11 +60,11 @@ def respond_user(logger, user_input, client, role = "New"):
     if f'{AI_reply}' != "":
         logger.info('【大模型回复】' + f'【喵酱】{AI_reply}')
     else:
-        chat.SendMsg("【喵酱】我不能发空白信息喵")
-        logger.warning("一个尝试回复空消息的尝试被阻止，正在清除上一条聊天记录")
-        # 我还没写，这里是对历史记录中的上一条聊天记录执行抹去
-
-        # 此处将msg.content传递给大模型，再由大模型返回的消息回复即可实现ai聊天
+        logger.warning("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一条聊天记录")
+        print("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一条聊天记录")
+        global_state.conversation_History = History_X.delete_n_messages(logger, global_state.conversation_History, 1)
+        logger.info("【respond_sys】已经安全删除上一条历史记录")
+        print("【respond_sys】已经安全删除上一条历史记录")
     return f'【喵酱】{AI_reply}'
 
 def respond_VIPuser(logger, user_input, client, role = "New"):
@@ -73,11 +76,11 @@ def respond_VIPuser(logger, user_input, client, role = "New"):
     if f'{AI_reply}' != "":
         logger.info('【大模型回复】' + f'【喵酱】{AI_reply}')
     else:
-        chat.SendMsg("【喵酱】我不能发空白信息喵")
-        logger.warning("一个尝试回复空消息的尝试被阻止，正在清除上一条聊天记录")
-        # 我还没写，这里是对历史记录中的上一条聊天记录执行抹去
-
-        # 此处将msg.content传递给大模型，再由大模型返回的消息回复即可实现ai聊天
+        logger.warning("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一条聊天记录")
+        print("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一条聊天记录")
+        global_state.conversation_History = History_X.delete_n_messages(logger, global_state.conversation_History, 1)
+        logger.info("【respond_sys】已经安全删除上一条历史记录")
+        print("【respond_sys】已经安全删除上一条历史记录")
     return f'【喵酱】{AI_reply}'
 
 
@@ -87,13 +90,13 @@ def respond_sys(logger, user_input, client, role = "New"):
     if f'{AI_reply}' != "":
         logger.info('【大模型回复】' + f'【喵酱】{AI_reply}')
     else:
-        chat.SendMsg("【喵酱】我不能发空白信息喵")
-        logger.warning("一个尝试回复空消息的尝试被阻止，正在清除上一条聊天记录")
-        # 我还没写，这里是对历史记录中的上一条聊天记录执行抹去
+        logger.warning("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一条聊天记录")
+        print("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一条聊天记录")
+        global_state.conversation_History = History_X.delete_n_messages(logger, global_state.conversation_History, 1)
+        logger.info("【respond_sys】已经安全删除上一条历史记录")
+        print("【respond_sys】已经安全删除上一条历史记录")
 
-        # 此处将msg.content传递给大模型，再由大模型返回的消息回复即可实现ai聊天
     return f'【喵酱】{AI_reply}'
-
 
 def respond_bandeduser(logger, user_input, role = "New"):
 

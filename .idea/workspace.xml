@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="我也不知道这是啥，提交着玩玩儿">
-      <change afterPath="$PROJECT_DIR$/Responders/responders1_1.py" afterDir="false" />
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="写了一些更新日志&#10;更新了responders，即为fcc的加入做准备">
+      <change afterPath="$PROJECT_DIR$/History/History1_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions/function_console_command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/function_console_command1_0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/Main2_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/Main2_0_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Responders/responders1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Responders/responders1_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Responders/responders1_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Responders/responders1_1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +51,7 @@
   "keyToString": {
     "Python.Chatting1_0.executor": "Run",
     "Python.History1_0.executor": "Run",
+    "Python.History1_1.executor": "Run",
     "Python.Main2.0.executor": "Run",
     "Python.Main2_0.executor": "Run",
     "Python.Main2_0_1.executor": "Run",
@@ -59,10 +59,11 @@
     "Python.Reminder1_0.executor": "Run",
     "Python.Start_Close1_0.executor": "Run",
     "Python.logger1_0.executor": "Run",
+    "Python.scratch_10.executor": "Run",
     "Python.scratch_15.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/python_learn/WeChatRobot/Responders",
+    "last_opened_file_path": "D:/python_learn/WeChatRobot/History",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   },
   "keyToStringList": {
@@ -74,10 +75,40 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\python_learn\WeChatRobot\History" />
       <recent name="D:\python_learn\WeChatRobot\Responders" />
       <recent name="D:\python_learn\WeChatRobot\Main" />
       <recent name="D:\python_learn\WeChatRobot" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Reminder1_0" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="WeChatRobot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Functions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Functions/Reminder1_0.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Reminder1_0" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -103,11 +134,21 @@
       <option name="project" value="LOCAL" />
       <updated>1735459374399</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="写了一些更新日志&#10;更新了responders，即为fcc的加入做准备">
+      <option name="closed" value="true" />
+      <created>1735461429095</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1735461429095</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="我也不知道这是啥，提交着玩玩儿" />
-    <option name="LAST_COMMIT_MESSAGE" value="我也不知道这是啥，提交着玩玩儿" />
+    <MESSAGE value="增加了fcc，后面会详细升级，用来" />
+    <MESSAGE value="写了一些更新日志&#10;更新了responders，即为fcc的加入做准备" />
+    <option name="LAST_COMMIT_MESSAGE" value="写了一些更新日志&#10;更新了responders，即为fcc的加入做准备" />
   </component>
 </project>

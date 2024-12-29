@@ -1,10 +1,10 @@
 import History
-from History import History1_0 as History_X
+from History import History1_1 as History_X
 import globals
 from  globals import global_state
 import Chatting
 from Chatting import Chatting1_0 as Chatting_X
-
+import re
 
 # 为了方便，CC中的越界操作通过专用的全局变量完成
 
@@ -26,6 +26,15 @@ def Console_Command(logger, message, folder_path_History, client, wx = "None", r
         # 保存对话历史到文件
         History_X.save_conversation_history_to_file(logger, global_state.conversation_History, folder_path_History)
         return "不好意思喵，根据主人指示，喵酱不得不忘记一些事情了\n~至于我还记得哪些事情，就看谁给喵酱留下的印象最深刻咯~"
+
+    elif ("删除" in message) and ("聊天记录" in message):
+        pattern = r'[-+]?\d*\.?\d+'
+        numbers = re.findall(pattern, message)# 用正则表达式读取识别message中的数字
+        continuous_numbers = extract_continuous_numbers(test_string)# 会返回一个列表，里面是字符串形式的多个数字，这里我们取第一个
+        global_state.conversation_History = History_X.delete_n_messages(logger,global_state.conversation_History,int(continuous_numbers[0]))
+        logger.info("【Conole】已删除指定数量的聊天记录")
+        return "已删除指定数量的聊天记录"
+
     elif "初始化" in message:
         logger.info("【Console】初始化")
         global_state.conversation_History = History_X.clear_n_percent_of_history(logger,global_state.conversation_History,100)  # 调用清理函数，删除全部聊天数据

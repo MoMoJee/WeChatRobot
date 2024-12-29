@@ -34,13 +34,13 @@ from WeChatConnect import WeChatConnector1_0 as WeChatConnector_X
 
 '''
 2.0.1小优化：
-1.增加程序关闭的方式，使得任意管理员都可以关闭，而非只能从主机的文件传输助手√
+1.增加程序关闭的方式，使得任意管理员都可以关闭，而非只能从主机的文件传输助手
 2.增加main函数对role函数的支持
 3.增加了消息获取检查，防止中途被迫下线而导致的中途停摆√
 4.增加了对function的支持，使得聊天途中可以通过#fcc关键字启动function控制台
 '''
 
-listen_list = ["文件传输助手"]
+listen_list = ["五号楼花果山","文件传输助手"]
 
 logger = logger_X.start_logging("日志器", "日志")
 

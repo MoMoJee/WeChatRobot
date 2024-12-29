@@ -1,0 +1,26 @@
+2024-12-28 18:33:18,587 - 日志器 - INFO - 已从D:/python_learn/WorkSoftWares/WeChatTools/WeChatRobot/History/Zero_conversation_history.txt写入历史记录
+2024-12-28 18:33:18,589 - 日志器 - INFO - 成功初始化对话，写入对话前提
+2024-12-28 18:33:19,797 - 日志器 - INFO - 微信接入成功
+2024-12-28 18:33:20,511 - 日志器 - INFO - 启用监听对象：钱俊哲
+2024-12-28 18:33:20,856 - 日志器 - INFO - 启用监听对象：文件传输助手
+2024-12-28 18:33:20,997 - 日志器 - INFO - 成功连接：apiKey=sk-m8SUBSaNEAwYWuEnqhL4loUTd6v96EPAUBVuNXT5eKnVzZYL；Model：moonshot-v1-8k
+2024-12-28 18:33:20,997 - 日志器 - INFO - 初始化计费器。当前消费：0
+2024-12-28 18:33:29,407 - 日志器 - INFO - 机器人启动词输出：AI喵酱机器人启动！注意以下所有的【喵酱】发言都源自AI大模型，不代表本人观点，请谨慎识别喵！
+2024-12-28 18:33:35,056 - 日志器 - INFO - 【Console】请求：#cc喵酱几岁了呀
+2024-12-28 18:33:35,056 - 日志器 - INFO - 【Authenticator_Distributor】启动鉴权进程
+2024-12-28 18:33:35,056 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员消息
+2024-12-28 18:33:35,056 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员【ConsoleCommand】指令：                Self：#cc喵酱几岁了呀
+2024-12-28 18:33:35,056 - 日志器 - INFO - 
+2024-12-28 18:33:46,075 - 日志器 - INFO - 接收到主人新消息Self：#喵酱几岁了呀
+2024-12-28 18:33:46,075 - 日志器 - INFO - 【Authenticator_Distributor】启动鉴权进程
+2024-12-28 18:33:46,075 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员消息
+2024-12-28 18:33:46,075 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员普通消息消息：                Self：#喵酱几岁了呀
+2024-12-28 18:33:50,722 - 日志器 - INFO - 本轮对话上传的tokens数量：63
+2024-12-28 18:33:50,722 - 日志器 - INFO - 本轮对话返回的tokens数量：40
+2024-12-28 18:33:50,722 - 日志器 - INFO - 本轮对话开销：103tokens，0.001236元
+2024-12-28 18:33:50,722 - 日志器 - INFO - 【大模型回复】【喵酱】喵～机器喵酱可是个永远年轻的猫娘哦，年龄可是秘密呢。不过，我可以一直陪伴你，就像永远的好朋友一样。🐾💕
+2024-12-28 18:33:54,222 - 日志器 - WARNING - 【SuperCommand】请求：退出
+2024-12-28 18:33:54,222 - 日志器 - INFO - 随机结束语函数启动
+2024-12-28 18:33:54,222 - 日志器 - INFO - 选择了退出提示：喵~时间过得真快，主人要离开了，喵酱会一直在这里，期待你的再次召唤~
+2024-12-28 18:33:55,808 - 日志器 - INFO - Conversation history has been saved to D:\python_learn\WeChatRobot\History\Histories\New-conversation_history_20241228_183355.txt
+2024-12-28 18:33:55,808 - 日志器 - INFO - 对话总消耗：103tokens

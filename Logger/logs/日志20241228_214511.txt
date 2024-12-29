@@ -1,0 +1,54 @@
+2024-12-28 21:45:19,430 - 日志器 - INFO - 已从D:/python_learn/WorkSoftWares/WeChatTools/WeChatRobot/History/Zero_conversation_history.txt写入历史记录
+2024-12-28 21:45:19,431 - 日志器 - INFO - 成功初始化对话，写入对话前提
+2024-12-28 21:45:20,880 - 日志器 - INFO - 微信接入成功
+2024-12-28 21:45:21,588 - 日志器 - INFO - 启用监听对象：钱俊哲
+2024-12-28 21:45:21,926 - 日志器 - INFO - 启用监听对象：文件传输助手
+2024-12-28 21:45:22,070 - 日志器 - INFO - 成功连接：apiKey=sk-m8SUBSaNEAwYWuEnqhL4loUTd6v96EPAUBVuNXT5eKnVzZYL；Model：moonshot-v1-8k
+2024-12-28 21:45:22,070 - 日志器 - INFO - 初始化计费器。当前消费：0
+2024-12-28 21:45:22,072 - 日志器 - INFO - 已生成本轮监听的强制终止密钥：1092611229020114319200758342022
+2024-12-28 21:45:37,872 - 日志器 - INFO - 机器人启动词输出：AI喵酱机器人启动！注意以下所有的【喵酱】发言都源自AI大模型，不代表本人观点，请谨慎识别喵！
+2024-12-28 21:45:37,872 - 日志器 - INFO - 【Console】请求：#cc喵酱，挂起
+2024-12-28 21:45:37,872 - 日志器 - INFO - 【Authenticator_Distributor】启动鉴权进程
+2024-12-28 21:45:37,872 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员消息
+2024-12-28 21:45:37,872 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员【ConsoleCommand】指令：                Self：#cc喵酱，挂起
+2024-12-28 21:45:37,872 - 日志器 - INFO - 
+2024-12-28 21:45:37,872 - 日志器 - INFO - 【Console】请求更换程序挂起状态
+2024-12-28 21:45:50,774 - 日志器 - INFO - 接收到关键词Self：#cc喵酱，好好说话
+2024-12-28 21:45:50,775 - 日志器 - INFO - 【Authenticator_Distributor】启动鉴权进程
+2024-12-28 21:45:50,775 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员消息
+2024-12-28 21:45:50,775 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员【ConsoleCommand】指令：                Self：#cc喵酱，好好说话
+2024-12-28 21:45:50,775 - 日志器 - INFO - 
+2024-12-28 21:45:50,775 - 日志器 - INFO - 【Console】请求：重申初始设定
+2024-12-28 21:45:53,187 - 日志器 - INFO - 本轮对话上传的tokens数量：99
+2024-12-28 21:45:53,187 - 日志器 - INFO - 本轮对话返回的tokens数量：31
+2024-12-28 21:45:53,187 - 日志器 - INFO - 本轮对话开销：130tokens，0.0015599999999999998元
+2024-12-28 21:46:09,520 - 日志器 - INFO - 接收到关键词Self：#cc 喵酱 清理内存
+2024-12-28 21:46:09,520 - 日志器 - INFO - 【Authenticator_Distributor】启动鉴权进程
+2024-12-28 21:46:09,520 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员消息
+2024-12-28 21:46:09,520 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员【ConsoleCommand】指令：                Self：#cc 喵酱 清理内存
+2024-12-28 21:46:09,520 - 日志器 - INFO - 
+2024-12-28 21:46:09,520 - 日志器 - INFO - 【Console】内存清理
+2024-12-28 21:46:09,520 - 日志器 - INFO - 已清除25%历史消息
+2024-12-28 21:46:09,520 - 日志器 - INFO - 已删除25%历史记录
+2024-12-28 21:46:09,520 - 日志器 - INFO - 重申初始化
+2024-12-28 21:46:09,520 - 日志器 - INFO - Conversation history has been saved to D:\python_learn\WeChatRobot\History\Histories\New-conversation_history_20241228_214609.txt
+2024-12-28 21:46:28,484 - 日志器 - INFO - 接收到关键词Self：#cc喵酱查询余额
+2024-12-28 21:46:28,485 - 日志器 - INFO - 【Authenticator_Distributor】启动鉴权进程
+2024-12-28 21:46:28,485 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员消息
+2024-12-28 21:46:28,485 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员【ConsoleCommand】指令：                Self：#cc喵酱查询余额
+2024-12-28 21:46:28,485 - 日志器 - INFO - 
+2024-12-28 21:46:28,485 - 日志器 - INFO - 【Console】请求余额查询
+2024-12-28 21:46:28,485 - 日志器 - INFO - API余额查询连接成功
+2024-12-28 21:46:28,562 - 日志器 - INFO - 获取到API响应
+2024-12-28 21:46:28,562 - 日志器 - INFO - 余额：21.54064
+2024-12-28 21:46:48,270 - 日志器 - INFO - 接收到关键词Self：#cc喵酱取消挂起
+2024-12-28 21:46:48,270 - 日志器 - INFO - 【Authenticator_Distributor】启动鉴权进程
+2024-12-28 21:46:48,270 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员消息
+2024-12-28 21:46:48,270 - 日志器 - INFO - 【Authenticator_Distributor】接收到管理员【ConsoleCommand】指令：                Self：#cc喵酱取消挂起
+2024-12-28 21:46:48,270 - 日志器 - INFO - 
+2024-12-28 21:46:48,270 - 日志器 - INFO - 【Console】请求更换程序挂起状态
+2024-12-28 21:46:56,814 - 日志器 - WARNING - 【SuperCommand】请求：退出
+2024-12-28 21:46:56,814 - 日志器 - INFO - 随机结束语函数启动
+2024-12-28 21:46:56,814 - 日志器 - INFO - 选择了退出提示：喵喵~主人要休息了吗？喵酱也要好好休息，下次再见要更加精神哦~
+2024-12-28 21:46:58,410 - 日志器 - INFO - Conversation history has been saved to D:\python_learn\WeChatRobot\History\Histories\New-conversation_history_20241228_214658.txt
+2024-12-28 21:46:58,410 - 日志器 - INFO - 对话总消耗：130tokens

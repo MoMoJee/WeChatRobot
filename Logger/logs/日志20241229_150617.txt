@@ -1,0 +1,6 @@
+2024-12-29 15:06:20,054 - 日志器 - INFO - 已从D:/python_learn/WorkSoftWares/WeChatTools/WeChatRobot/History/conversation_history_20241024_115527.txt写入历史记录
+2024-12-29 15:06:20,055 - 日志器 - INFO - 成功初始化对话，写入对话前提
+2024-12-29 15:06:20,223 - 日志器 - INFO - 成功连接：apiKey=sk-m8SUBSaNEAwYWuEnqhL4loUTd6v96EPAUBVuNXT5eKnVzZYL；Model：moonshot-v1-8k
+2024-12-29 15:06:20,224 - 日志器 - INFO - 初始化计费器。当前消费：0
+2024-12-29 15:06:20,224 - 日志器 - ERROR - 【ConsoleCommand】未检测到微信登陆状态或未检测到监听窗口
+2024-12-29 15:06:21,031 - 日志器 - INFO - 【WeChatConnector】微信接入成功

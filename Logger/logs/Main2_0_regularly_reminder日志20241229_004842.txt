@@ -1,0 +1,9 @@
+2024-12-29 00:48:46,797 - Main2_0_regularly_reminder日志器 - INFO - 已从D:/python_learn/WorkSoftWares/WeChatTools/WeChatRobot/History/Zero_conversation_history.txt写入历史记录
+2024-12-29 00:48:46,803 - Main2_0_regularly_reminder日志器 - INFO - 成功初始化对话，写入对话前提
+2024-12-29 00:48:47,668 - Main2_0_regularly_reminder日志器 - INFO - 微信接入成功
+2024-12-29 00:48:48,146 - Main2_0_regularly_reminder日志器 - INFO - 启用监听对象：罗睿哲
+2024-12-29 00:48:48,672 - Main2_0_regularly_reminder日志器 - INFO - 启用监听对象：文件传输助手
+2024-12-29 00:48:48,812 - Main2_0_regularly_reminder日志器 - INFO - 成功连接：apiKey=sk-m8SUBSaNEAwYWuEnqhL4loUTd6v96EPAUBVuNXT5eKnVzZYL；Model：moonshot-v1-8k
+2024-12-29 00:48:48,814 - Main2_0_regularly_reminder日志器 - INFO - 初始化计费器。当前消费：0
+2024-12-29 00:48:48,814 - Main2_0_regularly_reminder日志器 - INFO - 已生成本轮监听的强制终止密钥：1150714478353283416024396360359
+2024-12-29 00:48:57,548 - Main2_0_regularly_reminder日志器 - INFO - 喵酱提醒机器人启动！

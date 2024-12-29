@@ -1,0 +1,3 @@
+2024-12-29 00:40:45,909 - Main2_0_regularly_reminder日志器 - INFO - 已从D:/python_learn/WorkSoftWares/WeChatTools/WeChatRobot/History/Zero_conversation_history.txt写入历史记录
+2024-12-29 00:40:45,911 - Main2_0_regularly_reminder日志器 - INFO - 成功初始化对话，写入对话前提
+2024-12-29 00:40:46,861 - Main2_0_regularly_reminder日志器 - INFO - 微信接入成功

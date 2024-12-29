@@ -1,0 +1,3 @@
+2024-12-29 14:07:54,390 - Main2_0_regularly_reminder日志器 - INFO - 已从D:/python_learn/WorkSoftWares/WeChatTools/WeChatRobot/History/conversation_history_20241024_115527.txt写入历史记录
+2024-12-29 14:07:54,392 - Main2_0_regularly_reminder日志器 - INFO - 成功初始化对话，写入对话前提
+2024-12-29 14:07:54,395 - Main2_0_regularly_reminder日志器 - ERROR - 未检测到登录窗口

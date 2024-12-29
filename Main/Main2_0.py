@@ -22,13 +22,22 @@ from Role_and_Context import role1_0 as role_X
 import History
 from History import History1_0 as History_X
 import Responders
-from Responders import responders1_0 as responders_X
+from Responders import responders1_1 as responders_X
 import Start_Close
 from Start_Close import Start_Close1_0 as Start_Close_X
 import AIConnect
 from AIConnect import AIConnect1_0 as AIConnect_X
 import globals
 from  globals import global_state
+
+'''
+聊天机器人大更新！
+Main2.0更新：
+1.大规模重构了代码，功能分文件书写，便于功能模块升级
+2.严格日志形式，便于错误处理
+3.增设挂起、强制停机功能
+4.预留了众多接口
+'''
 
 
 logger = logger_X.start_logging("日志器", "日志")

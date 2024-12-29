@@ -4,32 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/WeChatRobot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AIConnect/AIConnect1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chatting/Chatting1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Functions/Reminder1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Functions/function_console_command1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HandleError/HandleError1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/History/History1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Logger/logger1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main/Main2_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main/Main2_0_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Responders/responders1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Role_and_Context/role1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Start_Close/Start_Close1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WeChatConnect/WeChatConnector1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/globals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requireｍents.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/代码引用层级.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/升级预期.md" afterDir="false" />
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="我也不知道这是啥，提交着玩玩儿">
+      <change afterPath="$PROJECT_DIR$/Responders/responders1_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/function_console_command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/function_console_command1_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/Main2_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/Main2_0_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Responders/responders1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Responders/responders1_0.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +62,7 @@
     "Python.scratch_15.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/python_learn/WeChatRobot/Main",
+    "last_opened_file_path": "D:/python_learn/WeChatRobot/Responders",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   },
   "keyToStringList": {
@@ -92,8 +74,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\python_learn\WeChatRobot\Main" />
       <recent name="D:\python_learn\WeChatRobot\Responders" />
+      <recent name="D:\python_learn\WeChatRobot\Main" />
       <recent name="D:\python_learn\WeChatRobot" />
     </key>
   </component>
@@ -113,6 +95,19 @@
       <option name="presentableId" value="Default" />
       <updated>1735306245618</updated>
     </task>
+    <task id="LOCAL-00001" summary="我也不知道这是啥，提交着玩玩儿">
+      <option name="closed" value="true" />
+      <created>1735459374399</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1735459374399</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="我也不知道这是啥，提交着玩玩儿" />
+    <option name="LAST_COMMIT_MESSAGE" value="我也不知道这是啥，提交着玩玩儿" />
   </component>
 </project>

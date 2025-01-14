@@ -1,14 +1,8 @@
-import ConsoleCommands
-from ConsoleCommands import Console_Command1_0 as Console_Command
-import Chatting
-from Chatting import Chatting as Chatting
-import globals
+import Console_Command as Console_Command
+import Chatting as Chatting
 from  globals import global_state
-import Functions
-from Functions import function_console_command as function_console_command
 import History
 from History import History as History
-import Role_and_Context
 from Role_and_Context import Role as Role
 
 '''
@@ -32,7 +26,7 @@ def  Authenticator_Distributor(logger, msg, client, role = 0):
         logger.info("【Authenticator_Distributor】接收到管理员消息")
         if "#cc" in f'{msg.content}':
             logger.info("【Authenticator_Distributor】接收到管理员【ConsoleCommand】指令：" + user_input)
-            return Console_Command.Console_Command(logger, f'{msg.content}', 'D:\\python_learn\\WeChatRobot\\History\\Histories', client, role=role)
+            return Console_Command.Console_Command(logger, f'{msg.content}', '/History/Histories', client, role=role)
         elif "#sys" in f'{msg.content}':
             logger.info("【Authenticator_Distributor】接收到管理员【system】指令：" + user_input)
             return respond_sys(logger, user_input, client, role=role)

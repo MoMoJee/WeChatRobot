@@ -1,9 +1,7 @@
 import History
 from History import History as History
-import globals
 from  globals import global_state
-import Chatting
-from Chatting import Chatting as Chatting
+import Chatting as Chatting
 import re
 
 # 为了方便，CC中的越界操作通过专用的全局变量完成

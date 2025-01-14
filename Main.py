@@ -1,39 +1,14 @@
 import time
 import datetime
-from wxauto import WeChat
-from openai import OpenAI
-from openai import RateLimitError  # 导入RateLimitError异常
-import os
-import random
-import json
-import logging
-import tkinter as tk
-from tkinter import filedialog
-import requests
-import ollama
-from ollama import Client
-
-import Logger
 from Logger import Logger as Logger
-import ConsoleCommands
-from ConsoleCommands import Console_Command1_0 as Console_Command
-import Role_and_Context
 from Role_and_Context import Role as Role
-import History
 from History import History as History
-import Responders
-from Responders import responders as responders
-import Start_Close
-from Start_Close import Start_Close as Start_Close
-import AIConnect
-from AIConnect import AIConnect as AIConnect
-import globals
-from  globals import global_state
-import WeChatConnect
-from WeChatConnect import WeChatConnector as WeChatConnector
-import Functions
+import responders as responders
+import Start_Close as Start_Close
+import AIConnect as AIConnect
+from globals import global_state
+import WeChatConnector as WeChatConnector
 from Functions import function_console_command as function_console_command
-from Functions import Reminder as Reminder
 
 '''
 2.0.1小优化：

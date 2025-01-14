@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="重构中，我修改了所有的as后面的，其中role和logger因为重复了变量名，所以改成Role和Logger&#10;下一步是把所有的文件名改掉，不再标记版本号" />
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="重构中，去除掉了原来的文件夹结构，所有的.py都放在外面，然后删掉那些老版本">
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,13 +54,16 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.Chatting1_0.executor": "Run",
+    "Python.Console_Command1_0.executor": "Run",
     "Python.History1_0.executor": "Run",
     "Python.History1_1.executor": "Run",
+    "Python.Main.executor": "Run",
     "Python.Main2.0.executor": "Run",
     "Python.Main2_0.executor": "Run",
     "Python.Main2_0_1.executor": "Run",
     "Python.Main2_0_2.executor": "Run",
     "Python.Main2_0_regularly_reminder.executor": "Run",
+    "Python.Reminder.executor": "Run",
     "Python.Reminder1_0.executor": "Run",
     "Python.Reminder1_1.executor": "Run",
     "Python.Start_Close1_0.executor": "Run",
@@ -69,7 +74,7 @@
     "Python.scratch_15.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/python_learn/WorkSoftWares",
+    "last_opened_file_path": "D:/python_learn/WeChatRobot/Functions",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   },
   "keyToStringList": {
@@ -86,6 +91,10 @@
       <recent name="D:\python_learn\WeChatRobot\History" />
       <recent name="D:\python_learn\WeChatRobot\Responders" />
       <recent name="D:\python_learn\WeChatRobot" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\python_learn\WeChatRobot" />
+      <recent name="D:\python_learn\WeChatRobot\Functions" />
     </key>
   </component>
   <component name="RunManager">
@@ -181,8 +190,35 @@
       <option name="project" value="LOCAL" />
       <updated>1736876364554</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="重构中，我把所有的文件名改掉，不再标记版本号&#10;下一步是去除掉原来的文件夹结构，所有的.py都放在外面，然后删掉那些老版本">
+      <option name="closed" value="true" />
+      <created>1736876728022</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1736876728023</updated>
+    </task>
+    <task id="LOCAL-00008" summary="重构中，去除掉了原来的文件夹结构，所有的.py都放在外面，然后删掉那些老版本">
+      <option name="closed" value="true" />
+      <created>1736877600555</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1736877600555</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="我也不知道这是啥，提交着玩玩儿" />
@@ -192,6 +228,8 @@
     <MESSAGE value="又增加了reminder函数的支持，但说实话没写好，我也没想好" />
     <MESSAGE value="fcc更新了一半，开创了大带宽、标准输入输出的集线器函数模式" />
     <MESSAGE value="重构中，我修改了所有的as后面的，其中role和logger因为重复了变量名，所以改成Role和Logger&#10;下一步是把所有的文件名改掉，不再标记版本号" />
-    <option name="LAST_COMMIT_MESSAGE" value="重构中，我修改了所有的as后面的，其中role和logger因为重复了变量名，所以改成Role和Logger&#10;下一步是把所有的文件名改掉，不再标记版本号" />
+    <MESSAGE value="重构中，我把所有的文件名改掉，不再标记版本号&#10;下一步是去除掉原来的文件夹结构，所有的.py都放在外面，然后删掉那些老版本" />
+    <MESSAGE value="重构中，去除掉了原来的文件夹结构，所有的.py都放在外面，然后删掉那些老版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="重构中，去除掉了原来的文件夹结构，所有的.py都放在外面，然后删掉那些老版本" />
   </component>
 </project>

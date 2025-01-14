@@ -1,13 +1,5 @@
-from openai import OpenAI
-from openai import RateLimitError  # 导入RateLimitError异常
-import ollama
-from ollama import Client
-import globals
 from  globals import global_state
-import AIConnect
-from AIConnect import AIConnect
-import HandleError
-from HandleError import HandleError as HandleError
+import HandleError as HandleError
 import requests
 from History import History as History
 

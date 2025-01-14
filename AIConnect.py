@@ -8,7 +8,7 @@ from  globals import global_state
 
 def AIConnector(logger):
 
-    api_key = "sk-m8SUBSaNEAwYWuEnqhL4loUTd6v96EPAUBVuNXT5eKnVzZYL"
+    api_key = read_api_key('api_keys.txt')
     base_url = "https://api.moonshot.cn/v1"
     global_state.model = "moonshot-v1-8k"
     client = OpenAI(
@@ -54,3 +54,36 @@ def choose_models(logger,message):
     wx.SendMsg("不支持的模型。请重新选择以下支持的模型：" + "\n".join(large_models), who="文件传输助手")
     return 0
 # 这个晚点再写
+
+
+
+def read_api_key(file_path):
+    """
+    从指定的txt文件中读取API密钥
+
+    参数:
+    file_path (str): txt文件的路径
+
+    返回:
+    str: API密钥
+    """
+    try:
+        # 打开文件，使用只读模式
+        with open(file_path, 'r') as file:
+            # 读取文件内容
+            api_key = file.read().strip()
+            return api_key
+    except FileNotFoundError:
+        print(f"文件 {file_path} 未找到")
+        return None
+    except Exception as e:
+        print(f"读取文件时发生错误：{e}")
+        return None
+
+# 示例用法
+
+if __name__ == "__main__":
+    file_path = 'api_keys.txt'  # 假设API密钥存储在当前目录下的api_key.txt文件中
+    api_key = read_api_key(file_path)
+    if api_key:
+        print(f"读取到的API密钥为：{api_key}")

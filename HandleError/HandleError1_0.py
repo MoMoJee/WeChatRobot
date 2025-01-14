@@ -1,5 +1,5 @@
 import History
-from History import History1_0 as History_X
+from History import History1_1 as History
 import globals
 from  globals import global_state
 
@@ -28,7 +28,7 @@ def handle_error(logger, e, retry_count=0):
     elif error_type == 'invalid_request_error':
         if "token length too long" in message:
             error_message = "请求中的 tokens 长度过长，喵酱记不住啦~请求不要超过模型 tokens 的最长限制喵~。"
-            global_state.conversation_History = History_X.clear_n_percent_of_history(logger,global_state.conversation_History,25)  # 调用清理函数，随机删除25%聊天数据
+            global_state.conversation_History = History.clear_n_percent_of_history(logger, global_state.conversation_History, 25)  # 调用清理函数，随机删除25%聊天数据
             logger.info("已删除25%历史记录")
             global_state.conversation_History.extend([  # extend,而不是append
                 {"role": "system", "content": "请自然对话，你现在的角色是可爱的猫娘，名字机器喵酱"},
@@ -40,10 +40,10 @@ def handle_error(logger, e, retry_count=0):
             # 重申原始表述避免误删除
             # 保存对话历史到文件。我为了方便，不加别的定时保存逻辑，只在90%占用时保存对话历史
             # 保存对话历史到文件
-            History_X.save_conversation_history_to_file(logger, global_state.conversation_History, folder_path_History)
+            History.save_conversation_history_to_file(logger, global_state.conversation_History, folder_path_History)
         elif "exceeded model token limit" in message:
             error_message = "呜呜 请求的 tokens 数和设置的 max_tokens 加和超过了模型规格长度喵~。让喵酱休息一下啦~"
-            global_state.conversation_History = History_X.clear_n_percent_of_history(logger,global_state.conversation_History,25)  # 调用清理函数，随机删除25%聊天数据
+            global_state.conversation_History = History.clear_n_percent_of_history(logger, global_state.conversation_History, 25)  # 调用清理函数，随机删除25%聊天数据
             logger.info("已删除25%历史记录")
             global_state.conversation_History.extend([  # extend,而不是append
                 {"role": "system", "content": "请自然对话，你现在的角色是可爱的猫娘，名字机器喵酱"},
@@ -55,7 +55,7 @@ def handle_error(logger, e, retry_count=0):
             # 重申原始表述避免误删除
             # 保存对话历史到文件。我为了方便，不加别的定时保存逻辑，只在90%占用时保存对话历史
             # 保存对话历史到文件
-            History_X.save_conversation_history_to_file(logger, global_state.conversation_History, folder_path_History)
+            History.save_conversation_history_to_file(logger, global_state.conversation_History, folder_path_History)
         elif "File size is zero" in message:
             error_message = "没有告诉喵酱任何信息啊~"
         elif "Invalid purpose" in message:

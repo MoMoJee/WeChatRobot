@@ -6,6 +6,8 @@ import datetime
 import globals
 from  globals import global_state
 import random
+import Role_and_Context
+from Role_and_Context import role1_0 as Role
 
 '''
 1.1更新：
@@ -59,7 +61,7 @@ def save_conversation_history_to_file(logger, conversation_history, role = "New"
     # 获取当前日期和时间
     current_time = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     # 构造文件名，包含日期和时间
-    file_name = f'New-conversation_history_{current_time}.txt'
+    file_name = Role.return_role_words(logger, "0003", role_code=role) + f'-conversation_history_{current_time}.txt'
     # 构造完整的文件路径
     full_file_path = os.path.join(folder_path_History, file_name)
     # 写入文件

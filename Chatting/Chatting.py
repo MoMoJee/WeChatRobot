@@ -5,10 +5,11 @@ from ollama import Client
 import globals
 from  globals import global_state
 import AIConnect
-from AIConnect import AIConnect1_0
+from AIConnect import AIConnect
 import HandleError
-from HandleError import HandleError1_0 as HandleError_X
+from HandleError import HandleError1_0 as HandleError
 import requests
+from History import History1_1 as History
 
 def chat_with_AI(logger, user_message, client, user_role, retry_count=0):
 
@@ -21,6 +22,8 @@ def chat_with_AI(logger, user_message, client, user_role, retry_count=0):
             model=global_state.model,  # 你可以根据需要选择不同的模型规格
             messages=global_state.conversation_History,
             temperature=0.3,
+            max_tokens=200# 限制回复长度
+
         )
 
         # 将Kimi的回复添加到对话历史中
@@ -37,9 +40,9 @@ def chat_with_AI(logger, user_message, client, user_role, retry_count=0):
         if prompt_tokens > 7373:  # 创建tokens过载逻辑，占用90%以上时触发
             logger.warning('剩余的上下文长度不足10%，当前占用tokens：' + str(prompt_tokens) + '，' + str(
                 int(prompt_tokens * 100 / 8192)) + "%")
-            global_state.conversation_History = History_X.clear_n_percent_of_history(logger,
-                                                                                     global_state.conversation_History,
-                                                                                     25)  # 调用清理函数，随机删除25%聊天数据
+            global_state.conversation_History = History.clear_n_percent_of_history(logger,
+                                                                                   global_state.conversation_History,
+                                                                                   25)  # 调用清理函数，随机删除25%聊天数据
             logger.info("已删除25%历史记录")
             global_state.conversation_History.extend([  # extend,而不是append
                 {"role": "system", "content": "请自然对话，你现在的角色是可爱的猫娘，名字机器喵酱"},
@@ -51,13 +54,13 @@ def chat_with_AI(logger, user_message, client, user_role, retry_count=0):
             # 重申原始表述避免误删除
             # 保存对话历史到文件。我为了方便，不加别的定时保存逻辑，只在90%占用时保存对话历史
             # 保存对话历史到文件
-            History_X.save_conversation_history_to_file(logger, global_state.conversation_History, folder_path_History)
+            History.save_conversation_history_to_file(logger, global_state.conversation_History, folder_path_History)
             return completion.choices[0].message.content + "\n还有就是，不好意思喵，喵酱的上下文存储快要满了，不得不忘记一些事情了\n~至于我还记得哪些事情，就看谁给喵酱留下的印象最深刻咯~"
         else:
             return completion.choices[0].message.content
     except Exception as e:
         logger.error(e)
-        return HandleError_X.handle_error(logger,e)  # 调用错误处理函数，返回错误类型
+        return HandleError.handle_error(logger, e)  # 调用错误处理函数，返回错误类型
 
 
 

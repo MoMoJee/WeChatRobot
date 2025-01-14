@@ -24,13 +24,18 @@ def setup_logging(file_path,logger_name):
 
     return logger
 
-def start_logging(logger_name="new_logger",log_name="new-log_"):
+def start_logging(logger_name="不需要写了，函数根据前一个直接创建", log_name="New_Log"):
+    logger_name = log_name + "器"
+    # 因为懒得改之前的代码，所以这么写
+
     # 日志配置
     # 指定要保存的文件夹路径
     folder_path = 'D:\\python_learn\\WeChatRobot\\Logger\\logs'  # 替换为你的文件夹路径
     # 确保文件夹存在
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
+
+
 
     # 获取当前时间并格式化为字符串
     current_time = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")

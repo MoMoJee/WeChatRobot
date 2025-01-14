@@ -26,7 +26,7 @@ from Responders import responders1_1 as responders_X
 import Start_Close
 from Start_Close import Start_Close1_0 as Start_Close_X
 import AIConnect
-from AIConnect import AIConnect1_0 as AIConnect_X
+from AIConnect import AIConnect as AIConnect_X
 import globals
 from  globals import global_state
 

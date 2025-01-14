@@ -5,15 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="又增加了reminder函数的支持，但说实话没写好，我也没想好">
+      <change afterPath="$PROJECT_DIR$/Functions/Reminder1_1（作废）.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Functions/ater1_0.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Functions/remind.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/Main2_0_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIConnect/AIConnect1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIConnect/AIConnect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatting/Chatting1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chatting/Chatting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions/Reminder1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/Reminder1_0.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions/function_console_command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/function_console_command1_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HandleError/HandleError1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/HandleError/HandleError1_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/History1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History1_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/History1_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History1_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logger/logger1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Logger/logger1_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/Main2_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/Main2_0_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Responders/responders1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Responders/responders1_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Responders/responders1_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Responders/responders1_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/role1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/role1_0.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="4" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../../111" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -28,11 +49,15 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Logger/logger1_0.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Main/Main2_0_1.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Main/Main2_0_1.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Responders/responders1_0.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Role_and_Context/role1_0.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Responders/responders1_1.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Role_and_Context/role1_0.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/globals.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -45,37 +70,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Chatting1_0.executor": "Run",
-    "Python.History1_0.executor": "Run",
-    "Python.History1_1.executor": "Run",
-    "Python.Main2.0.executor": "Run",
-    "Python.Main2_0.executor": "Run",
-    "Python.Main2_0_1.executor": "Run",
-    "Python.Main2_0_regularly_reminder.executor": "Run",
-    "Python.Reminder1_0.executor": "Run",
-    "Python.Start_Close1_0.executor": "Run",
-    "Python.logger1_0.executor": "Run",
-    "Python.scratch_10.executor": "Run",
-    "Python.scratch_15.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/python_learn/WeChatRobot/History",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Chatting1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.History1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.History1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2.0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_regularly_reminder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Start_Close1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.logger1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.responders1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.role1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_10.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_15.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/python_learn/WorkSoftWares&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
-      "Python",
-      "PythonRegExp"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件&quot;: [
+      &quot;Python&quot;,
+      &quot;PythonRegExp&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\python_learn\WeChatRobot\Main" />
+      <recent name="D:\python_learn\WeChatRobot\Functions" />
       <recent name="D:\python_learn\WeChatRobot\History" />
       <recent name="D:\python_learn\WeChatRobot\Responders" />
-      <recent name="D:\python_learn\WeChatRobot\Main" />
       <recent name="D:\python_learn\WeChatRobot" />
     </key>
   </component>

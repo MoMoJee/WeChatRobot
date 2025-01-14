@@ -14,26 +14,26 @@ import ollama
 from ollama import Client
 
 import Logger
-from Logger import logger1_0 as logger_X
+from Logger import logger1_0 as Logger
 import ConsoleCommands
-from ConsoleCommands import Console_Command1_0 as Console_Command_X
+from ConsoleCommands import Console_Command1_0 as Console_Command
 import Role_and_Context
-from Role_and_Context import role1_0 as role_X
+from Role_and_Context import role1_0 as Role
 import History
-from History import History1_1 as History_X
+from History import History1_1 as History
 import Responders
-from Responders import responders1_1 as responders_X
+from Responders import responders1_1 as responders
 import Start_Close
-from Start_Close import Start_Close1_0 as Start_Close_X
+from Start_Close import Start_Close1_0 as Start_Close
 import AIConnect
-from AIConnect import AIConnect as AIConnect_X
+from AIConnect import AIConnect as AIConnect
 import globals
 from  globals import global_state
 import WeChatConnect
-from WeChatConnect import WeChatConnector1_0 as WeChatConnector_X
+from WeChatConnect import WeChatConnector1_0 as WeChatConnector
 import Functions
-from Functions import function_console_command1_0 as function_console_command_X
-from Functions import Reminder1_0 as Reminder_X
+from Functions import function_console_command1_0 as function_console_command
+from Functions import Reminder1_0 as Reminder
 
 '''
 2.0.1小优化：
@@ -44,14 +44,13 @@ from Functions import Reminder1_0 as Reminder_X
 listen_list = ["五号楼花果山", "文件传输助手"]
 role_code = 0
 
-logger = logger_X.start_logging()
-global_state.conversation_History = History_X.Start_History(logger)
+logger = Logger.start_logging(log_name=Role.return_role_words(logger=0, role_key="0000", role_code=role_code))
+# logger还没创建，So。。。
+global_state.conversation_History = History.Start_History(logger)
 global_state.model = 'kimi'
 global_state.Comsumption = 1
 
-client = AIConnect_X.AIConnector(logger)
-
-
+client = AIConnect.AIConnector(logger)
 
 
 #开始监听
@@ -59,6 +58,8 @@ OutBreak=0#创建终止关键字
 First = 1
 global_state.Suspend = 1# 挂起状态
 connect_retry_times = 0
+
+role_keyword = Role.return_role_words(logger, role_key="0001", role_code=role_code)
 
 while 1:
     if OutBreak:
@@ -69,18 +70,18 @@ while 1:
     except:
         logger.error("【ConsoleCommand】未检测到微信登陆状态或未检测到监听窗口")
         print("【ConsoleCommand】未检测到微信登陆状态或未检测到监听窗口")
-        wx = WeChatConnector_X.WeChatConnector(logger,listen_list)
+        wx = WeChatConnector.WeChatConnector(logger, listen_list)
         if wx:
             print("【ConsoleCommand】重连成功")
             logger.info("【ConsoleCommand】重连成功")
             global_state.global_wx = wx
             logger.info("【ConsoleCommand】全局变量global_state.global_wx已更新")
-            shutdown_password = str(Start_Close_X.shutdown(logger))
+            shutdown_password = str(Start_Close.shutdown(logger))
             wx.SendMsg(msg=("已生成本轮监听的强制终止密钥：" + str(shutdown_password)), who="文件传输助手")
         else:
             print("【ConsoleCommand】重连失败")
             logger.error("【ConsoleCommand】重连失败")
-            History_X.save_conversation_history_to_file(logger,global_state.conversation_History)
+            History.save_conversation_history_to_file(logger, global_state.conversation_History, role=role_code)
             print("【ConsoleCommand】已紧急写入历史记录到文件，可以强制关机")
             logger.warning("【ConsoleCommand】已紧急写入历史记录到文件，可以强制关机")
             connect_retry_times+=1
@@ -97,8 +98,8 @@ while 1:
         if OutBreak:
             break
         if First:
-            chat.SendMsg('AI喵酱机器人启动！注意以下所有的【喵酱】发言都源自AI大模型，不代表本人观点，请谨慎识别喵！')
-            logger.info('机器人启动词输出：AI喵酱机器人启动！注意以下所有的【喵酱】发言都源自AI大模型，不代表本人观点，请谨慎识别喵！')
+            chat.SendMsg(Role.return_role_words(logger, "0002", role_code))
+            logger.info('机器人启动词已输出')
             First = 0
 
         one_msgs = msgs.get(chat)  # 获取消息内容
@@ -108,12 +109,12 @@ while 1:
             if shutdown_password in msg.content:
                 print("【SuperCommand】收到强制关机密钥，程序已非正常停止运行")
                 logger.warning("【SuperCommand】收到强制关机密钥，程序已非正常停止运行")
-                History_X.save_conversation_history_to_file(logger,global_state.conversation_History)
+                History.save_conversation_history_to_file(logger, global_state.conversation_History)
                 OutBreak = 1
             if OutBreak:
                 break
 
-            if function_console_command_X.function_console_command(logger, "reminder", 0, f_special_0=chat, role="New")['check']:
+            if function_console_command.function_console_command(logger, "reminder", 0, f_special_0=chat, role=role_code)['check']:
                 # 向fcc发起reminder请求，这里state状态为0，因为是从监控台调用的。f_special_0用于传递chat
                 print("【ConsoleCommand】已执行提醒操作")
             else:
@@ -128,11 +129,12 @@ while 1:
 
 
             if global_state.Suspend:
-                if "#cc" in f'{msg.content}' and '喵酱' in f'{msg.content}':
+                role_keyword = Role.return_role_words(logger, role_key="0001", role_code=role_code)
+                if "#cc" in f'{msg.content}' and role_keyword in f'{msg.content}':
                     # 挂起状态下，为了减轻计算负担，这里严格检验条件，只允许#cc指令运行，同时让AD鉴权，使得CC操作仍能进行
                     # 在非挂起状态下，来自self的#cc指令只能在文件传输助手中有效，在其他界面会提示：接收到本机不来自控制台的控制台消息
                     logger.info('接收到关键词' + f'{msg.sender}：{msg.content}')
-                    chat.SendMsg(responders_X.Authenticator_Distributor(logger,msg,client))
+                    chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client))
                 print("【ConsoleCommand】挂起中")
                 continue
 
@@ -146,44 +148,44 @@ while 1:
 
                 logger.info('接收到新消息' + f'【好友消息】{msg.sender}：{msg.content}')
              # ！！！ 回复收到，此处为`chat`而不是`wx` ！！！
-                if "喵酱" in f'{msg.content}':
+                if role_keyword in f'{msg.content}':
                     logger.info('接收到关键词' + f'{msg.sender}：{msg.content}')
-                    chat.SendMsg(responders_X.Authenticator_Distributor(logger,msg,client))
+                    chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code))
 
             elif msg.type == 'self':
                 sender = msg.sender  # 这里可以将msg.sender改为msg.sender_remark，获取备注名
                 print("所有消息：", f'{sender.rjust(20)}：{msg.content}')
                 if chat.who == "文件传输助手":# 仅接收从文件传输助手接收到的#指令
                     # ！！！ 回复收到，此处为`chat`而不是`wx` ！！！
-                    if "喵酱@@退出" in f'{msg.content}':
+                    if (role_keyword + "@@退出") in f'{msg.content}':
                         logger.warning('【SuperCommand】请求：退出')
                         OutBreak = 1
                         print("退出")
-                        chat.SendMsg(Start_Close_X.generate_cute_exit_message(logger))
+                        chat.SendMsg(Start_Close.generate_cute_exit_message(logger, role=role_code))
                         # 保存对话历史到文件
 
-                        History_X.save_conversation_history_to_file(logger, global_state.conversation_History)
+                        History.save_conversation_history_to_file(logger, global_state.conversation_History, role=role_code)
                         logger.info("对话总消耗：" + str(global_state.Comsumption) + "tokens")
                         break
                     elif "#" in f'{msg.content}':
                         if "#sys" in f'{msg.content}' and '喵酱' in f'{msg.content}':
                             print("system请求")
                             logger.info('【system】请求：' + f'{msg.content}')
-                            chat.SendMsg(responders_X.Authenticator_Distributor(logger, msg, client))
+                            chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code))
 
                         elif "#cc" in f'{msg.content}' and '喵酱' in f'{msg.content}':
                             print("Console请求")
                             logger.info('【Console】请求：' + f'{msg.content}')
-                            chat.SendMsg("【喵酱Console Command】" + responders_X.Authenticator_Distributor(logger,msg,client))#跳转到鉴权，再跳转到控制台指令处理
+                            chat.SendMsg("【Console Command】" + responders.Authenticator_Distributor(logger, msg, client))#跳转到鉴权，再跳转到控制台指令处理
 
                         else:
                             print("主人在控制台发起对话请求")#防止崩溃，我自己在文件传输助手里面聊天需要加一个#
-                            if "喵酱" in f'{msg.content}':
+                            if role_keyword in f'{msg.content}':
                                 logger.info('接收到主人新消息' + f'{sender}：{msg.content}')
-                                chat.SendMsg(responders_X.Authenticator_Distributor(logger,msg,client))
+                                chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client))
 
                 else:
-                    if ("#cc" in f'{msg.content}') or ("喵酱@@退出" in f'{msg.content}') or ("#sys" in f'{msg.content}'):
+                    if ("#cc" in f'{msg.content}') or ((role_keyword + "@@退出") in f'{msg.content}') or ("#sys" in f'{msg.content}'):
                         logger.warning("接收到本机不来自控制台的控制台消息：" + f'{sender.rjust(20)}：{msg.content}')
                         print("接收到本机不来自控制台的控制台消息：" + f'{sender.rjust(20)}：{msg.content}')
 
@@ -196,6 +198,5 @@ while 1:
                 print(f'【撤回消息】{msg.content}')
     print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) # 获取当前时间并打印
     time.sleep(1)
-
 
 

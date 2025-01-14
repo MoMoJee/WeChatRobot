@@ -7,6 +7,7 @@ import globals
 from  globals import global_state
 import random
 
+
 def clear_n_percent_of_history(logger, history,n=25):
     # 计算需要移除的消息数量（列表长度的25%）
     divideNum = 100//n

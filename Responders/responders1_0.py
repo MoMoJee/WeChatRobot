@@ -1,7 +1,7 @@
 import ConsoleCommands
 from ConsoleCommands import Console_Command1_0 as Console_Command_X
 import Chatting
-from Chatting import Chatting1_0 as Chatting_X
+from Chatting import Chatting as Chatting_X
 import globals
 from  globals import global_state
 

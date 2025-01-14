@@ -14,17 +14,17 @@ import ollama
 from ollama import Client
 
 import Logger
-from Logger import logger1_0 as logger_X
+from Logger import Logger as logger_X
 import ConsoleCommands
 from ConsoleCommands import Console_Command1_0 as Console_Command_X
 import Role_and_Context
-from Role_and_Context import role1_0 as role_X
+from Role_and_Context import Role as role_X
 import History
 from History import History1_0 as History_X
 import Responders
-from Responders import responders1_1 as responders_X
+from Responders import responders as responders_X
 import Start_Close
-from Start_Close import Start_Close1_0 as Start_Close_X
+from Start_Close import Start_Close as Start_Close_X
 import AIConnect
 from AIConnect import AIConnect as AIConnect_X
 import globals

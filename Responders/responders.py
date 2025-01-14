@@ -5,11 +5,11 @@ from Chatting import Chatting as Chatting
 import globals
 from  globals import global_state
 import Functions
-from Functions import function_console_command1_0 as function_console_command
+from Functions import function_console_command as function_console_command
 import History
-from History import History1_1 as History
+from History import History as History
 import Role_and_Context
-from Role_and_Context import role1_0 as Role
+from Role_and_Context import Role as Role
 
 '''
 1.1更新

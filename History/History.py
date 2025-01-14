@@ -7,7 +7,7 @@ import globals
 from  globals import global_state
 import random
 import Role_and_Context
-from Role_and_Context import role1_0 as Role
+from Role_and_Context import Role as Role
 
 '''
 1.1更新：

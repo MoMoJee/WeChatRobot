@@ -7,9 +7,9 @@ from  globals import global_state
 import AIConnect
 from AIConnect import AIConnect
 import HandleError
-from HandleError import HandleError1_0 as HandleError
+from HandleError import HandleError as HandleError
 import requests
-from History import History1_1 as History
+from History import History as History
 
 def chat_with_AI(logger, user_message, client, user_role, retry_count=0):
 

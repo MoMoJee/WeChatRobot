@@ -1,5 +1,5 @@
 import History
-from History import History1_1 as History
+from History import History as History
 import globals
 from  globals import global_state
 import Chatting

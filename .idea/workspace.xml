@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="又增加了reminder函数的支持，但说实话没写好，我也没想好">
-      <change afterPath="$PROJECT_DIR$/Functions/Reminder1_1（作废）.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Functions/ater1_0.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Functions/remind.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main/Main2_0_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AIConnect/AIConnect1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIConnect/AIConnect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatting/Chatting1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chatting/Chatting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/Reminder1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/Reminder1_0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/function_console_command1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/function_console_command1_0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HandleError/HandleError1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/HandleError/HandleError1_0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/History1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History1_0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/History1_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History1_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logger/logger1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Logger/logger1_0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/Main2_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/Main2_0_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Responders/responders1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Responders/responders1_0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Responders/responders1_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Responders/responders1_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/role1_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/role1_0.py" afterDir="false" />
-    </list>
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="重构中，我修改了所有的as后面的，其中role和logger因为重复了变量名，所以改成Role和Logger&#10;下一步是把所有的文件名改掉，不再标记版本号" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,36 +48,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.Chatting1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.History1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.History1_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2.0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0_regularly_reminder.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Reminder1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Reminder1_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Start_Close1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.logger1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.responders1_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.role1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch_10.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch_15.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/python_learn/WorkSoftWares&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.Chatting1_0.executor": "Run",
+    "Python.History1_0.executor": "Run",
+    "Python.History1_1.executor": "Run",
+    "Python.Main2.0.executor": "Run",
+    "Python.Main2_0.executor": "Run",
+    "Python.Main2_0_1.executor": "Run",
+    "Python.Main2_0_2.executor": "Run",
+    "Python.Main2_0_regularly_reminder.executor": "Run",
+    "Python.Reminder1_0.executor": "Run",
+    "Python.Reminder1_1.executor": "Run",
+    "Python.Start_Close1_0.executor": "Run",
+    "Python.logger1_0.executor": "Run",
+    "Python.responders1_1.executor": "Run",
+    "Python.role1_0.executor": "Run",
+    "Python.scratch_10.executor": "Run",
+    "Python.scratch_15.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/python_learn/WorkSoftWares",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件&quot;: [
-      &quot;Python&quot;,
-      &quot;PythonRegExp&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
+      "Python",
+      "PythonRegExp"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\python_learn\WeChatRobot\Main" />
@@ -110,7 +89,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Reminder1_0" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Reminder" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="WeChatRobot" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,7 +102,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Functions/Reminder1_0.py" />
+      <option name="SCRIPT_NAME" value="D:\python_learn\WeChatRobot\Functions\Reminder.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -186,7 +165,23 @@
       <option name="project" value="LOCAL" />
       <updated>1735474964419</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="重构中，我修改了所有的as后面的，其中role和logger因为重复了变量名，所以改成Role和Logger&#10;下一步是把所有的文件名改掉，不再标记版本号">
+      <option name="closed" value="true" />
+      <created>1736876347600</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1736876347600</updated>
+    </task>
+    <task id="LOCAL-00006" summary="重构中，我修改了所有的as后面的，其中role和logger因为重复了变量名，所以改成Role和Logger&#10;下一步是把所有的文件名改掉，不再标记版本号">
+      <option name="closed" value="true" />
+      <created>1736876364554</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1736876364554</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -195,6 +190,8 @@
     <MESSAGE value="写了一些更新日志&#10;更新了responders，即为fcc的加入做准备" />
     <MESSAGE value="新增了删除n条历史记录功能" />
     <MESSAGE value="又增加了reminder函数的支持，但说实话没写好，我也没想好" />
-    <option name="LAST_COMMIT_MESSAGE" value="又增加了reminder函数的支持，但说实话没写好，我也没想好" />
+    <MESSAGE value="fcc更新了一半，开创了大带宽、标准输入输出的集线器函数模式" />
+    <MESSAGE value="重构中，我修改了所有的as后面的，其中role和logger因为重复了变量名，所以改成Role和Logger&#10;下一步是把所有的文件名改掉，不再标记版本号" />
+    <option name="LAST_COMMIT_MESSAGE" value="重构中，我修改了所有的as后面的，其中role和logger因为重复了变量名，所以改成Role和Logger&#10;下一步是把所有的文件名改掉，不再标记版本号" />
   </component>
 </project>

@@ -1,7 +1,7 @@
 import datetime
 import Functions
 
-from Functions import Reminder1_0 as Reminder
+from Functions import Reminder as Reminder
 
 # fcc有两种调用方式，一种是在Main中通过监控直接调用，用于需要实时监控在线的function
 # 另一种是在接收到关键字后通过responder调用（包括鉴权）

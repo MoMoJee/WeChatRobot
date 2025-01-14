@@ -14,26 +14,26 @@ import ollama
 from ollama import Client
 
 import Logger
-from Logger import logger1_0 as logger_X
+from Logger import Logger as logger_X
 import ConsoleCommands
 from ConsoleCommands import Console_Command1_0 as Console_Command_X
 import Role_and_Context
-from Role_and_Context import role1_0 as role_X
+from Role_and_Context import Role as role_X
 import History
-from History import History1_1 as History_X
+from History import History as History_X
 import Responders
-from Responders import responders1_1 as responders_X
+from Responders import responders as responders_X
 import Start_Close
-from Start_Close import Start_Close1_0 as Start_Close_X
+from Start_Close import Start_Close as Start_Close_X
 import AIConnect
 from AIConnect import AIConnect as AIConnect_X
 import globals
 from  globals import global_state
 import WeChatConnect
-from WeChatConnect import WeChatConnector1_0 as WeChatConnector_X
+from WeChatConnect import WeChatConnector as WeChatConnector_X
 import Functions
-from Functions import function_console_command1_0 as function_console_command_X
-from Functions import Reminder1_0 as Reminder_X
+from Functions import function_console_command as function_console_command_X
+from Functions import Reminder as Reminder_X
 
 '''
 2.0.1小优化：

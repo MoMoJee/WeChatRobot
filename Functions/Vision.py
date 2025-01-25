@@ -4,6 +4,7 @@ from globals import global_state
 from openai import OpenAI
 import HandleError as HandleError
 from History import History as History
+import AIConnect
 
 def vision(logger, user_message, client, user_role, image_path):
     with open(image_path, "rb") as f:
@@ -83,7 +84,7 @@ def vision(logger, user_message, client, user_role, image_path):
 
 if __name__ == "__main__":
     client = OpenAI(
-        api_key="sk-nudIQU6wuIIKeztAZTssRZuGILtxgjEpluHZBCKKfChvHgWu",
+        api_key=AIConnect.read_api_key("D:\\python_learn\\WeChatRobot\\api_keys.txt", logger= None, cache_choice=1),
         base_url="https://api.moonshot.cn/v1",
     )
 

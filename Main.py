@@ -10,6 +10,7 @@ from globals import global_state
 import WeChatConnector as WeChatConnector
 from Functions import function_console_command as function_console_command
 
+
 '''
 2.0.1小优化：
 3.增加了消息获取检查，防止中途被迫下线而导致的中途停摆√
@@ -27,11 +28,13 @@ global_state.Comsumption = 1
 
 client = AIConnect.AIConnector(logger)
 
+image_list = []
+# 这里存储接收到的图片的路径，格式是一系列字典存储在列表中，{sender: path}
 
 #开始监听
 OutBreak=0#创建终止关键字
 First = 1
-global_state.Suspend = 1# 挂起状态
+global_state.Suspend = 0# 挂起状态
 connect_retry_times = 0
 
 role_keyword = Role.return_role_words(logger, role_key="0001", role_code=role_code)
@@ -42,9 +45,10 @@ while 1:
 
     try:# 连接错误的处理，后期考虑放到HE函数那边
         msgs = wx.GetListenMessage()
-    except:
-        logger.error("【ConsoleCommand】未检测到微信登陆状态或未检测到监听窗口")
-        print("【ConsoleCommand】未检测到微信登陆状态或未检测到监听窗口")
+    except Exception as e:
+        error_str = str(e)
+        logger.error("【ConsoleCommand】未检测到微信登陆状态或未检测到监听窗口" + error_str)
+        print("【ConsoleCommand】未检测到微信登陆状态或未检测到监听窗口" + error_str)
         wx = WeChatConnector.WeChatConnector(logger, listen_list)
         if wx:
             print("【ConsoleCommand】重连成功")
@@ -59,9 +63,9 @@ while 1:
             History.save_conversation_history_to_file(logger, global_state.conversation_History, role=role_code)
             print("【ConsoleCommand】已紧急写入历史记录到文件，可以强制关机")
             logger.warning("【ConsoleCommand】已紧急写入历史记录到文件，可以强制关机")
-            connect_retry_times+=1
+            connect_retry_times += 1
             time.sleep(60)
-            if connect_retry_times >=100:
+            if connect_retry_times >= 100:
                 OutBreak = 1
                 logger.warning("【ConsoleCommand】已经超过10分钟没有连接成功，即将自动关机")
                 print("【ConsoleCommand】已经超过10分钟没有连接成功，即将自动关机")
@@ -89,13 +93,15 @@ while 1:
             if OutBreak:
                 break
 
+
+            """
             if function_console_command.function_console_command(logger, "reminder", 0, f_special_0=chat, role=role_code)['check']:
                 # 向fcc发起reminder请求，这里state状态为0，因为是从监控台调用的。f_special_0用于传递chat
                 print("【ConsoleCommand】已执行提醒操作")
             else:
                 logger.info("【ConsoleCommand】提醒操作执行失败")
                 print('【ConsoleCommand】提醒操作执行失败')
-
+            """
 
 
             # 暂时还没想好这种实时监控的function和那种执行单词操作的function怎么分别处理
@@ -120,17 +126,25 @@ while 1:
                 logger.info('接收到新消息'+ f'【系统消息】{msg.content}')
 
             elif msg.type == 'friend':
-
                 logger.info('接收到新消息' + f'【好友消息】{msg.sender}：{msg.content}')
-             # ！！！ 回复收到，此处为`chat`而不是`wx` ！！！
+
+                if "D:\python_learn\WeChatRobot\wxauto文件" in msg.content:
+                    image_list.append({"sender": msg.sender, "path": msg.content})
+                    # 存储所有的图片路径
+
+                # ！！！ 回复收到，此处为`chat`而不是`wx` ！！！
                 if role_keyword in f'{msg.content}':
                     logger.info('接收到关键词' + f'{msg.sender}：{msg.content}')
-                    chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code))
+                    chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, special_0=image_list, role=role_code),at=msg.sender)
 
             elif msg.type == 'self':
                 sender = msg.sender  # 这里可以将msg.sender改为msg.sender_remark，获取备注名
                 print("所有消息：", f'{sender.rjust(20)}：{msg.content}')
                 if chat.who == "文件传输助手":# 仅接收从文件传输助手接收到的#指令
+                    if "D:\python_learn\WeChatRobot\wxauto文件" in msg.content:
+                        image_list.append({"sender": msg.sender, "path": msg.content})
+                        print(image_list)
+                        # 存储所有的图片路径
                     # ！！！ 回复收到，此处为`chat`而不是`wx` ！！！
                     if (role_keyword + "@@退出") in f'{msg.content}':
                         logger.warning('【SuperCommand】请求：退出')
@@ -154,10 +168,10 @@ while 1:
                             chat.SendMsg("【Console Command】" + responders.Authenticator_Distributor(logger, msg, client))#跳转到鉴权，再跳转到控制台指令处理
 
                         else:
-                            print("主人在控制台发起对话请求")#防止崩溃，我自己在文件传输助手里面聊天需要加一个#
+                            print("主人在控制台发起对话请求")# 防止崩溃，我自己在文件传输助手里面聊天需要加一个#
                             if role_keyword in f'{msg.content}':
                                 logger.info('接收到主人新消息' + f'{sender}：{msg.content}')
-                                chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client))
+                                chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, special_0=image_list, role=role_code))
 
                 else:
                     if ("#cc" in f'{msg.content}') or ((role_keyword + "@@退出") in f'{msg.content}') or ("#sys" in f'{msg.content}'):
@@ -171,7 +185,7 @@ while 1:
 
             elif msg.type == 'recall':
                 print(f'【撤回消息】{msg.content}')
-    print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) # 获取当前时间并打印
+    print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))# 获取当前时间并打印
     time.sleep(1)
 
 

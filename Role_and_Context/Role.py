@@ -34,7 +34,7 @@ def return_role_words(logger, role_key, role_code):#为了加强拓展性和简�
             role_file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.txt'
 
     if logger:
-        logger.info("已读取到role请求，role-key=" + role_key + "role-code=" + str(role_code))
+        logger.info("已读取到role请求，role-key=" + role_key + ", role-code=" + str(role_code))
     role_sentence_dict = read_dict_from_file(file_path=role_file_path)
 
     if role_sentence_dict:

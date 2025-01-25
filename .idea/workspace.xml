@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="删掉一行空格">
+      <change afterPath="$PROJECT_DIR$/Functions/Vision.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api_keys.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AIConnect.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIConnect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chatting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/function_console_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/function_console_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HandleError.py" beforeDir="false" afterPath="$PROJECT_DIR$/HandleError.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/History.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/Role.py" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/Role.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeChatConnector.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeChatConnector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/responders.py" beforeDir="false" afterPath="$PROJECT_DIR$/responders.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +37,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MoMoJee"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MoMoJee&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MoMoJee/WeChatRobot.git",
-    "accountId": "43582b4e-d09c-402d-8f7f-f69d748caabb"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MoMoJee/WeChatRobot.git&quot;,
+    &quot;accountId&quot;: &quot;43582b4e-d09c-402d-8f7f-f69d748caabb&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Logger/logger1_0.py" root0="SKIP_INSPECTION" />
@@ -66,6 +76,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.AIConnect.executor": "Run",
     "Python.Chatting1_0.executor": "Run",
     "Python.Console_Command1_0.executor": "Run",
     "Python.History1_0.executor": "Run",
@@ -80,15 +91,20 @@
     "Python.Reminder1_0.executor": "Run",
     "Python.Reminder1_1.executor": "Run",
     "Python.Start_Close1_0.executor": "Run",
+    "Python.Vision.executor": "Run",
+    "Python.function_console_command.executor": "Run",
     "Python.logger1_0.executor": "Run",
+    "Python.responders.executor": "Run",
     "Python.responders1_1.executor": "Run",
     "Python.role1_0.executor": "Run",
+    "Python.scratch.executor": "Run",
     "Python.scratch_10.executor": "Run",
     "Python.scratch_15.executor": "Run",
+    "Python.scratch_16.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/python_learn/WeChatRobot/Functions",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+    "last_opened_file_path": "D:/python_learn/程序（杂乱）",
+    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
@@ -106,8 +122,8 @@
       <recent name="D:\python_learn\WeChatRobot" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\python_learn\WeChatRobot" />
       <recent name="D:\python_learn\WeChatRobot\Functions" />
+      <recent name="D:\python_learn\WeChatRobot" />
     </key>
   </component>
   <component name="RunManager">
@@ -135,7 +151,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Reminder1_0" />
+        <item itemvalue="Python.Reminder" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736877710248</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="删掉一行空格">
+      <option name="closed" value="true" />
+      <created>1736878767874</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1736878767874</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

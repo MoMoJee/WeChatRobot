@@ -1,0 +1,5 @@
+#kimi-WeChatRobot_moonshot-v1-8k
+sk-nudIQU6wuIIKeztAZTssRZuGILtxgjEpluHZBCKKfChvHgWu
+
+#deepseek-WeChatRobot_deepseek-chat
+sk-0c78b0d8dcaa4cee96ebf7c70fb083b2

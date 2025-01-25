@@ -89,13 +89,16 @@ def Start_History(logger):
 
 
 def delete_n_messages(logger, conversation_history, num_messages):
+    num_messages *= 2
+    # 删除一组聊天记录
+
     # 计算开始删除的索引位置
     # 如果num_messages大于列表长度，则删除所有元素
     start_index = max(len(conversation_history) - num_messages, 0)
     # 删除从末尾开始的num_messages条消息
     conversation_history[start_index:] = []
-    logger.info("【delete_n_messages】已删除最新的" + str(num_messages) + "条历史记录")
-    print("【delete_n_messages】已删除最新的" + str(num_messages) + "条历史记录")
+    logger.info("【delete_n_messages】已删除最新的" + str(num_messages) + "对历史记录")
+    print("【delete_n_messages】已删除最新的" + str(num_messages) + "对历史记录")
 
     return conversation_history
 

@@ -1,24 +1,45 @@
+import os
+import base64
 from globals import global_state
+from openai import OpenAI
 import HandleError as HandleError
-import requests
 from History import History as History
 
-def chat_with_AI(logger, user_message, client, user_role, retry_count=0):
+def vision(logger, user_message, client, user_role, image_path):
+    with open(image_path, "rb") as f:
+        image_data = f.read()
+
+    # 我们使用标准库 base64.b64encode 函数将图片编码成 base64 格式的 image_url
+    image_url = f"data:image/{os.path.splitext(image_path)[1]};base64,{base64.b64encode(image_data).decode('utf-8')}"
+
+    new_vision_message = [
+                    {
+                        "type": "image_url",  # <-- 使用 image_url 类型来上传图片，内容为使用 base64 编码过的图片内容
+                        "image_url": {
+                            "url": image_url,
+                        },
+                    },
+                    {
+                        "type": "text",
+                        "text": user_message,  # <-- 使用 text 类型来提供文字指令，例如“描述图片内容”
+                    },
+                ]
+
 
     # 将用户的消息添加到对话历史中
-    global_state.conversation_History.append({"role": user_role, "content": user_message})
+    global_state.conversation_History.append({"role": user_role, "content": new_vision_message})
 
     # 调用Kimi API进行聊天
     try:
         completion = client.chat.completions.create(
-            model=global_state.model,  # 你可以根据需要选择不同的模型规格
+            model="moonshot-v1-8k-vision-preview",
             messages=global_state.conversation_History,
             temperature=0.3,
             max_tokens=200# 限制回复长度
 
         )
 
-        # 将AI的回复添加到对话历史中
+        # 将Kimi的回复添加到对话历史中
         global_state.conversation_History.append({"role": "assistant", "content": completion.choices[0].message.content})
         prompt_tokens = completion.usage.prompt_tokens
         completion_tokens = completion.usage.completion_tokens
@@ -56,25 +77,47 @@ def chat_with_AI(logger, user_message, client, user_role, retry_count=0):
 
 
 
-def get_api_balance(logger, api_key):
-    # 替换为你的API端点和API密钥
-    api_endpoint = "https://api.moonshot.cn/v1/users/me/balance"
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
-    }
-    logger.info("API余额查询连接成功")
 
-    try:
-        response = requests.get(api_endpoint, headers=headers)
-        # 检查响应码是否为200
-        if response.status_code == 200:
-            logger.info("获取到API响应")
-            balance_info = response.json()
-            return balance_info['data']['available_balance']
-        else:
-            logger.error("请求失败，状态码：" , + str(response.status_code))
-            return "请求失败，状态码：" + str(response.status_code)
-    except requests.RequestException as e:
-        logger.error(f"请求失败：{e}")
-        return f"请求失败：{e}"
+
+
+
+if __name__ == "__main__":
+    client = OpenAI(
+        api_key="sk-nudIQU6wuIIKeztAZTssRZuGILtxgjEpluHZBCKKfChvHgWu",
+        base_url="https://api.moonshot.cn/v1",
+    )
+
+    # 在这里，你需要将 kimi.png 文件替换为你想让 Kimi 识别的图片的地址
+    image_path = "D:\python_learn\WeChatRobot\wxauto文件\微信图片_20250115184048856090.jpg"
+
+    with open(image_path, "rb") as f:
+        image_data = f.read()
+
+    # 我们使用标准库 base64.b64encode 函数将图片编码成 base64 格式的 image_url
+    image_url = f":image/{os.path.splitext(image_path)[1]};base64,{base64.b64encode(image_data).decode('utf-8')}"
+
+    completion = client.chat.completions.create(
+        model="moonshot-v1-8k-vision-preview",
+        messages=[
+            {"role": "system", "content": "你是 Kimi。"},
+            {
+                "role": "user",
+                # 注意这里，content 由原来的 str 类型变更为一个 list，这个 list 中包含多个部分的内容，图片（image_url）是一个部分（part），
+                # 文字（text）是一个部分（part）
+                "content": [
+                    {
+                        "type": "image_url",  # <-- 使用 image_url 类型来上传图片，内容为使用 base64 编码过的图片内容
+                        "image_url": {
+                            "url": image_url,
+                        },
+                    },
+                    {
+                        "type": "text",
+                        "text": "请描述图片的内容。",  # <-- 使用 text 类型来提供文字指令，例如“描述图片内容”
+                    },
+                ],
+            },
+        ],
+    )
+
+    print(completion.choices[0].message.content)

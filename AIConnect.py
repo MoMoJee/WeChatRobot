@@ -3,14 +3,20 @@ from openai import RateLimitError  # 导入RateLimitError异常
 import ollama
 from ollama import Client
 import globals
-from  globals import global_state
+from globals import global_state
 
 
 def AIConnector(logger):
 
-    api_key = read_api_key('api_keys.txt')
+    api_key = read_api_key('api_keys.txt', logger)
+    if not api_key:
+        print("读取API文件时发生错误")
+        logger.error("【AIConnector】读取API文件时发生错误")
+        return 0
     base_url = "https://api.moonshot.cn/v1"
+    base_url = "https://api.deepseek.com"
     global_state.model = "moonshot-v1-8k"
+    global_state.model = "deepseek-chat"
     client = OpenAI(
         api_key=api_key,
         base_url=base_url
@@ -57,28 +63,91 @@ def choose_models(logger,message):
 
 
 
-def read_api_key(file_path):
+def read_api_key(file_path, logger, cache_choice = 0):
     """
-    从指定的txt文件中读取API密钥
+    从指定的txt文件中读取API密钥，并根据用户选择的模型返回对应的API密钥
 
     参数:
     file_path (str): txt文件的路径
 
     返回:
-    str: API密钥
+    str: 用户选择的模型对应的API密钥
     """
     try:
         # 打开文件，使用只读模式
         with open(file_path, 'r') as file:
-            # 读取文件内容
-            api_key = file.read().strip()
-            return api_key
+            # 读取文件内容并拆分为多行
+            lines = file.readlines()
+
+            # 用于存储模型和对应的API密钥
+            api_keys = {}
+
+            # 解析文件内容
+            current_model = None
+            for line in lines:
+                line = line.strip()
+                if line.startswith('#'):
+                    # 如果是以#开头的行，认为是模型名称
+                    current_model = line[1:]  # 去掉#号
+                    logger.info("【read_api_key】找到API：" + current_model)
+                elif line:
+                    # 如果不是空行，认为是API密钥
+                    if current_model:
+                        api_keys[current_model] = line
+                        current_model = None  # 重置当前模型
+
+            # 如果没有找到任何API密钥
+            if not api_keys:
+                logger.error("【read_api_key】文件中未找到有效的API密钥")
+                print("【read_api_key】文件中未找到有效的API密钥")
+                return None
+
+
+            # 如果默认模型不为零，这代表函数在被调用前已经指定了密钥
+            if cache_choice:
+                try:
+                    if 1 <= cache_choice <= len(api_keys):
+                        selected_model = list(api_keys.keys())[cache_choice - 1]
+                        logger.info(f"【read_api_key】指定了密钥：{list(api_keys.items())[cache_choice - 1]}：{api_keys[selected_model]}")
+                        return api_keys[selected_model]
+                    else:
+                        print("【read_api_key】指定的编号无效，请重新输入。")
+                        logger.error("【read_api_key】指定的编号无效")
+                except ValueError:
+                    print("【read_api_key】请指定有效的数字。")
+                    logger.error("【read_api_key】指定无效。")
+
+
+            # 显示可用的模型列表
+            print("【read_api_key】可用的模型列表：")
+            for i, model in enumerate(api_keys.keys(), 1):
+                print(f"{i}. {model}")
+
+
+            # 询问用户选择
+            while True:
+                try:
+                    choice = int(input("【read_api_key】请选择要使用的模型（输入对应的编号）："))
+                    if 1 <= choice <= len(api_keys):
+                        selected_model = list(api_keys.keys())[choice - 1]
+                        logger.info(f"【read_api_key】选择了密钥：{list(api_keys.items())[choice - 1]}：{api_keys[selected_model]}")
+                        return api_keys[selected_model]
+                    else:
+                        print("【read_api_key】输入的编号无效，请重新输入。")
+                        logger.error("【read_api_key】输入的编号无效")
+                except ValueError:
+                    print("【read_api_key】请输入有效的数字。")
+                    logger.error("【read_api_key】输入无效。")
+
     except FileNotFoundError:
-        print(f"文件 {file_path} 未找到")
+        print(f"【read_api_key】文件 {file_path} 未找到")
+        logger.error(f"【read_api_key】文件 {file_path} 未找到")
         return None
     except Exception as e:
-        print(f"读取文件时发生错误：{e}")
+        print(f"【read_api_key】读取文件时发生错误：{e}")
+        logger.error(f"【read_api_key】读取文件时发生错误：{e}")
         return None
+
 
 # 示例用法
 

@@ -13,10 +13,10 @@ def AIConnector(logger, cache_choice=0):
         print("读取API文件时发生错误")
         logger.error("【AIConnector】读取API文件时发生错误")
         return 0
-    base_url = "https://api.moonshot.cn/v1"
-    # base_url = "https://api.deepseek.com"
-    global_state.model = "moonshot-v1-8k"
-    # global_state.model = "deepseek-chat"
+    # base_url = "https://api.moonshot.cn/v1"
+    base_url = "https://api.deepseek.com"
+    # global_state.model = "moonshot-v1-8k"
+    global_state.model = "deepseek-chat"
     client = OpenAI(
         api_key=api_key,
         base_url=base_url

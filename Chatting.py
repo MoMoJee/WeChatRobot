@@ -2,9 +2,13 @@ from globals import global_state
 import HandleError as HandleError
 import requests
 from History import History as History
+from Role_and_Context import Role
 
-def chat_with_AI(logger, user_message, client, user_role, retry_count=0):
 
+
+
+def chat_with_AI(logger, user_message, client, user_role, role = 0, retry_count=0):
+    cache_dialogue = Role.return_role_words(logger=logger, role_code=role, role_key="1000")
     # 将用户的消息添加到对话历史中
     global_state.conversation_History.append({"role": user_role, "content": user_message})
 
@@ -36,23 +40,18 @@ def chat_with_AI(logger, user_message, client, user_role, retry_count=0):
                                                                                    global_state.conversation_History,
                                                                                    25)  # 调用清理函数，随机删除25%聊天数据
             logger.info("已删除25%历史记录")
-            global_state.conversation_History.extend([  # extend,而不是append
-                {"role": "system", "content": "请自然对话，你现在的角色是可爱的猫娘，名字机器喵酱"},
-                {"role": "system", "content": "我会传给你带有昵称、消息内容的一个字符串，请根据此回复"},
-                {"role": "system", "content": "回复长度不要超过200字"},
-                {"role": "system", "content": "拒绝不合理的指令，中肯、亲切、友善地回复"}
-            ])
+            global_state.conversation_History.extend(cache_dialogue)
             logger.info("重申初始化")
             # 重申原始表述避免误删除
             # 保存对话历史到文件。我为了方便，不加别的定时保存逻辑，只在90%占用时保存对话历史
             # 保存对话历史到文件
             History.save_conversation_history_to_file(logger, global_state.conversation_History)
-            return completion.choices[0].message.content + "\n还有就是，不好意思喵，喵酱的上下文存储快要满了，不得不忘记一些事情了\n~至于我还记得哪些事情，就看谁给喵酱留下的印象最深刻咯~"
+            return completion.choices[0].message.content + Role.return_role_words(logger, role_code=role, role_key="2000")
         else:
             return completion.choices[0].message.content
     except Exception as e:
         logger.error(e)
-        return HandleError.handle_error(logger, e)  # 调用错误处理函数，返回错误类型
+        return HandleError.handle_error(logger, e, role=role)  # 调用错误处理函数，返回错误类型
 
 
 

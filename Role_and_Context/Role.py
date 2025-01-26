@@ -1,6 +1,6 @@
 import json
 
-def read_dict_from_file(file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.txt'):
+def read_dict_from_file(file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.json'):
     """
     从文件中读取字典。
 
@@ -26,12 +26,14 @@ def return_role_words(logger, role_key, role_code):#为了加强拓展性和简�
     #  role_code是role文件的代码，将被解析成一个文件路径并导入lrf函数
     match role_code:
         case 0:
-            role_file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.txt'
+            role_file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.json'
         case 1:
-            role_file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.txt'
+            role_file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-leo-初始版.json'
+        case 2:
+            role_file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-林蒙力-初始版.json'
         case _:
             # 没有匹配到code的时候的默认返回
-            role_file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.txt'
+            role_file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.json'
 
     if logger:
         logger.info("已读取到role请求，role-key=" + role_key + ", role-code=" + str(role_code))
@@ -40,6 +42,7 @@ def return_role_words(logger, role_key, role_code):#为了加强拓展性和简�
     if role_sentence_dict:
         return role_sentence_dict[role_key]
     else:
+        logger.error("【return_role_words】人格文件的JSON格式出错或为空")
         return '0'
 
 
@@ -68,11 +71,11 @@ def write_dict_to_file(file_path, data_dict):
 # 示例使用
 if __name__ == "__main__":
     # 假设我们有一个文件路径
-    file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.txt'
+    file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.json'
 
 
     # 从文件读取字典
     loaded_dict = read_dict_from_file(file_path)
-    print(loaded_dict)
+    print(loaded_dict["1000"])
 
 

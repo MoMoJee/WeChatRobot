@@ -18,7 +18,7 @@ from Functions import function_console_command as function_console_command
 '''
 
 listen_list = ["五号楼花果山", "文件传输助手"]
-role_code = 0
+role_code = 2
 
 logger = Logger.start_logging(log_name=Role.return_role_words(logger=0, role_key="0000", role_code=role_code))
 # logger还没创建，So。。。
@@ -115,7 +115,7 @@ while 1:
                     # 挂起状态下，为了减轻计算负担，这里严格检验条件，只允许#cc指令运行，同时让AD鉴权，使得CC操作仍能进行
                     # 在非挂起状态下，来自self的#cc指令只能在文件传输助手中有效，在其他界面会提示：接收到本机不来自控制台的控制台消息
                     logger.info('接收到关键词' + f'{msg.sender}：{msg.content}')
-                    chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client))
+                    chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code))
                 print("【ConsoleCommand】挂起中")
                 continue
 
@@ -150,7 +150,7 @@ while 1:
                         logger.warning('【SuperCommand】请求：退出')
                         OutBreak = 1
                         print("退出")
-                        chat.SendMsg(Start_Close.generate_cute_exit_message(logger, role=role_code))
+                        chat.SendMsg(Start_Close.generate_exit_message(logger, role=role_code))
                         # 保存对话历史到文件
 
                         History.save_conversation_history_to_file(logger, global_state.conversation_History, role=role_code)
@@ -163,9 +163,9 @@ while 1:
                             chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code))
 
                         elif "#cc" in f'{msg.content}' and '喵酱' in f'{msg.content}':
-                            print("Console请求")
+                            print("【Console】请求")
                             logger.info('【Console】请求：' + f'{msg.content}')
-                            chat.SendMsg("【Console Command】" + responders.Authenticator_Distributor(logger, msg, client))#跳转到鉴权，再跳转到控制台指令处理
+                            chat.SendMsg("【Console Command】" + responders.Authenticator_Distributor(logger, msg, client, role=role_code))#跳转到鉴权，再跳转到控制台指令处理
 
                         else:
                             print("主人在控制台发起对话请求")# 防止崩溃，我自己在文件传输助手里面聊天需要加一个#

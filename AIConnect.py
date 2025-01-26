@@ -6,17 +6,17 @@ import globals
 from globals import global_state
 
 
-def AIConnector(logger):
+def AIConnector(logger, cache_choice=0):
 
-    api_key = read_api_key('api_keys.txt', logger)
+    api_key = read_api_key('api_keys.txt', logger, cache_choice=cache_choice)
     if not api_key:
         print("读取API文件时发生错误")
         logger.error("【AIConnector】读取API文件时发生错误")
         return 0
     base_url = "https://api.moonshot.cn/v1"
-    base_url = "https://api.deepseek.com"
+    # base_url = "https://api.deepseek.com"
     global_state.model = "moonshot-v1-8k"
-    global_state.model = "deepseek-chat"
+    # global_state.model = "deepseek-chat"
     client = OpenAI(
         api_key=api_key,
         base_url=base_url

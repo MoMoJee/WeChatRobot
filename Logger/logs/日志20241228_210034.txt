@@ -1,8 +1,0 @@
-2024-12-28 21:00:38,569 - 日志器 - INFO - 已从D:/python_learn/WorkSoftWares/WeChatTools/WeChatRobot/History/Zero_conversation_history.txt写入历史记录
-2024-12-28 21:00:38,571 - 日志器 - INFO - 成功初始化对话，写入对话前提
-2024-12-28 21:00:39,410 - 日志器 - INFO - 微信接入成功
-2024-12-28 21:00:40,093 - 日志器 - INFO - 启用监听对象：五号楼花果山
-2024-12-28 21:00:40,459 - 日志器 - INFO - 启用监听对象：文件传输助手
-2024-12-28 21:00:40,601 - 日志器 - INFO - 成功连接：apiKey=sk-m8SUBSaNEAwYWuEnqhL4loUTd6v96EPAUBVuNXT5eKnVzZYL；Model：moonshot-v1-8k
-2024-12-28 21:00:40,601 - 日志器 - INFO - 初始化计费器。当前消费：0
-2024-12-28 21:00:40,603 - 日志器 - INFO - 已生成本轮监听的强制终止密钥：1026104778710758996783152896990

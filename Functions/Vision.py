@@ -7,6 +7,8 @@ from History import History as History
 import AIConnect
 
 def vision(logger, user_message, client, user_role, image_path):
+
+    client = AIConnect.AIConnector(logger, cache_choice=1)
     with open(image_path, "rb") as f:
         image_data = f.read()
 

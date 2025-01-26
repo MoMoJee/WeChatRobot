@@ -1,3 +1,0 @@
-2024-12-28 20:35:37,553 - 日志器 - INFO - 已从D:/python_learn/WorkSoftWares/WeChatTools/WeChatRobot/History/Zero_conversation_history.txt写入历史记录
-2024-12-28 20:35:37,555 - 日志器 - INFO - 成功初始化对话，写入对话前提
-2024-12-28 20:35:39,728 - 日志器 - INFO - 微信接入成功

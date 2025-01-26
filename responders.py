@@ -1,6 +1,6 @@
 import Console_Command as Console_Command
 import Chatting as Chatting
-from  globals import global_state
+from globals import global_state
 import History
 from History import History as History
 from Role_and_Context import Role as Role

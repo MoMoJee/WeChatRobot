@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="优化了Main和 WeChatConnector 中对连接错误的处理&#10;在Main、responders、fcc中针对读图功能分别增设了图片记录列表和#f关键字检测和fcc相关的支持功能&#10;增加了Vision功能函数，独立支持识图&#10;修复了HandleError、Chatting中对于历史记录删减的错误&#10;修复了History只删除一条聊天记录的Bug，改为一组，即两条&#10;升级了API读取器，可选择API密钥。&#10;测试中：换了一个deepseek的模型，还没改完" />
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="修复了API密钥的泄露">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api_keys.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIConnect.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIConnect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/Vision.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/Vision.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,46 +66,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.AIConnect.executor": "Run",
-    "Python.Chatting1_0.executor": "Run",
-    "Python.Console_Command1_0.executor": "Run",
-    "Python.History1_0.executor": "Run",
-    "Python.History1_1.executor": "Run",
-    "Python.Main.executor": "Run",
-    "Python.Main2.0.executor": "Run",
-    "Python.Main2_0.executor": "Run",
-    "Python.Main2_0_1.executor": "Run",
-    "Python.Main2_0_2.executor": "Run",
-    "Python.Main2_0_regularly_reminder.executor": "Run",
-    "Python.Reminder.executor": "Run",
-    "Python.Reminder1_0.executor": "Run",
-    "Python.Reminder1_1.executor": "Run",
-    "Python.Start_Close1_0.executor": "Run",
-    "Python.Vision.executor": "Run",
-    "Python.function_console_command.executor": "Run",
-    "Python.logger1_0.executor": "Run",
-    "Python.responders.executor": "Run",
-    "Python.responders1_1.executor": "Run",
-    "Python.role1_0.executor": "Run",
-    "Python.scratch.executor": "Run",
-    "Python.scratch_10.executor": "Run",
-    "Python.scratch_15.executor": "Run",
-    "Python.scratch_16.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/python_learn/WeChatRobot",
-    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.AIConnect.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Chatting1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Console_Command1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.History1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.History1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2.0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_regularly_reminder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Start_Close1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Vision.executor&quot;: &quot;Run&quot;,
+    &quot;Python.function_console_command.executor&quot;: &quot;Run&quot;,
+    &quot;Python.logger1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.responders.executor&quot;: &quot;Run&quot;,
+    &quot;Python.responders1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.role1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_10.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_15.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_16.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/python_learn/WeChatRobot&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
-      "Python",
-      "PythonRegExp"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件&quot;: [
+      &quot;Python&quot;,
+      &quot;PythonRegExp&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\python_learn\WeChatRobot" />
@@ -246,7 +252,31 @@
       <option name="project" value="LOCAL" />
       <updated>1737807475379</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="优化了Main和 WeChatConnector 中对连接错误的处理&#10;在Main、responders、fcc中针对读图功能分别增设了图片记录列表和#f关键字检测和fcc相关的支持功能&#10;增加了Vision功能函数，独立支持识图&#10;修复了HandleError、Chatting中对于历史记录删减的错误&#10;修复了History只删除一条聊天记录的Bug，改为一组，即两条&#10;升级了API读取器，可选择API密钥。&#10;测试中：换了一个deepseek的模型，还没改完">
+      <option name="closed" value="true" />
+      <created>1737808138007</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1737808138007</updated>
+    </task>
+    <task id="LOCAL-00013" summary="优化了Main和 WeChatConnector 中对连接错误的处理&#10;在Main、responders、fcc中针对读图功能分别增设了图片记录列表和#f关键字检测和fcc相关的支持功能&#10;增加了Vision功能函数，独立支持识图&#10;修复了HandleError、Chatting中对于历史记录删减的错误&#10;修复了History只删除一条聊天记录的Bug，改为一组，即两条&#10;升级了API读取器，可选择API密钥。&#10;测试中：换了一个deepseek的模型，还没改完">
+      <option name="closed" value="true" />
+      <created>1737808167551</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1737808167551</updated>
+    </task>
+    <task id="LOCAL-00014" summary="修复了API密钥的泄露">
+      <option name="closed" value="true" />
+      <created>1737809389128</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1737809389128</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,6 +302,7 @@
     <MESSAGE value="重构中，去除掉了原来的文件夹结构，所有的.py都放在外面，然后删掉那些老版本" />
     <MESSAGE value="删掉一行空格" />
     <MESSAGE value="优化了Main和 WeChatConnector 中对连接错误的处理&#10;在Main、responders、fcc中针对读图功能分别增设了图片记录列表和#f关键字检测和fcc相关的支持功能&#10;增加了Vision功能函数，独立支持识图&#10;修复了HandleError、Chatting中对于历史记录删减的错误&#10;修复了History只删除一条聊天记录的Bug，改为一组，即两条&#10;升级了API读取器，可选择API密钥。&#10;测试中：换了一个deepseek的模型，还没改完" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化了Main和 WeChatConnector 中对连接错误的处理&#10;在Main、responders、fcc中针对读图功能分别增设了图片记录列表和#f关键字检测和fcc相关的支持功能&#10;增加了Vision功能函数，独立支持识图&#10;修复了HandleError、Chatting中对于历史记录删减的错误&#10;修复了History只删除一条聊天记录的Bug，改为一组，即两条&#10;升级了API读取器，可选择API密钥。&#10;测试中：换了一个deepseek的模型，还没改完" />
+    <MESSAGE value="修复了API密钥的泄露" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了API密钥的泄露" />
   </component>
 </project>

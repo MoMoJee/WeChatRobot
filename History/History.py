@@ -4,7 +4,7 @@ from tkinter import filedialog
 import json
 import datetime
 import globals
-from  globals import global_state
+from globals import global_state
 import random
 import Role_and_Context
 from Role_and_Context import Role as Role

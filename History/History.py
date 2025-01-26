@@ -97,8 +97,8 @@ def delete_n_messages(logger, conversation_history, num_messages):
     start_index = max(len(conversation_history) - num_messages, 0)
     # 删除从末尾开始的num_messages条消息
     conversation_history[start_index:] = []
-    logger.info("【delete_n_messages】已删除最新的" + str(num_messages) + "对历史记录")
-    print("【delete_n_messages】已删除最新的" + str(num_messages) + "对历史记录")
+    logger.info("【delete_n_messages】已删除最新的最多" + str(num_messages) + "对历史记录")
+    print("【delete_n_messages】已删除最新的最多" + str(num_messages) + "对历史记录")
 
     return conversation_history
 

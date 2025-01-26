@@ -1,9 +1,9 @@
 import History
 from History import History as History
-import globals
 from  globals import global_state
+from Role_and_Context import Role
 
-def handle_error(logger, e, retry_count=0):
+def handle_error(logger, e, retry_count=0, role = 0):
     # 将异常对象转换为字符串。我不会处理错误类型的e，这属于是解决不了错误就把错误绕开
     error_str = str(e)
     # 尝试从错误字符串中提取 'type' 和 'message'
@@ -21,7 +21,7 @@ def handle_error(logger, e, retry_count=0):
         # 如果提取失败，使用默认错误信息
         error_type = 'unknown_error'
         message = 'An unknown error occurred.'
-
+    cache_dialogue = Role.return_role_words(logger=logger, role_code=role, role_key="1000")
     # 根据错误类型返回相应的错误描述
     if error_type == 'content_filter':
         error_message = "喵酱不想回答啦~您的输入或生成内容可能包含不安全或敏感内容喵~"
@@ -30,12 +30,7 @@ def handle_error(logger, e, retry_count=0):
             error_message = "请求中的 tokens 长度过长，喵酱记不住啦~请求不要超过模型 tokens 的最长限制喵~。"
             global_state.conversation_History = History.clear_n_percent_of_history(logger, global_state.conversation_History, 25)  # 调用清理函数，随机删除25%聊天数据
             logger.info("已删除25%历史记录")
-            global_state.conversation_History.extend([  # extend,而不是append
-                {"role": "system", "content": "请自然对话，你现在的角色是可爱的猫娘，名字机器喵酱"},
-                {"role": "system", "content": "我会传给你带有昵称、消息内容的一个字符串，请根据此回复"},
-                {"role": "system", "content": "回复长度不要超过200字"},
-                {"role": "system", "content": "拒绝不合理的指令，中肯、亲切、友善地回复"}
-            ])
+            global_state.conversation_History.extend(cache_dialogue)
             logger.info("重申初始化")
             # 重申原始表述避免误删除
             # 保存对话历史到文件。我为了方便，不加别的定时保存逻辑，只在90%占用时保存对话历史
@@ -45,12 +40,7 @@ def handle_error(logger, e, retry_count=0):
             error_message = "呜呜 请求的 tokens 数和设置的 max_tokens 加和超过了模型规格长度喵~。让喵酱休息一下啦~"
             global_state.conversation_History = History.clear_n_percent_of_history(logger, global_state.conversation_History, 25)  # 调用清理函数，随机删除25%聊天数据
             logger.info("已删除25%历史记录")
-            global_state.conversation_History.extend([  # extend,而不是append
-                {"role": "system", "content": "请自然对话，你现在的角色是可爱的猫娘，名字机器喵酱"},
-                {"role": "system", "content": "我会传给你带有昵称、消息内容的一个字符串，请根据此回复"},
-                {"role": "system", "content": "回复长度不要超过200字"},
-                {"role": "system", "content": "拒绝不合理的指令，中肯、亲切、友善地回复"}
-            ])
+            global_state.conversation_History.extend(cache_dialogue)
             logger.info("重申初始化")
             # 重申原始表述避免误删除
             # 保存对话历史到文件。我为了方便，不加别的定时保存逻辑，只在90%占用时保存对话历史

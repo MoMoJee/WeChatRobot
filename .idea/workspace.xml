@@ -4,12 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="修复了API密钥的泄露">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="写README&#10;提供了几个初始History，删掉了多余的&#10;清理了日志和图片等">
+      <change afterPath="$PROJECT_DIR$/History/Example_History/Zero-Kimi-学长leo-conversation_history.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/History/Example_History/Zero.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-leo-初始版.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/api_keys.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AIConnect.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIConnect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/Vision.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/Vision.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chatting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Console_Command.py" beforeDir="false" afterPath="$PROJECT_DIR$/Console_Command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HandleError.py" beforeDir="false" afterPath="$PROJECT_DIR$/HandleError.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Histories/(Cute&amp;Kind)conversation_history_20241025_000225.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/(Cute&amp;Kind)conversation_history_20241025_000225.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Histories/Kimi-Miaojiang-Marenconversation_history_20241024_234200.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Kimi-Miaojiang-Maren-conversation_history_20241024_234200.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Histories/Kimi-Miaojiang-clever20241025_134131.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Kimi-Miaojiang-clever20241025_134131.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Histories/Zero-Kimi-MinJiang-conversation_history_20241025_202052.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero-Kimi-MinJiang-conversation_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Histories/Zero_conversation_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero_Kimi-MiaoJiang-conversation_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/History.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/Role.py" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/Role.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Start_Close.py" beforeDir="false" afterPath="$PROJECT_DIR$/Start_Close.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/responders.py" beforeDir="false" afterPath="$PROJECT_DIR$/responders.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,14 +58,17 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/ConsoleCommands/Console_Command1_0.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Logger/logger1_0.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Main/Main2_0_1.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Main/Main2_0_regularly_reminder.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Responders/responders1_0.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Responders/responders1_1.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Role_and_Context/role1_0.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Chatting.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Console_Command.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/History/Histories/(Cute&amp;Kind)conversation_history_20241025_000225.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/History/Histories/Kimi-Miaojiang-clever20241025_134131.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/History/Histories/Zero_conversation_history.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Main.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/README.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Role_and_Context/Role.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/globals.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/responders.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -66,46 +84,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.AIConnect.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Chatting1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Console_Command1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.History1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.History1_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2.0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0_regularly_reminder.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Reminder.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Reminder1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Reminder1_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Start_Close1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Vision.executor&quot;: &quot;Run&quot;,
-    &quot;Python.function_console_command.executor&quot;: &quot;Run&quot;,
-    &quot;Python.logger1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.responders.executor&quot;: &quot;Run&quot;,
-    &quot;Python.responders1_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.role1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch_10.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch_15.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch_16.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/python_learn/WeChatRobot&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.AIConnect.executor": "Run",
+    "Python.Chatting1_0.executor": "Run",
+    "Python.Console_Command1_0.executor": "Run",
+    "Python.History1_0.executor": "Run",
+    "Python.History1_1.executor": "Run",
+    "Python.Main.executor": "Run",
+    "Python.Main2.0.executor": "Run",
+    "Python.Main2_0.executor": "Run",
+    "Python.Main2_0_1.executor": "Run",
+    "Python.Main2_0_2.executor": "Run",
+    "Python.Main2_0_regularly_reminder.executor": "Run",
+    "Python.Reminder.executor": "Run",
+    "Python.Reminder1_0.executor": "Run",
+    "Python.Reminder1_1.executor": "Run",
+    "Python.Role.executor": "Run",
+    "Python.Start_Close1_0.executor": "Run",
+    "Python.Vision.executor": "Run",
+    "Python.function_console_command.executor": "Run",
+    "Python.logger1_0.executor": "Run",
+    "Python.responders.executor": "Run",
+    "Python.responders1_1.executor": "Run",
+    "Python.role1_0.executor": "Run",
+    "Python.scratch.executor": "Run",
+    "Python.scratch_10.executor": "Run",
+    "Python.scratch_15.executor": "Run",
+    "Python.scratch_16.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/python_learn/WeChatRobot",
+    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件&quot;: [
-      &quot;Python&quot;,
-      &quot;PythonRegExp&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
+      "Python",
+      "PythonRegExp"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\python_learn\WeChatRobot" />
@@ -115,6 +134,7 @@
       <recent name="D:\python_learn\WeChatRobot\Responders" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\python_learn\WeChatRobot\History\Example_History" />
       <recent name="D:\python_learn\WeChatRobot\Functions" />
       <recent name="D:\python_learn\WeChatRobot" />
     </key>
@@ -276,7 +296,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737809389128</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="写README&#10;提供了几个初始History，删掉了多余的&#10;清理了日志和图片等">
+      <option name="closed" value="true" />
+      <created>1737897142380</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1737897142380</updated>
+    </task>
+    <task id="LOCAL-00016" summary="写README&#10;提供了几个初始History，删掉了多余的&#10;清理了日志和图片等">
+      <option name="closed" value="true" />
+      <created>1737905306060</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1737905306060</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -284,7 +320,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -303,6 +351,7 @@
     <MESSAGE value="删掉一行空格" />
     <MESSAGE value="优化了Main和 WeChatConnector 中对连接错误的处理&#10;在Main、responders、fcc中针对读图功能分别增设了图片记录列表和#f关键字检测和fcc相关的支持功能&#10;增加了Vision功能函数，独立支持识图&#10;修复了HandleError、Chatting中对于历史记录删减的错误&#10;修复了History只删除一条聊天记录的Bug，改为一组，即两条&#10;升级了API读取器，可选择API密钥。&#10;测试中：换了一个deepseek的模型，还没改完" />
     <MESSAGE value="修复了API密钥的泄露" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了API密钥的泄露" />
+    <MESSAGE value="写README&#10;提供了几个初始History，删掉了多余的&#10;清理了日志和图片等" />
+    <option name="LAST_COMMIT_MESSAGE" value="写README&#10;提供了几个初始History，删掉了多余的&#10;清理了日志和图片等" />
   </component>
 </project>

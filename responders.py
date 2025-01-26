@@ -67,7 +67,7 @@ def  Authenticator_Distributor(logger, msg, client, role = 0, special_0 = None):
 
 
 def respond_user(logger, user_input, client, role_code = 0):
-    AI_reply = Chatting.chat_with_AI(logger, user_input, client, 'user')
+    AI_reply = Chatting.chat_with_AI(logger, user_input, client, 'user', role=role_code)
 
     print(Role.return_role_words(logger, "0003", role_code) + f"说: {AI_reply}")
     role_key_word = Role.return_role_words(logger, "0001", role_code)
@@ -96,7 +96,7 @@ def respond_VIPuser(logger, user_input, client, sender, role_code = 0, fcc_need 
             print('【respond_VIPuser】function操作执行失败')
             AI_reply = "f操作执行失败或未知的f指令"
     else:
-        AI_reply = Chatting.chat_with_AI(logger, user_input, client, 'user')
+        AI_reply = Chatting.chat_with_AI(logger, user_input, client, 'user', role=role_code)
         print(Role.return_role_words(logger, "0003", role_code) + f"说: {AI_reply}")
         role_key_word = Role.return_role_words(logger, "0001", role_code)
     if f'{AI_reply}' != "":
@@ -111,7 +111,7 @@ def respond_VIPuser(logger, user_input, client, sender, role_code = 0, fcc_need 
 
 
 def respond_sys(logger, user_input, client, role = 0):
-    AI_reply = Chatting.chat_with_AI(logger, user_input, client, 'system')
+    AI_reply = Chatting.chat_with_AI(logger, user_input, client, 'system', role=role)
 
     print(Role.return_role_words(logger, "0003", role) + f"说: {AI_reply}")
     role_key_word = Role.return_role_words(logger, "0001", role)

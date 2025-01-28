@@ -23,6 +23,7 @@ listen_list = ["五号楼花果山", "文件传输助手"]
 
 
 start_setting = Setting.start_setting()
+
 role_code = start_setting["role_code"]
 logger = Logger.start_logging(log_name=Role.return_role_words(logger=0, role_key="0000", role_code=role_code))
 # logger还没创建，So。。。

@@ -43,7 +43,7 @@ def start_logging(logger_name="不需要写了，函数根据前一个直接创�
     file_name = log_name + f'{current_time}.txt'
     # 构造完整的文件路径
     full_file_path = os.path.join(folder_path, file_name)
-    global_state.global_log_file_path = full_file_path
+    global_state.G_global_log_file_path = full_file_path
 
     # 创建日志记录器
     logger = setup_logging(full_file_path,logger_name)

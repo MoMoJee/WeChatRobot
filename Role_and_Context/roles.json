@@ -1,0 +1,5 @@
+[
+  {"role_name": "kimi-喵酱-初始版", "role_code": 0, "role_path": "Role_and_Context/roles/kimi-喵酱-初始版.json"},
+  {"role_name": "kimi-leo-初始版", "role_code": 1, "role_path": "Role_and_Context/roles/kimi-leo-初始版.json"},
+  {"role_name": "kimi-林蒙力-初始版", "role_code": 2, "role_path": "Role_and_Context/roles/kimi-林蒙力-初始版.json"}
+]

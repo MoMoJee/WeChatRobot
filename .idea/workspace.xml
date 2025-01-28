@@ -5,15 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="完善了所有函数（应该全了吧）对于Role函数的支持，现已完全支持直接书写人格文件&#10;写了一个新的leo学长人格&#10;人格文件升级为用json格式存储（其实本来就是，只是打了.txt）&#10;新建了Zero历史记录，用于新建新的人格">
-      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-林蒙力-初始版.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api_keys.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AISetting.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Setting.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/升级预期2.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AIConnect.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIConnect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chatting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Console_Command.py" beforeDir="false" afterPath="$PROJECT_DIR$/Console_Command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/Vision.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/Vision.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/function_console_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/function_console_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HandleError.py" beforeDir="false" afterPath="$PROJECT_DIR$/HandleError.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logger/Logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Logger/Logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/Role.py" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/Role.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-leo-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-leo-初始版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-林蒙力-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-林蒙力-初始版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/globals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/responders.py" beforeDir="false" afterPath="$PROJECT_DIR$/responders.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,47 +81,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.AIConnect.executor": "Run",
-    "Python.Chatting1_0.executor": "Run",
-    "Python.Console_Command1_0.executor": "Run",
-    "Python.History1_0.executor": "Run",
-    "Python.History1_1.executor": "Run",
-    "Python.Main.executor": "Run",
-    "Python.Main2.0.executor": "Run",
-    "Python.Main2_0.executor": "Run",
-    "Python.Main2_0_1.executor": "Run",
-    "Python.Main2_0_2.executor": "Run",
-    "Python.Main2_0_regularly_reminder.executor": "Run",
-    "Python.Reminder.executor": "Run",
-    "Python.Reminder1_0.executor": "Run",
-    "Python.Reminder1_1.executor": "Run",
-    "Python.Role.executor": "Run",
-    "Python.Start_Close1_0.executor": "Run",
-    "Python.Vision.executor": "Run",
-    "Python.function_console_command.executor": "Run",
-    "Python.logger1_0.executor": "Run",
-    "Python.responders.executor": "Run",
-    "Python.responders1_1.executor": "Run",
-    "Python.role1_0.executor": "Run",
-    "Python.scratch.executor": "Run",
-    "Python.scratch_10.executor": "Run",
-    "Python.scratch_15.executor": "Run",
-    "Python.scratch_16.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/python_learn/WeChatRobot/Role_and_Context/roles",
-    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.AIConnect.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Chatting1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Console_Command1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.History1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.History1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2.0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_regularly_reminder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Role.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Start_Close1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Vision.executor&quot;: &quot;Run&quot;,
+    &quot;Python.function_console_command.executor&quot;: &quot;Run&quot;,
+    &quot;Python.logger1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.responders.executor&quot;: &quot;Run&quot;,
+    &quot;Python.responders1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.role1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_10.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_15.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_16.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/python_learn/WeChatRobot/Role_and_Context/roles&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
-      "Python",
-      "PythonRegExp"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件&quot;: [
+      &quot;Python&quot;,
+      &quot;PythonRegExp&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\python_learn\WeChatRobot\Role_and_Context\roles" />

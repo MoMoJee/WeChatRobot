@@ -21,7 +21,7 @@ def  Authenticator_Distributor(logger, msg, client, role = 0, special_0 = None):
     VIP_list = []
     logger.info("【Authenticator_Distributor】启动鉴权进程")
     sender = msg.sender  # 这里可以将msg.sender改为msg.sender_remark，获取备注名
-    user_input = f'{sender.rjust(20)}：{msg.content}'
+    user_input = f'{sender}：{msg.content}'
 
     if sender in adminlist:# 管理员消息处理
         logger.info("【Authenticator_Distributor】接收到管理员消息")
@@ -50,7 +50,7 @@ def  Authenticator_Distributor(logger, msg, client, role = 0, special_0 = None):
             return "【Authenticator_Distributor】没有#cc权限，请求被驳回"
         else:
             logger.info("【Authenticator_Distributor】接收到黑名单用户消息：" + user_input)
-            return respond_bandeduser(logger,user_input, role=role)
+            return respond_bandeduser(logger, user_input, role=role)
 
     else:# 普通用户
         # 在挂起状态下所有人都可以用#cc走后门，这里补上这个漏洞
@@ -76,7 +76,7 @@ def respond_user(logger, user_input, client, role_code = 0):
     else:
         logger.warning("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一条聊天记录")
         print("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一组聊天记录")
-        global_state.conversation_History = History.delete_n_messages(logger, global_state.conversation_History, 1)
+        global_state.G_conversation_History = History.delete_n_messages(logger, global_state.G_conversation_History, 1)
         logger.info("【respond_sys】已经安全删除上一组历史记录")
         print("【respond_sys】已经安全删除上一组历史记录")
     return '【' + role_key_word + f'】{AI_reply}'
@@ -85,7 +85,7 @@ def respond_VIPuser(logger, user_input, client, sender, role_code = 0, fcc_need 
     role_key_word = Role.return_role_words(logger, "0001", role_code)
     # VIP用户增加function支持
     if "#f" in user_input:
-        fcc_reply = function_console_command.function_console_command(logger, f'{user_input}', 1, f_special_0=client, f_special_1=sender, f_special_2=fcc_need, role=role_code)
+        fcc_reply = function_console_command.function_console_command(logger, f'{user_input}', 1, f_special_1=sender, f_special_2=fcc_need, role=role_code)
 
         if fcc_reply['check']:
             # 向fcc发起请求，这里state状态为1。f_special_0用于传递client, f_special_1传递sender
@@ -104,7 +104,7 @@ def respond_VIPuser(logger, user_input, client, sender, role_code = 0, fcc_need 
     else:
         logger.warning("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一组聊天记录")
         print("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一组聊天记录")
-        global_state.conversation_History = History.delete_n_messages(logger, global_state.conversation_History, 1)
+        global_state.G_conversation_History = History.delete_n_messages(logger, global_state.G_conversation_History, 1)
         logger.info("【respond_sys】已经安全删除上一组历史记录")
         print("【respond_sys】已经安全删除上一组历史记录")
     return '【' + role_key_word + f'】{AI_reply}'
@@ -120,7 +120,7 @@ def respond_sys(logger, user_input, client, role = 0):
     else:
         logger.warning("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一组聊天记录")
         print("【respond_sys】一个尝试回复空消息的尝试被阻止，正在清除上一组聊天记录")
-        global_state.conversation_History = History.delete_n_messages(logger, global_state.conversation_History, 1)
+        global_state.G_conversation_History = History.delete_n_messages(logger, global_state.G_conversation_History, 1)
         logger.info("【respond_sys】已经安全删除上一组历史记录")
         print("【respond_sys】已经安全删除上一组历史记录")
     return '【' + role_key_word + f'】{AI_reply}'

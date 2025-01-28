@@ -6,6 +6,7 @@ from History import History as History
 import responders as responders
 import Start_Close as Start_Close
 import AIConnect as AIConnect
+import Setting
 from globals import global_state
 import WeChatConnector as WeChatConnector
 from Functions import function_console_command as function_console_command
@@ -18,15 +19,21 @@ from Functions import function_console_command as function_console_command
 '''
 
 listen_list = ["五号楼花果山", "文件传输助手"]
-role_code = 2
 
+
+
+start_setting = Setting.start_setting()
+role_code = start_setting["role_code"]
 logger = Logger.start_logging(log_name=Role.return_role_words(logger=0, role_key="0000", role_code=role_code))
 # logger还没创建，So。。。
-global_state.conversation_History = History.Start_History(logger)
-global_state.model = 'kimi'
-global_state.Comsumption = 1
 
-client = AIConnect.AIConnector(logger)
+
+global_state.G_conversation_History = History.Start_History(logger)
+global_state.G_Consumption = 1
+
+choice = start_setting["model_code"]
+global_state.G_model_code = choice
+client = AIConnect.AIConnector(logger, choice=choice, temp=False)# 这里设置要用哪个AI，choice是序号，写在AISetting.json里面
 
 image_list = []
 # 这里存储接收到的图片的路径，格式是一系列字典存储在列表中，{sender: path}
@@ -34,7 +41,7 @@ image_list = []
 #开始监听
 OutBreak=0#创建终止关键字
 First = 1
-global_state.Suspend = 0# 挂起状态
+global_state.G_Suspend = 0# 挂起状态
 connect_retry_times = 0
 
 role_keyword = Role.return_role_words(logger, role_key="0001", role_code=role_code)
@@ -53,14 +60,14 @@ while 1:
         if wx:
             print("【ConsoleCommand】重连成功")
             logger.info("【ConsoleCommand】重连成功")
-            global_state.global_wx = wx
+            global_state.G_wx = wx
             logger.info("【ConsoleCommand】全局变量global_state.global_wx已更新")
             shutdown_password = str(Start_Close.shutdown(logger))
             wx.SendMsg(msg=("已生成本轮监听的强制终止密钥：" + str(shutdown_password)), who="文件传输助手")
         else:
             print("【ConsoleCommand】重连失败")
             logger.error("【ConsoleCommand】重连失败")
-            History.save_conversation_history_to_file(logger, global_state.conversation_History, role=role_code)
+            History.save_conversation_history_to_file(logger, global_state.G_conversation_History, role=role_code)
             print("【ConsoleCommand】已紧急写入历史记录到文件，可以强制关机")
             logger.warning("【ConsoleCommand】已紧急写入历史记录到文件，可以强制关机")
             connect_retry_times += 1
@@ -88,7 +95,7 @@ while 1:
             if shutdown_password in msg.content:
                 print("【SuperCommand】收到强制关机密钥，程序已非正常停止运行")
                 logger.warning("【SuperCommand】收到强制关机密钥，程序已非正常停止运行")
-                History.save_conversation_history_to_file(logger, global_state.conversation_History)
+                History.save_conversation_history_to_file(logger, global_state.G_conversation_History, role=role_code)
                 OutBreak = 1
             if OutBreak:
                 break
@@ -109,7 +116,7 @@ while 1:
             # 反之则接收所以function，同时通过鉴权执行复杂function
 
 
-            if global_state.Suspend:
+            if global_state.G_Suspend:
                 role_keyword = Role.return_role_words(logger, role_key="0001", role_code=role_code)
                 if "#cc" in f'{msg.content}' and role_keyword in f'{msg.content}':
                     # 挂起状态下，为了减轻计算负担，这里严格检验条件，只允许#cc指令运行，同时让AD鉴权，使得CC操作仍能进行
@@ -153,8 +160,8 @@ while 1:
                         chat.SendMsg(Start_Close.generate_exit_message(logger, role=role_code))
                         # 保存对话历史到文件
 
-                        History.save_conversation_history_to_file(logger, global_state.conversation_History, role=role_code)
-                        logger.info("对话总消耗：" + str(global_state.Comsumption) + "tokens")
+                        History.save_conversation_history_to_file(logger, global_state.G_conversation_History, role=role_code)
+                        logger.info("对话总消耗：" + str(global_state.G_Consumption) + "tokens")
                         break
                     elif "#" in f'{msg.content}':
                         if "#sys" in f'{msg.content}' and '喵酱' in f'{msg.content}':

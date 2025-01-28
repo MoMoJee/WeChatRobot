@@ -62,7 +62,7 @@ def function_console_command(logger, f_message, state=0, f_special_0=None, f_spe
             logger.info("【function_console_command】找到了最近的图片路径：" + str(path))
             # 根据sender，在列表中查找这个sender发的上一个图片，解析
             if path:
-                vision_reply = Vision.vision(logger, user_message=f_message, client=f_special_0, user_role="user", image_path=path)
+                vision_reply = Vision.vision(logger, user_message=f_message, user_role="user", image_path=path, role=role)
             else:
                 vision_reply = "你发了个啥？"
                 fcc_prompt = "未获取到用户的上一条图片信息"

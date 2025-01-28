@@ -56,7 +56,7 @@ def load_conversation_history_from_file(logger):
         return []
 
 
-def save_conversation_history_to_file(logger, conversation_history, role = "New"):
+def save_conversation_history_to_file(logger, conversation_history, role="New"):
     folder_path_History = 'D:\\python_learn\\WeChatRobot\\History\\Histories'
     # 获取当前日期和时间
     current_time = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")

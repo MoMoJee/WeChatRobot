@@ -28,24 +28,24 @@ def handle_error(logger, e, retry_count=0, role = 0):
     elif error_type == 'invalid_request_error':
         if "token length too long" in message:
             error_message = "请求中的 tokens 长度过长，喵酱记不住啦~请求不要超过模型 tokens 的最长限制喵~。"
-            global_state.conversation_History = History.clear_n_percent_of_history(logger, global_state.conversation_History, 25)  # 调用清理函数，随机删除25%聊天数据
+            global_state.G_conversation_History = History.clear_n_percent_of_history(logger, global_state.G_conversation_History, 25)  # 调用清理函数，随机删除25%聊天数据
             logger.info("已删除25%历史记录")
-            global_state.conversation_History.extend(cache_dialogue)
+            global_state.G_conversation_History.extend(cache_dialogue)
             logger.info("重申初始化")
             # 重申原始表述避免误删除
             # 保存对话历史到文件。我为了方便，不加别的定时保存逻辑，只在90%占用时保存对话历史
             # 保存对话历史到文件
-            History.save_conversation_history_to_file(logger, global_state.conversation_History)
-        elif "exceeded model token limit" in message:
-            error_message = "呜呜 请求的 tokens 数和设置的 max_tokens 加和超过了模型规格长度喵~。让喵酱休息一下啦~"
-            global_state.conversation_History = History.clear_n_percent_of_history(logger, global_state.conversation_History, 25)  # 调用清理函数，随机删除25%聊天数据
+            History.save_conversation_history_to_file(logger, global_state.G_conversation_History, role=role)
+        elif "exceeded G_model token limit" in message:
+            error_message = "呜呜 请求的 tokens 数和设置的 max_tokens 之和超过了模型规格长度喵~。让喵酱休息一下啦~"
+            global_state.G_conversation_History = History.clear_n_percent_of_history(logger, global_state.G_conversation_History, 25)  # 调用清理函数，随机删除25%聊天数据
             logger.info("已删除25%历史记录")
-            global_state.conversation_History.extend(cache_dialogue)
+            global_state.G_conversation_History.extend(cache_dialogue)
             logger.info("重申初始化")
             # 重申原始表述避免误删除
             # 保存对话历史到文件。我为了方便，不加别的定时保存逻辑，只在90%占用时保存对话历史
             # 保存对话历史到文件
-            History.save_conversation_history_to_file(logger, global_state.conversation_History)
+            History.save_conversation_history_to_file(logger, global_state.G_conversation_History, role=role)
         elif "File size is zero" in message:
             error_message = "没有告诉喵酱任何信息啊~"
         elif "Invalid purpose" in message:

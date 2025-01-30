@@ -35,7 +35,7 @@ def chat_with_AI(logger, user_message, client, user_role, role = 0, retry_count=
             completion = client.chat.completions.create(
                 model=global_state.G_model,  # AIConnect函数会更改这个
                 messages=global_state.G_conversation_History,
-                temperature=0.3,
+                temperature=1.3,
                 max_tokens=200# 限制回复长度
             )
 

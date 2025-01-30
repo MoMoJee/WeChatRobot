@@ -64,7 +64,6 @@ while 1:
         elif global_state.G_error_code == 2:
             start_setting = Setting.start_setting()
 
-            listen_list = start_setting['名单管理']['groups']
             admin_list = start_setting['名单管理']['admin_list']
             black_list = start_setting['名单管理']['black_list']
             VIP_list = start_setting['名单管理']['VIP_list']
@@ -74,6 +73,11 @@ while 1:
                 logger.warning("【ConsoleCommand】运行中禁止修改role参数！设置被驳回")
             choice = start_setting['设置']['code']
             global_state.G_Suspend = start_setting['设置']['is_suspended']  # 挂起状态
+
+            if listen_list != start_setting['名单管理']['groups']:
+                logger.info("【ConsoleCommand】检测到修改监听对象指令")
+                listen_list = start_setting['名单管理']['groups']
+                wx = WeChatConnector.WeChatConnector(logger, listen_list)
 
             if global_state.G_model_code != choice:
                 logger.info("【ConsoleCommand】模型码已修改为：" + str(choice))
@@ -87,7 +91,6 @@ while 1:
                     logger.info(f"【ConsoleCommand】设置修改成功！当前设置：{str(start_setting)}")
                 else:
                     logger.error("【ConsoleCommand】模型连接出错，请重新设置")
-
             else:
                 global_state.G_error_code = 0
                 logger.info(f"【ConsoleCommand】设置修改成功！当前设置：{str(start_setting)}")

@@ -4,45 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="有一个初始历史记录我忘记提交了，以及我改了一下README">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="2.1.1&#10;新写了两个人格，三个新年版本。完善了设置界面，并提供了中途的设置界面。完善了vision功能，优化了黑白名单给定方式&#10;&#10;卡皮巴拉、民酱两个人格，以及新年版的喵酱、林蒙力、民酱&#10;&#10;设置界面提供人格、模型、三个名单，中途设置界面可以更改除了人格以外的所有参数。&#10;注意：因为我要用CC打开设置界面，而CC无法返回设置结果，即client和几个list，所以我新建了全局变量 G_error_code，用于指示设置的启动，然后在Main中调用设置函数&#10;&#10;修复了在交替使用kimi的vision模型和其他模型时历史记录不兼容的问题，同时提供了本地模型运行图片分析的支持。&#10;注意，本地模型只提供在vision函数中修改choice参数的方式，默认3，即我的AISetting.json中的kimi的视觉模型。没给图形界面，实际上本地也不是很好用&#10;&#10;黑白名单从responder调整到Main，设置界面集成黑白名单设置功能">
       <change afterPath="$PROJECT_DIR$/AISetting.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/History/Example_History/Zero-喵酱-农历新年版-conversation_history.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/History/Example_History/Zero-民酱-农历新年版-conversation_history.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/History/Example_History/Zero_林蒙力-农历新年版-conversation_history.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/History/Example_History/卡皮巴拉-初始版-conversation_history.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/卡皮巴拉-初始版.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/喵酱-农历新年版.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-农历新年版.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/民酱-农历新年版.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/民酱-初始版.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lists.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AIConnect.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIConnect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chatting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Console_Command.py" beforeDir="false" afterPath="$PROJECT_DIR$/Console_Command.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/Vision.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/Vision.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/Example_History/(Cute&amp;Kind)conversation_history_20241025_000225.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/喵酱-(Cute&amp;Kind)-conversation_history.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/Example_History/Kimi-Miaojiang-Maren-conversation_history_20241024_234200.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/喵酱-骂人-conversation_history.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/Example_History/Kimi-Miaojiang-clever20241025_134131.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/喵酱-clever-conversation_history.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/Example_History/Zero-Kimi-MinJiang-conversation_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero_民酱-conversation_history.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/Example_History/Zero-Kimi-学长leo-conversation_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero-学长leo-conversation_history.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/Example_History/Zero.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/Example_History/Zero_Kimi-MiaoJiang-conversation_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero_喵酱-conversation_history.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/Example_History/kimi-林蒙力-初始版-conversation_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero_林蒙力-conversation_history.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/History.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/Role.py" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/Role.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-leo-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/leo-初始版.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/喵酱-初始版.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-林蒙力-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-初始版.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Setting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeChatConnector.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeChatConnector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/globals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/responders.py" beforeDir="false" afterPath="$PROJECT_DIR$/responders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/升级预期2.md" beforeDir="false" afterPath="$PROJECT_DIR$/升级预期2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-农历新年版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-农历新年版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lists.json" beforeDir="false" afterPath="$PROJECT_DIR$/lists.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +109,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/python_learn/WeChatRobot/Role_and_Context/roles",
+    "last_opened_file_path": "D:/python_learn/WeChatRobot",
     "settings.editor.selected.configurable": "preferences.intentionPowerPack"
   },
   "keyToStringList": {
@@ -151,9 +121,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\python_learn\WeChatRobot" />
       <recent name="D:\python_learn\WeChatRobot\Role_and_Context\roles" />
       <recent name="D:\python_learn\WeChatRobot\History\Example_History" />
-      <recent name="D:\python_learn\WeChatRobot" />
       <recent name="D:\python_learn\WeChatRobot\Main" />
       <recent name="D:\python_learn\WeChatRobot\Functions" />
     </key>
@@ -370,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738079377301</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="2.1.1&#10;新写了两个人格，三个新年版本。完善了设置界面，并提供了中途的设置界面。完善了vision功能，优化了黑白名单给定方式&#10;&#10;卡皮巴拉、民酱两个人格，以及新年版的喵酱、林蒙力、民酱&#10;&#10;设置界面提供人格、模型、三个名单，中途设置界面可以更改除了人格以外的所有参数。&#10;注意：因为我要用CC打开设置界面，而CC无法返回设置结果，即client和几个list，所以我新建了全局变量 G_error_code，用于指示设置的启动，然后在Main中调用设置函数&#10;&#10;修复了在交替使用kimi的vision模型和其他模型时历史记录不兼容的问题，同时提供了本地模型运行图片分析的支持。&#10;注意，本地模型只提供在vision函数中修改choice参数的方式，默认3，即我的AISetting.json中的kimi的视觉模型。没给图形界面，实际上本地也不是很好用&#10;&#10;黑白名单从responder调整到Main，设置界面集成黑白名单设置功能">
+      <option name="closed" value="true" />
+      <created>1738246451431</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1738246451431</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -413,6 +391,7 @@
     <MESSAGE value="完善了所有函数（应该全了吧）对于Role函数的支持，现已完全支持直接书写人格文件&#10;写了一个新的leo学长人格&#10;人格文件升级为用json格式存储（其实本来就是，只是打了.txt）&#10;新建了Zero历史记录，用于新建新的人格" />
     <MESSAGE value="2.1.0 优化Client的传递，支持本地模型，支持中途更换模型，提供图形设置界面&#10;&#10;修改了client相关的参数（url、name、api）的传递方式，统一用AIConnect函数实现&#10;据此取消了在对Vision函数调用时client的传入，而是直接在Vision中调用AIConnect函数并返回要用到的kimi-Vision的client&#10;注意！由于模型名称无法通过Client返回，我也不想给AIConnect函数再加返回值，因此对于模型名称的调用，这里采用访问全局变量global_state.G_model的方式&#10;修复了save_conversation_to_history中的role错误、folder_path变量遗留问题&#10;通过详细的AI信息json来连接AI，通过指定AI的code的方式来标定模型API组合。其中本地模型的code指定为&gt;1000，以此区分。因为本地模型的调用方式和官方模型略有区别&#10;提供了起始设置的图形界面" />
     <MESSAGE value="有一个初始历史记录我忘记提交了，以及我改了一下README" />
-    <option name="LAST_COMMIT_MESSAGE" value="有一个初始历史记录我忘记提交了，以及我改了一下README" />
+    <MESSAGE value="2.1.1&#10;新写了两个人格，三个新年版本。完善了设置界面，并提供了中途的设置界面。完善了vision功能，优化了黑白名单给定方式&#10;&#10;卡皮巴拉、民酱两个人格，以及新年版的喵酱、林蒙力、民酱&#10;&#10;设置界面提供人格、模型、三个名单，中途设置界面可以更改除了人格以外的所有参数。&#10;注意：因为我要用CC打开设置界面，而CC无法返回设置结果，即client和几个list，所以我新建了全局变量 G_error_code，用于指示设置的启动，然后在Main中调用设置函数&#10;&#10;修复了在交替使用kimi的vision模型和其他模型时历史记录不兼容的问题，同时提供了本地模型运行图片分析的支持。&#10;注意，本地模型只提供在vision函数中修改choice参数的方式，默认3，即我的AISetting.json中的kimi的视觉模型。没给图形界面，实际上本地也不是很好用&#10;&#10;黑白名单从responder调整到Main，设置界面集成黑白名单设置功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.1.1&#10;新写了两个人格，三个新年版本。完善了设置界面，并提供了中途的设置界面。完善了vision功能，优化了黑白名单给定方式&#10;&#10;卡皮巴拉、民酱两个人格，以及新年版的喵酱、林蒙力、民酱&#10;&#10;设置界面提供人格、模型、三个名单，中途设置界面可以更改除了人格以外的所有参数。&#10;注意：因为我要用CC打开设置界面，而CC无法返回设置结果，即client和几个list，所以我新建了全局变量 G_error_code，用于指示设置的启动，然后在Main中调用设置函数&#10;&#10;修复了在交替使用kimi的vision模型和其他模型时历史记录不兼容的问题，同时提供了本地模型运行图片分析的支持。&#10;注意，本地模型只提供在vision函数中修改choice参数的方式，默认3，即我的AISetting.json中的kimi的视觉模型。没给图形界面，实际上本地也不是很好用&#10;&#10;黑白名单从responder调整到Main，设置界面集成黑白名单设置功能" />
   </component>
 </project>

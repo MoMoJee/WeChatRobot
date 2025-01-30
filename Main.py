@@ -12,37 +12,41 @@ import WeChatConnector as WeChatConnector
 from Functions import function_console_command as function_console_command
 
 
-'''
-2.0.1小优化：
-3.增加了消息获取检查，防止中途被迫下线而导致的中途停摆√
-4.增加了对function的支持，使得聊天途中可以通过#fcc关键字启动function控制台
-'''
 
-listen_list = ["五号楼花果山", "文件传输助手"]
 
 
 
 start_setting = Setting.start_setting()
 
-role_code = start_setting["role_code"]
+listen_list = start_setting['名单管理']['groups']
+admin_list = start_setting['名单管理']['admin_list']
+black_list = start_setting['名单管理']['black_list']
+VIP_list = start_setting['名单管理']['VIP_list']
+role_code = start_setting['设置']['role_code']
+choice = start_setting['设置']['code']
+global_state.G_model_code = choice
+global_state.G_Suspend = start_setting['设置']['is_suspended']# 挂起状态
+
+
+
+
 logger = Logger.start_logging(log_name=Role.return_role_words(logger=0, role_key="0000", role_code=role_code))
 # logger还没创建，So。。。
+client = AIConnect.AIConnector(logger, choice=choice, temp=False)
+# 这里设置要用哪个AI，choice是序号，写在AISetting.json里面
+
 
 
 global_state.G_conversation_History = History.Start_History(logger)
 global_state.G_Consumption = 1
-
-choice = start_setting["model_code"]
-global_state.G_model_code = choice
-client = AIConnect.AIConnector(logger, choice=choice, temp=False)# 这里设置要用哪个AI，choice是序号，写在AISetting.json里面
-
 image_list = []
 # 这里存储接收到的图片的路径，格式是一系列字典存储在列表中，{sender: path}
 
-#开始监听
-OutBreak=0#创建终止关键字
+# 开始监听
+OutBreak = 0
+# 创建终止关键字
 First = 1
-global_state.G_Suspend = 0# 挂起状态
+
 connect_retry_times = 0
 
 role_keyword = Role.return_role_words(logger, role_key="0001", role_code=role_code)
@@ -50,9 +54,47 @@ role_keyword = Role.return_role_words(logger, role_key="0001", role_code=role_co
 while 1:
     if OutBreak:
         break
+    if global_state.G_error_code:
+        print(f"【ConsoleCommand】检测到主错误码：{global_state.G_error_code}")
+        logger.error(f"【ConsoleCommand】检测到主错误码：{global_state.G_error_code}")
+        if global_state.G_error_code == 1:
+            client = AIConnect.AIConnector(logger, choice=global_state.G_model_code, temp=False)
+            global_state.G_error_code = 0
+            # 更多错误码处理逻辑
+        elif global_state.G_error_code == 2:
+            start_setting = Setting.start_setting()
+
+            listen_list = start_setting['名单管理']['groups']
+            admin_list = start_setting['名单管理']['admin_list']
+            black_list = start_setting['名单管理']['black_list']
+            VIP_list = start_setting['名单管理']['VIP_list']
+
+            if start_setting['设置']['role_code'] != role_code:
+                print("【ConsoleCommand】运行中禁止修改role参数！设置被驳回")
+                logger.warning("【ConsoleCommand】运行中禁止修改role参数！设置被驳回")
+            choice = start_setting['设置']['code']
+            global_state.G_Suspend = start_setting['设置']['is_suspended']  # 挂起状态
+
+            if global_state.G_model_code != choice:
+                logger.info("【ConsoleCommand】模型码已修改为：" + str(choice))
+                global_state.G_model_code = choice
+                global_state.G_model = AIConnect.parse_AI_Setting_json(logger, choice)["model"]
+                logger.info("【ConsoleCommand】模型已修改为：" + global_state.G_model)
+                logger.info("【ConsoleCommand】重新连接模型")
+                client = AIConnect.AIConnector(logger, choice=choice,temp=False)
+                if client:
+                    global_state.G_error_code = 0
+                    logger.info(f"【ConsoleCommand】设置修改成功！当前设置：{str(start_setting)}")
+                else:
+                    logger.error("【ConsoleCommand】模型连接出错，请重新设置")
+
+            else:
+                global_state.G_error_code = 0
+                logger.info(f"【ConsoleCommand】设置修改成功！当前设置：{str(start_setting)}")
 
     try:# 连接错误的处理，后期考虑放到HE函数那边
         msgs = wx.GetListenMessage()
+
     except Exception as e:
         error_str = str(e)
         logger.error("【ConsoleCommand】未检测到微信登陆状态或未检测到监听窗口" + error_str)
@@ -72,8 +114,8 @@ while 1:
             print("【ConsoleCommand】已紧急写入历史记录到文件，可以强制关机")
             logger.warning("【ConsoleCommand】已紧急写入历史记录到文件，可以强制关机")
             connect_retry_times += 1
-            time.sleep(60)
-            if connect_retry_times >= 100:
+            time.sleep(20)
+            if connect_retry_times >= 30:
                 OutBreak = 1
                 logger.warning("【ConsoleCommand】已经超过10分钟没有连接成功，即将自动关机")
                 print("【ConsoleCommand】已经超过10分钟没有连接成功，即将自动关机")
@@ -86,7 +128,7 @@ while 1:
             break
         if First:
             chat.SendMsg(Role.return_role_words(logger, "0002", role_code))
-            logger.info('机器人启动词已输出')
+            logger.info('【SuperCommand】机器人启动词已输出')
             First = 0
 
         one_msgs = msgs.get(chat)  # 获取消息内容
@@ -118,12 +160,14 @@ while 1:
 
 
             if global_state.G_Suspend:
-                role_keyword = Role.return_role_words(logger, role_key="0001", role_code=role_code)
+
                 if "#cc" in f'{msg.content}' and role_keyword in f'{msg.content}':
                     # 挂起状态下，为了减轻计算负担，这里严格检验条件，只允许#cc指令运行，同时让AD鉴权，使得CC操作仍能进行
                     # 在非挂起状态下，来自self的#cc指令只能在文件传输助手中有效，在其他界面会提示：接收到本机不来自控制台的控制台消息
                     logger.info('接收到关键词' + f'{msg.sender}：{msg.content}')
-                    chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code))
+                    chat.SendMsg(
+                        responders.Authenticator_Distributor(logger, msg, client, role=role_code, black_list=black_list,
+                                                             admin_list=admin_list, VIP_list=VIP_list))
                 print("【ConsoleCommand】挂起中")
                 continue
 
@@ -131,25 +175,28 @@ while 1:
 
 
             if msg.type == 'sys':
-                logger.info('接收到新消息'+ f'【系统消息】{msg.content}')
+                logger.info('【ConsoleCommand】接收到新消息'+ f'【系统消息】{msg.content}')
 
             elif msg.type == 'friend':
-                logger.info('接收到新消息' + f'【好友消息】{msg.sender}：{msg.content}')
+                logger.info('【ConsoleCommand】接收到新消息' + f'【好友消息】{msg.sender}：{msg.content}')
 
-                if "D:\python_learn\WeChatRobot\wxauto文件" in msg.content:
+                if "WeChatRobot\wxauto文件" in msg.content:
                     image_list.append({"sender": msg.sender, "path": msg.content})
                     # 存储所有的图片路径
 
                 # ！！！ 回复收到，此处为`chat`而不是`wx` ！！！
                 if role_keyword in f'{msg.content}':
-                    logger.info('接收到关键词' + f'{msg.sender}：{msg.content}')
-                    chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, special_0=image_list, role=role_code),at=msg.sender)
+                    logger.info('【ConsoleCommand】接收到关键词' + f'{msg.sender}：{msg.content}')
+                    chat.SendMsg(
+                        responders.Authenticator_Distributor(logger, msg, client, role=role_code, special_0=image_list, black_list=black_list,
+                                                             admin_list=admin_list, VIP_list=VIP_list), at=msg.sender)
 
             elif msg.type == 'self':
                 sender = msg.sender  # 这里可以将msg.sender改为msg.sender_remark，获取备注名
-                print("所有消息：", f'{sender.rjust(20)}：{msg.content}')
+                print("【ConsoleCommand】接收到新消息" + f'【控制台消息】{sender}：{msg.content}')
+                logger.info("【ConsoleCommand】接收到新消息" + f'【控制台消息】{sender}：{msg.content}')
                 if chat.who == "文件传输助手":# 仅接收从文件传输助手接收到的#指令
-                    if "D:\python_learn\WeChatRobot\wxauto文件" in msg.content:
+                    if "WeChatRobot\wxauto文件" in msg.content:
                         image_list.append({"sender": msg.sender, "path": msg.content})
                         print(image_list)
                         # 存储所有的图片路径
@@ -157,29 +204,38 @@ while 1:
                     if (role_keyword + "@@退出") in f'{msg.content}':
                         logger.warning('【SuperCommand】请求：退出')
                         OutBreak = 1
-                        print("退出")
+                        print("【SuperCommand】退出")
                         chat.SendMsg(Start_Close.generate_exit_message(logger, role=role_code))
                         # 保存对话历史到文件
 
                         History.save_conversation_history_to_file(logger, global_state.G_conversation_History, role=role_code)
-                        logger.info("对话总消耗：" + str(global_state.G_Consumption) + "tokens")
+                        logger.info("【SuperCommand】对话总消耗：" + str(global_state.G_Consumption) + "tokens")
                         break
                     elif "#" in f'{msg.content}':
-                        if "#sys" in f'{msg.content}' and '喵酱' in f'{msg.content}':
-                            print("system请求")
-                            logger.info('【system】请求：' + f'{msg.content}')
-                            chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code))
+                        if "#sys" in f'{msg.content}' and role_keyword in f'{msg.content}':
+                            print("【ConsoleCommand】system请求")
+                            logger.info('【ConsoleCommand】【system】请求：' + f'{msg.content}')
+                            chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code, black_list=black_list,
+                                                             admin_list=admin_list, VIP_list=VIP_list))
 
-                        elif "#cc" in f'{msg.content}' and '喵酱' in f'{msg.content}':
-                            print("【Console】请求")
-                            logger.info('【Console】请求：' + f'{msg.content}')
-                            chat.SendMsg("【Console Command】" + responders.Authenticator_Distributor(logger, msg, client, role=role_code))#跳转到鉴权，再跳转到控制台指令处理
-
+                        elif "#cc" in f'{msg.content}' and role_keyword in f'{msg.content}':
+                            print("【ConsoleCommand】【Console】请求")
+                            logger.info('【ConsoleCommand】【Console】请求：' + f'{msg.content}')
+                            chat.SendMsg("【Console Command】" + responders.Authenticator_Distributor(logger, msg, client,
+                                                                                                    role=role_code,
+                                                                                                    black_list=black_list,
+                                                                                                    admin_list=admin_list,
+                                                                                                    VIP_list=VIP_list))  # 跳转到鉴权，再跳转到控制台指令处理
                         else:
-                            print("主人在控制台发起对话请求")# 防止崩溃，我自己在文件传输助手里面聊天需要加一个#
+                            print("【ConsoleCommand】主人在控制台发起对话请求")# 防止崩溃，我自己在文件传输助手里面聊天需要加一个#
                             if role_keyword in f'{msg.content}':
-                                logger.info('接收到主人新消息' + f'{sender}：{msg.content}')
-                                chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, special_0=image_list, role=role_code))
+                                logger.info('【ConsoleCommand】接收到主人新消息' + f'{sender}：{msg.content}')
+                                chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code,
+                                                                                  special_0=image_list,
+                                                                                  black_list=black_list,
+                                                                                  admin_list=admin_list,
+                                                                                  VIP_list=VIP_list
+                                                                                  ))
 
                 else:
                     if ("#cc" in f'{msg.content}') or ((role_keyword + "@@退出") in f'{msg.content}') or ("#sys" in f'{msg.content}'):

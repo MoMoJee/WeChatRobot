@@ -1,6 +1,6 @@
 import json
 
-def read_dict_from_file(file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\kimi-喵酱-初始版.json'):
+def read_dict_from_file(file_path = 'D:\\python_learn\\WeChatRobot\\Role_and_Context\\roles\\喵酱-初始版.json'):
     """
     从文件中读取字典。
 

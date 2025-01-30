@@ -10,6 +10,7 @@ def WeChatConnector(logger, listen_list):
         for i in listen_list:
             wx.AddListenChat(who=i, savepic=True)
             logger.info("【WeChatConnector】启用监听对象：" + str(i))
+
         return wx
     except Exception as e:
         error_str = str(e)

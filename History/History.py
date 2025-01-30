@@ -79,12 +79,17 @@ def Start_History(logger):
     # 确保文件夹存在
     if not os.path.exists(folder_path_History):
         os.makedirs(folder_path_History)
-    # 初始化对话上下文(或者选择存档)，键入对话前提
-    conversation_history = load_conversation_history_from_file(logger)
+
+    while 1:
+        # 初始化对话上下文(或者选择存档)，键入对话前提
+        conversation_history = load_conversation_history_from_file(logger)
+        if conversation_history:
+            break
+        else:
+            print("【Start_History】未选择历史记录！")
+            continue
 
     logger.info("【Start_History】成功初始化对话，写入对话前提")
-
-
     return conversation_history
 
 

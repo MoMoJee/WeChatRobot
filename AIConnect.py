@@ -22,7 +22,7 @@ def AIConnector(logger, choice, temp=False):
     if choice > 1000:
         logger.info("【AIConnector】识别到本地模型请求，启动相关进程")
         client = Client(host='127.0.0.1:11434')
-        logger.info("成功连接Model：" + str(AI_Setting["model"]) + "API名称：" + str(AI_Setting["api_name"]))
+        logger.info("成功连接Model：" + str(AI_Setting["model"]) + "，API名称：" + str(AI_Setting["api_name"]))
         return client
 
     else:
@@ -31,8 +31,8 @@ def AIConnector(logger, choice, temp=False):
             api_key=api_key,
             base_url=base_url
         )
-        logger.info("成功连接Model：" + str(AI_Setting["model"]) + "API名称：" + str(AI_Setting["api_name"]))
-        logger.info("初始化计费器。当前消费：" + str(global_state.G_Consumption))
+        logger.info("【AIConnector】成功连接Model：" + str(AI_Setting["model"]) + "API名称：" + str(AI_Setting["api_name"]))
+        logger.info("【AIConnector】初始化计费器。当前消费：" + str(global_state.G_Consumption))
         return client
 
 

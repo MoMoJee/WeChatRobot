@@ -1,5 +1,10 @@
 [
-  {"role_name": "kimi-喵酱-初始版", "role_code": 0, "role_path": "Role_and_Context/roles/kimi-喵酱-初始版.json"},
-  {"role_name": "kimi-leo-初始版", "role_code": 1, "role_path": "Role_and_Context/roles/kimi-leo-初始版.json"},
-  {"role_name": "kimi-林蒙力-初始版", "role_code": 2, "role_path": "Role_and_Context/roles/kimi-林蒙力-初始版.json"}
+  {"role_name": "喵酱-初始版", "role_code": 0, "role_path": "Role_and_Context/roles/喵酱-初始版.json"},
+  {"role_name": "leo-初始版", "role_code": 1, "role_path": "Role_and_Context/roles/leo-初始版.json"},
+  {"role_name": "林蒙力-初始版", "role_code": 2, "role_path": "Role_and_Context/roles/林蒙力-初始版.json"},
+  {"role_name": "喵酱-农历新年版", "role_code": 3, "role_path": "Role_and_Context/roles/喵酱-农历新年版.json"},
+  {"role_name": "林蒙力-农历新年版", "role_code": 4, "role_path": "Role_and_Context/roles/林蒙力-农历新年版.json"},
+  {"role_name": "民酱-初始版", "role_code": 5, "role_path": "Role_and_Context/roles/民酱-初始版.json"},
+  {"role_name": "卡皮巴拉-初始版", "role_code": 6, "role_path": "Role_and_Context/roles/卡皮巴拉-初始版.json"},
+  {"role_name": "民酱-农历新年版", "role_code": 7, "role_path": "Role_and_Context/roles/民酱-农历新年版.json"}
 ]

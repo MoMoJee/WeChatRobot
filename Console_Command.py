@@ -5,6 +5,8 @@ import Chatting as Chatting
 import re
 from Role_and_Context import Role
 import AIConnect
+import Setting
+
 
 # 为了方便，CC中的越界操作通过专用的全局变量完成
 
@@ -37,9 +39,9 @@ def Console_Command(logger, message, folder_path_History, client, wx = "None", r
     elif "初始化" in message:
         logger.info("【Console】初始化")
         global_state.G_conversation_History = History.clear_n_percent_of_history(logger, global_state.G_conversation_History, 100)  # 调用清理函数，删除全部聊天数据
-        logger.info("已删除全部历史记录")
+        logger.info("【Console】已删除全部历史记录")
         global_state.G_conversation_History.extend(cache_dialogue)
-        logger.info("写入初始化设定")
+        logger.info("【Console】写入初始化设定")
         # 重申原始表述
         # 保存对话历史到文件。
         History.save_conversation_history_to_file(logger, global_state.G_conversation_History, role=role)
@@ -47,32 +49,38 @@ def Console_Command(logger, message, folder_path_History, client, wx = "None", r
     elif "日志" in message:
         logger.info("【Console】请求日志")
         global_state.G_wx.SendFiles(filepath=global_state.G_global_log_file_path, who="文件传输助手")
-        logger.info("日志：" + str(global_state.G_global_log_file_path) + "已发送")
+        logger.info("【Console】日志：" + str(global_state.G_global_log_file_path) + "已发送")
         return Role.return_role_words(logger, role_code=role, role_key="2002")
     elif "好好说话" in message:
         logger.info("【Console】请求：重申初始设定")
         return Chatting.chat_with_AI(logger, Role.return_role_words(logger, role_code=role, role_key="2003"), client, "system", role=role)
-    elif "余额" in message:
-        logger.info("【Console】请求余额查询")
-        balance = Chatting.get_api_balance(logger, AIConnect.read_api_key('AISetting.json', logger, cache_choice=2))
-        # 暂时只写了kimi的余额查询
-        print("余额：" + str(balance))
-        logger.info("余额：" + str(balance))
-        return "余额：" + str(balance)
-    elif "模型" in message:
-        logger.info("【Console】请求更换大模型")
-        templateModel = choose_models(message)
-        if templateModel:
-            model = templateModel
-            logger.info("已更换模型至：" + model)
-            return "已更换模型至：" + model
-        else:
-            logger.error("请求错误：未查找到指定的模型")
-            return "请求错误：未查找到指定的模型。当前模型：" + model
+    # elif "余额" in message:
+    #     logger.info("【Console】请求余额查询")
+    #     balance = Chatting.get_api_balance(logger, AIConnect.read_api_key('AISetting.json', logger, cache_choice=2))
+    #     # 暂时只写了kimi的余额查询
+    #     print("余额：" + str(balance))
+    #     logger.info("余额：" + str(balance))
+    #     return "余额：" + str(balance)
+    # elif "模型" in message:
+    #     logger.info("【Console】请求更换大模型")
+    #     templateModel = choose_models(message)
+    #     if templateModel:
+    #         model = templateModel
+    #         logger.info("已更换模型至：" + model)
+    #         return "已更换模型至：" + model
+    #     else:
+    #         logger.error("请求错误：未查找到指定的模型")
+    #         return "请求错误：未查找到指定的模型。当前模型：" + model
     elif "挂起" in message:
         logger.info("【Console】请求更换程序挂起状态")
         global_state.G_Suspend = not global_state.G_Suspend
         return "更换挂起状态，当前状态：" + str(global_state.G_Suspend)
+
+    elif "设置" in message:
+        logger.info("【Console】请求设置，已设置G_error_code为2")
+        global_state.G_error_code = 2
+        return "设置启动成功！"
+
     else:
         return "未知的Console Command指令"
 

@@ -4,24 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="完善了所有函数（应该全了吧）对于Role函数的支持，现已完全支持直接书写人格文件&#10;写了一个新的leo学长人格&#10;人格文件升级为用json格式存储（其实本来就是，只是打了.txt）&#10;新建了Zero历史记录，用于新建新的人格">
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="有一个初始历史记录我忘记提交了，以及我改了一下README">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/AISetting.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Setting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/升级预期2.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/History/Example_History/Zero-喵酱-农历新年版-conversation_history.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/History/Example_History/Zero-民酱-农历新年版-conversation_history.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/History/Example_History/Zero_林蒙力-农历新年版-conversation_history.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/History/Example_History/卡皮巴拉-初始版-conversation_history.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/卡皮巴拉-初始版.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/喵酱-农历新年版.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-农历新年版.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/民酱-农历新年版.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/民酱-初始版.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lists.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AIConnect.py" beforeDir="false" afterPath="$PROJECT_DIR$/AIConnect.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chatting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chatting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Console_Command.py" beforeDir="false" afterPath="$PROJECT_DIR$/Console_Command.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions/Vision.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/Vision.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/function_console_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/function_console_command.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HandleError.py" beforeDir="false" afterPath="$PROJECT_DIR$/HandleError.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logger/Logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Logger/Logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Example_History/(Cute&amp;Kind)conversation_history_20241025_000225.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/喵酱-(Cute&amp;Kind)-conversation_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Example_History/Kimi-Miaojiang-Maren-conversation_history_20241024_234200.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/喵酱-骂人-conversation_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Example_History/Kimi-Miaojiang-clever20241025_134131.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/喵酱-clever-conversation_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Example_History/Zero-Kimi-MinJiang-conversation_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero_民酱-conversation_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Example_History/Zero-Kimi-学长leo-conversation_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero-学长leo-conversation_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Example_History/Zero.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Example_History/Zero_Kimi-MiaoJiang-conversation_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero_喵酱-conversation_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/Example_History/kimi-林蒙力-初始版-conversation_history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/History/Example_History/Zero_林蒙力-conversation_history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/History/History.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-leo-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-leo-初始版.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-林蒙力-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/kimi-林蒙力-初始版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/Role.py" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/Role.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-leo-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/leo-初始版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-喵酱-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/喵酱-初始版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/kimi-林蒙力-初始版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-初始版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Setting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeChatConnector.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeChatConnector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/globals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/responders.py" beforeDir="false" afterPath="$PROJECT_DIR$/responders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/升级预期2.md" beforeDir="false" afterPath="$PROJECT_DIR$/升级预期2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,60 +102,76 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.AIConnect.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Chatting1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Console_Command1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.History1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.History1_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2.0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Main2_0_regularly_reminder.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Reminder.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Reminder1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Reminder1_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Role.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Start_Close1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Vision.executor&quot;: &quot;Run&quot;,
-    &quot;Python.function_console_command.executor&quot;: &quot;Run&quot;,
-    &quot;Python.logger1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.responders.executor&quot;: &quot;Run&quot;,
-    &quot;Python.responders1_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.role1_0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch_10.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch_15.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch_16.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/python_learn/WeChatRobot/Role_and_Context/roles&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.AIConnect.executor": "Run",
+    "Python.Chatting.executor": "Run",
+    "Python.Chatting1_0.executor": "Run",
+    "Python.Console_Command1_0.executor": "Run",
+    "Python.History1_0.executor": "Run",
+    "Python.History1_1.executor": "Run",
+    "Python.Main.executor": "Run",
+    "Python.Main2.0.executor": "Run",
+    "Python.Main2.executor": "Run",
+    "Python.Main2_0.executor": "Run",
+    "Python.Main2_0_1.executor": "Run",
+    "Python.Main2_0_2.executor": "Run",
+    "Python.Main2_0_regularly_reminder.executor": "Run",
+    "Python.Reminder.executor": "Run",
+    "Python.Reminder1_0.executor": "Run",
+    "Python.Reminder1_1.executor": "Run",
+    "Python.Role.executor": "Run",
+    "Python.Setting.executor": "Run",
+    "Python.Start_Close1_0.executor": "Run",
+    "Python.Vision.executor": "Run",
+    "Python.function_console_command.executor": "Run",
+    "Python.logger1_0.executor": "Run",
+    "Python.responders.executor": "Run",
+    "Python.responders1_1.executor": "Run",
+    "Python.role1_0.executor": "Run",
+    "Python.scratch.executor": "Run",
+    "Python.scratch_10.executor": "Run",
+    "Python.scratch_15.executor": "Run",
+    "Python.scratch_16.executor": "Run",
+    "Python.scratch_17.executor": "Run",
+    "Python.scratch_18.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/python_learn/WeChatRobot/Role_and_Context/roles",
+    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件&quot;: [
-      &quot;Python&quot;,
-      &quot;PythonRegExp&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
+      "Python",
+      "PythonRegExp"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\python_learn\WeChatRobot\Role_and_Context\roles" />
+      <recent name="D:\python_learn\WeChatRobot\History\Example_History" />
       <recent name="D:\python_learn\WeChatRobot" />
       <recent name="D:\python_learn\WeChatRobot\Main" />
       <recent name="D:\python_learn\WeChatRobot\Functions" />
-      <recent name="D:\python_learn\WeChatRobot\History" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\python_learn\WeChatRobot" />
+      <recent name="D:\python_learn\WeChatRobot\Role_and_Context" />
       <recent name="D:\python_learn\WeChatRobot\History\Example_History" />
       <recent name="D:\python_learn\WeChatRobot\Functions" />
-      <recent name="D:\python_learn\WeChatRobot" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="最近的项目" flag="true" />
+      <visibility group="运行 Python 文件" flag="true" />
+      <visibility group="运行 conda 命令" flag="true" />
+      <visibility group="运行 pip 命令" flag="true" />
+      <visibility group="运行配置" flag="true" />
+    </myKeys>
   </component>
   <component name="RunManager">
     <configuration name="Reminder" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -317,7 +354,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737905782594</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="2.1.0 优化Client的传递，支持本地模型，支持中途更换模型，提供图形设置界面&#10;&#10;修改了client相关的参数（url、name、api）的传递方式，统一用AIConnect函数实现&#10;据此取消了在对Vision函数调用时client的传入，而是直接在Vision中调用AIConnect函数并返回要用到的kimi-Vision的client&#10;注意！由于模型名称无法通过Client返回，我也不想给AIConnect函数再加返回值，因此对于模型名称的调用，这里采用访问全局变量global_state.G_model的方式&#10;修复了save_conversation_to_history中的role错误、folder_path变量遗留问题&#10;通过详细的AI信息json来连接AI，通过指定AI的code的方式来标定模型API组合。其中本地模型的code指定为&gt;1000，以此区分。因为本地模型的调用方式和官方模型略有区别&#10;提供了起始设置的图形界面">
+      <option name="closed" value="true" />
+      <created>1738078428345</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1738078428345</updated>
+    </task>
+    <task id="LOCAL-00019" summary="有一个初始历史记录我忘记提交了，以及我改了一下README">
+      <option name="closed" value="true" />
+      <created>1738079377301</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1738079377301</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -358,6 +411,8 @@
     <MESSAGE value="修复了API密钥的泄露" />
     <MESSAGE value="写README&#10;提供了几个初始History，删掉了多余的&#10;清理了日志和图片等" />
     <MESSAGE value="完善了所有函数（应该全了吧）对于Role函数的支持，现已完全支持直接书写人格文件&#10;写了一个新的leo学长人格&#10;人格文件升级为用json格式存储（其实本来就是，只是打了.txt）&#10;新建了Zero历史记录，用于新建新的人格" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善了所有函数（应该全了吧）对于Role函数的支持，现已完全支持直接书写人格文件&#10;写了一个新的leo学长人格&#10;人格文件升级为用json格式存储（其实本来就是，只是打了.txt）&#10;新建了Zero历史记录，用于新建新的人格" />
+    <MESSAGE value="2.1.0 优化Client的传递，支持本地模型，支持中途更换模型，提供图形设置界面&#10;&#10;修改了client相关的参数（url、name、api）的传递方式，统一用AIConnect函数实现&#10;据此取消了在对Vision函数调用时client的传入，而是直接在Vision中调用AIConnect函数并返回要用到的kimi-Vision的client&#10;注意！由于模型名称无法通过Client返回，我也不想给AIConnect函数再加返回值，因此对于模型名称的调用，这里采用访问全局变量global_state.G_model的方式&#10;修复了save_conversation_to_history中的role错误、folder_path变量遗留问题&#10;通过详细的AI信息json来连接AI，通过指定AI的code的方式来标定模型API组合。其中本地模型的code指定为&gt;1000，以此区分。因为本地模型的调用方式和官方模型略有区别&#10;提供了起始设置的图形界面" />
+    <MESSAGE value="有一个初始历史记录我忘记提交了，以及我改了一下README" />
+    <option name="LAST_COMMIT_MESSAGE" value="有一个初始历史记录我忘记提交了，以及我改了一下README" />
   </component>
 </project>

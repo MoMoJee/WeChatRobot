@@ -3,80 +3,127 @@ import base64
 from globals import global_state
 from openai import OpenAI
 import HandleError as HandleError
-from History import History as History
 import AIConnect
+import copy
+import ollama
+
 
 def vision(logger, user_message, user_role, image_path, role=0):
     # 这是一个历史遗留。在只用kimi的情况下，将client传入是没问题的。但现在支持多模型切换，而vision只支持kimi，这就导致无论如何都需要在这里重新连接kimi的API，client的传入就不需要了
-    client = AIConnect.AIConnector(logger, choice=3, temp=True)
+    choice = 3
+    client = AIConnect.AIConnector(logger, choice=choice, temp=True)
     with open(image_path, "rb") as f:
         image_data = f.read()
 
-    # 我们使用标准库 base64.b64encode 函数将图片编码成 base64 格式的 image_url
-    image_url = f"data:image/{os.path.splitext(image_path)[1]};base64,{base64.b64encode(image_data).decode('utf-8')}"
 
-    new_vision_message = [
-                    {
-                        "type": "image_url",  # <-- 使用 image_url 类型来上传图片，内容为使用 base64 编码过的图片内容
-                        "image_url": {
-                            "url": image_url,
-                        },
-                    },
-                    {
-                        "type": "text",
-                        "text": user_message,  # <-- 使用 text 类型来提供文字指令，例如“描述图片内容”
-                    },
-                ]
+    if choice > 1000:
+        new_vision_message = {
+            'role': user_role,
+            'content': user_message,
+            'images': [image_path]
+        }
+        message_without_vision = [
+            {
+                "role": "system",
+                "content": "你收到一张图片"
+            },
+            {
+                "role": user_role,
+                "content": user_message
+            }
+        ]
+
+        # 将用户的消息添加到对话历史中，由于vision模型接口不兼容其他模型，这里使用临时历史记录，全局的普通记录则只作描述，不放图。这也可以省点钱
+
+        # 创建一个副本，这个copy方式第一次听说
+        vision_temp_conversation_history = copy.copy(global_state.G_conversation_History)
+
+        # 修改副本，不会影响原始列表
+        vision_temp_conversation_history.append(new_vision_message)
+
+        global_state.G_conversation_History.append(message_without_vision[0])
+        global_state.G_conversation_History.append(message_without_vision[1])
 
 
-    # 将用户的消息添加到对话历史中
-    global_state.G_conversation_History.append({"role": user_role, "content": new_vision_message})
-
-    # 调用Kimi API进行聊天
-    try:
-        completion = client.chat.completions.create(
-            model="moonshot-v1-8k-vision-preview",
-            messages=global_state.G_conversation_History,
-            temperature=0.3,
-            max_tokens=200# 限制回复长度
-
+        completion = ollama.chat(
+            model=AIConnect.parse_AI_Setting_json(logger, choice)["model"],
+            messages=vision_temp_conversation_history,
         )
+        # 将AI的回复添加到对话历史中
+        global_state.G_conversation_History.append(
+            {"role": "assistant", "content": completion['message']['content']})
+        return completion['message']['content']
 
-        # 将Kimi的回复添加到对话历史中
-        global_state.G_conversation_History.append({"role": "assistant", "content": completion.choices[0].message.content})
-        prompt_tokens = completion.usage.prompt_tokens
-        completion_tokens = completion.usage.completion_tokens
-        global_state.G_Consumption += (prompt_tokens + completion_tokens)
-        logger.info("本轮对话上传的tokens数量：" + str(prompt_tokens))
-        logger.info("本轮对话返回的tokens数量：" + str(completion_tokens))
-        logger.info("本轮对话开销：" + str(prompt_tokens + completion_tokens) + "tokens，" + str(
-            (prompt_tokens + completion_tokens) / 1000000 * 12) + "元")
 
-        # 返回Kimi的回复
-        if prompt_tokens > 7373:  # 创建tokens过载逻辑，占用90%以上时触发
-            logger.warning('剩余的上下文长度不足10%，当前占用tokens：' + str(prompt_tokens) + '，' + str(
-                int(prompt_tokens * 100 / 8192)) + "%")
-            global_state.G_conversation_History = History.clear_n_percent_of_history(logger,
-                                                                                     global_state.G_conversation_History,
-                                                                                     25)  # 调用清理函数，随机删除25%聊天数据
-            logger.info("已删除25%历史记录")
-            global_state.G_conversation_History.extend([  # extend,而不是append
-                {"role": "system", "content": "请自然对话，你现在的角色是可爱的猫娘，名字机器喵酱"},
-                {"role": "system", "content": "我会传给你带有昵称、消息内容的一个字符串，请根据此回复"},
-                {"role": "system", "content": "回复长度不要超过200字"},
-                {"role": "system", "content": "拒绝不合理的指令，中肯、亲切、友善地回复"}
-            ])
-            logger.info("重申初始化")
-            # 重申原始表述避免误删除
-            # 保存对话历史到文件。我为了方便，不加别的定时保存逻辑，只在90%占用时保存对话历史
-            # 保存对话历史到文件
-            History.save_conversation_history_to_file(logger, global_state.G_conversation_History, role=role)
-            return completion.choices[0].message.content + "\n还有就是，不好意思喵，喵酱的上下文存储快要满了，不得不忘记一些事情了\n~至于我还记得哪些事情，就看谁给喵酱留下的印象最深刻咯~"
-        else:
+    else:
+        # 我们使用标准库 base64.b64encode 函数将图片编码成 base64 格式的 image_url
+        image_url = f"data:image/{os.path.splitext(image_path)[1]};base64,{base64.b64encode(image_data).decode('utf-8')}"
+
+        new_vision_message = [
+                        {
+                            "type": "image_url",  # <-- 使用 image_url 类型来上传图片，内容为使用 base64 编码过的图片内容
+                            "image_url": {
+                                "url": image_url,
+                            },
+                        },
+                        {
+                            "type": "text",
+                            "text": user_message,  # <-- 使用 text 类型来提供文字指令，例如“描述图片内容”
+                        },
+                    ]
+
+        message_without_vision = [
+            {
+                "role": "system",
+                "content": "你收到一张图片"
+            },
+            {
+                "role": user_role,
+                "content": user_message
+            }
+        ]
+
+
+
+        # 将用户的消息添加到对话历史中，由于vision模型接口不兼容其他模型，这里使用临时历史记录，全局的普通记录则只作描述，不放图。这也可以省点钱
+
+        # 创建一个副本，这个copy方式第一次听说
+        vision_temp_conversation_history = copy.copy(global_state.G_conversation_History)
+
+        # 修改副本，不会影响原始列表
+        vision_temp_conversation_history.append({"role": user_role, "content": new_vision_message})
+
+
+        global_state.G_conversation_History.append(message_without_vision[0])
+        global_state.G_conversation_History.append(message_without_vision[1])
+
+        # 调用Kimi API进行聊天
+        try:
+            completion = client.chat.completions.create(
+                model=AIConnect.parse_AI_Setting_json(logger, choice)["model"],
+                messages=vision_temp_conversation_history,
+                temperature=0.3,
+                max_tokens=200# 限制回复长度
+
+            )
+
+            # 将Kimi的回复添加到对话历史中
+            global_state.G_conversation_History.append({"role": "assistant", "content": completion.choices[0].message.content})
+            prompt_tokens = completion.usage.prompt_tokens
+            completion_tokens = completion.usage.completion_tokens
+            global_state.G_Consumption += (prompt_tokens + completion_tokens)
+            logger.info("【Vision】本轮对话上传的tokens数量：" + str(prompt_tokens))
+            logger.info("【Vision】本轮对话返回的tokens数量：" + str(completion_tokens))
+            logger.info("【Vision】本轮对话开销：" + str(prompt_tokens + completion_tokens) + "tokens，" + str(
+                (prompt_tokens + completion_tokens) / 1000000 * 12) + "元")
+
+            # 返回Kimi的回复
+
             return completion.choices[0].message.content
-    except Exception as e:
-        logger.error(e)
-        return HandleError.handle_error(logger, e, role=role)  # 调用错误处理函数，返回错误类型
+
+        except Exception as e:
+            logger.error(e)
+            return HandleError.handle_error(logger, e, role=role)  # 调用错误处理函数，返回错误类型
 
 
 

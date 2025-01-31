@@ -137,7 +137,7 @@ class MainApp:
     def create_setting_widgets(self):
         # 创建第一组下拉列表（URL）
         urls = list(set(item['url'] for item in self.setting.settings))
-        self.url_combobox = ttk.Combobox(self.setting_frame, values=urls, width=80)
+        self.url_combobox = ttk.Combobox(self.setting_frame, values=urls, width=40)
         self.url_combobox.grid(column=0, row=0, padx=10, pady=10)
         self.url_combobox.current(0)
         self.url_combobox.bind("<<ComboboxSelected>>", self.on_url_changed)

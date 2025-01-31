@@ -75,7 +75,7 @@ def Start_History(logger):
 
     # 历史记录
     # 历史记录要保存的文件夹路径
-    folder_path_History = 'D:\\python_learn\\WeChatRobot\\History\\Histories'
+    folder_path_History = 'History/Histories'
     # 确保文件夹存在
     if not os.path.exists(folder_path_History):
         os.makedirs(folder_path_History)

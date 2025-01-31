@@ -30,7 +30,7 @@ def start_logging(logger_name="不需要写了，函数根据前一个直接创�
 
     # 日志配置
     # 指定要保存的文件夹路径
-    folder_path = 'D:\\python_learn\\WeChatRobot\\Logger\\logs'  # 替换为你的文件夹路径
+    folder_path = 'Logger/logs'  # 替换为你的文件夹路径
     # 确保文件夹存在
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)

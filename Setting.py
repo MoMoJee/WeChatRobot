@@ -96,7 +96,7 @@ class MainApp:
     def __init__(self, root):
         self.root = root
         self.root.title("综合设置管理")
-        self.root.geometry("1200x600")  # 调整窗口大小以适应四个部分
+        self.root.geometry("1082x350")  # 调整窗口大小以适应四个部分
 
         # 创建四个并列的LabelFrame
         self.admin_frame = ttk.LabelFrame(self.root, text="管理员名单", width=250, height=400)
@@ -130,10 +130,14 @@ class MainApp:
         self.submit_button = tk.Button(self.root, text="提交", command=self.on_submit)
         self.submit_button.grid(row=1, column=0, columnspan=4, pady=10)
 
+        # 取消按钮
+        self.submit_button = tk.Button(self.root, text="取消", command=self.none_submit)
+        self.submit_button.grid(row=1, column=1, columnspan=4, pady=10)
+
     def create_setting_widgets(self):
         # 创建第一组下拉列表（URL）
         urls = list(set(item['url'] for item in self.setting.settings))
-        self.url_combobox = ttk.Combobox(self.setting_frame, values=urls, width=40)
+        self.url_combobox = ttk.Combobox(self.setting_frame, values=urls, width=80)
         self.url_combobox.grid(column=0, row=0, padx=10, pady=10)
         self.url_combobox.current(0)
         self.url_combobox.bind("<<ComboboxSelected>>", self.on_url_changed)
@@ -173,6 +177,14 @@ class MainApp:
         api_names = [item['api_name'] for item in self.setting.settings if item['url'] == selected_url and item['model'] == selected_model]
         self.api_name_combobox['values'] = api_names
         self.api_name_combobox.current(0)
+
+
+    def none_submit(self):
+        self.result = 404
+        result = 404
+        self.root.destroy()
+        return result
+
 
     def on_submit(self):
         # 收集名单管理部分的数据
@@ -250,11 +262,16 @@ def start_setting():
         app = MainApp(root)
         root.mainloop()  # 启动主循环
         # 在窗口关闭后，从app中获取结果
-        if hasattr(app, 'result'):
-            settings = app.result
-        else:
+        if not hasattr(app, 'result'):
             print("【Setting】退出")
-            exit(0)
+            return 0
+
+        if app.result == 404:
+            print("【Setting】退出设置并不保存")
+            return 404
+
+        settings = app.result
+
 
         if not settings['名单管理']['admin_list']:
             print("【Setting】必须选择至少一个管理员，且Self必须包含在内！")

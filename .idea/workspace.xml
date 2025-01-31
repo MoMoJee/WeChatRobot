@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="2.1.1&#10;新写了两个人格，三个新年版本。完善了设置界面，并提供了中途的设置界面。完善了vision功能，优化了黑白名单给定方式&#10;&#10;卡皮巴拉、民酱两个人格，以及新年版的喵酱、林蒙力、民酱&#10;&#10;设置界面提供人格、模型、三个名单，中途设置界面可以更改除了人格以外的所有参数。&#10;注意：因为我要用CC打开设置界面，而CC无法返回设置结果，即client和几个list，所以我新建了全局变量 G_error_code，用于指示设置的启动，然后在Main中调用设置函数&#10;&#10;修复了在交替使用kimi的vision模型和其他模型时历史记录不兼容的问题，同时提供了本地模型运行图片分析的支持。&#10;注意，本地模型只提供在vision函数中修改choice参数的方式，默认3，即我的AISetting.json中的kimi的视觉模型。没给图形界面，实际上本地也不是很好用&#10;&#10;黑白名单从responder调整到Main，设置界面集成黑白名单设置功能">
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="2.1.1 Fixed&#10;修正了林蒙力-新年版人格的小错误&#10;修复了中途设置时监听名单无法修改的Bug&#10;提供了新年版的民酱人格&#10;调整temperature为1.3&#10;更新了lists.json">
       <change afterPath="$PROJECT_DIR$/AISetting.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/History/Example_History/Zero-民酱-农历新年版-conversation_history.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/民酱-农历新年版.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chatting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chatting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-农历新年版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-农历新年版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Setting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lists.json" beforeDir="false" afterPath="$PROJECT_DIR$/lists.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -348,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738246451431</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="2.1.1 Fixed&#10;修正了林蒙力-新年版人格的小错误&#10;修复了中途设置时监听名单无法修改的Bug&#10;提供了新年版的民酱人格&#10;调整temperature为1.3&#10;更新了lists.json">
+      <option name="closed" value="true" />
+      <created>1738261624582</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1738261624582</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -392,6 +398,7 @@
     <MESSAGE value="2.1.0 优化Client的传递，支持本地模型，支持中途更换模型，提供图形设置界面&#10;&#10;修改了client相关的参数（url、name、api）的传递方式，统一用AIConnect函数实现&#10;据此取消了在对Vision函数调用时client的传入，而是直接在Vision中调用AIConnect函数并返回要用到的kimi-Vision的client&#10;注意！由于模型名称无法通过Client返回，我也不想给AIConnect函数再加返回值，因此对于模型名称的调用，这里采用访问全局变量global_state.G_model的方式&#10;修复了save_conversation_to_history中的role错误、folder_path变量遗留问题&#10;通过详细的AI信息json来连接AI，通过指定AI的code的方式来标定模型API组合。其中本地模型的code指定为&gt;1000，以此区分。因为本地模型的调用方式和官方模型略有区别&#10;提供了起始设置的图形界面" />
     <MESSAGE value="有一个初始历史记录我忘记提交了，以及我改了一下README" />
     <MESSAGE value="2.1.1&#10;新写了两个人格，三个新年版本。完善了设置界面，并提供了中途的设置界面。完善了vision功能，优化了黑白名单给定方式&#10;&#10;卡皮巴拉、民酱两个人格，以及新年版的喵酱、林蒙力、民酱&#10;&#10;设置界面提供人格、模型、三个名单，中途设置界面可以更改除了人格以外的所有参数。&#10;注意：因为我要用CC打开设置界面，而CC无法返回设置结果，即client和几个list，所以我新建了全局变量 G_error_code，用于指示设置的启动，然后在Main中调用设置函数&#10;&#10;修复了在交替使用kimi的vision模型和其他模型时历史记录不兼容的问题，同时提供了本地模型运行图片分析的支持。&#10;注意，本地模型只提供在vision函数中修改choice参数的方式，默认3，即我的AISetting.json中的kimi的视觉模型。没给图形界面，实际上本地也不是很好用&#10;&#10;黑白名单从responder调整到Main，设置界面集成黑白名单设置功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.1.1&#10;新写了两个人格，三个新年版本。完善了设置界面，并提供了中途的设置界面。完善了vision功能，优化了黑白名单给定方式&#10;&#10;卡皮巴拉、民酱两个人格，以及新年版的喵酱、林蒙力、民酱&#10;&#10;设置界面提供人格、模型、三个名单，中途设置界面可以更改除了人格以外的所有参数。&#10;注意：因为我要用CC打开设置界面，而CC无法返回设置结果，即client和几个list，所以我新建了全局变量 G_error_code，用于指示设置的启动，然后在Main中调用设置函数&#10;&#10;修复了在交替使用kimi的vision模型和其他模型时历史记录不兼容的问题，同时提供了本地模型运行图片分析的支持。&#10;注意，本地模型只提供在vision函数中修改choice参数的方式，默认3，即我的AISetting.json中的kimi的视觉模型。没给图形界面，实际上本地也不是很好用&#10;&#10;黑白名单从responder调整到Main，设置界面集成黑白名单设置功能" />
+    <MESSAGE value="2.1.1 Fixed&#10;修正了林蒙力-新年版人格的小错误&#10;修复了中途设置时监听名单无法修改的Bug&#10;提供了新年版的民酱人格&#10;调整temperature为1.3&#10;更新了lists.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.1.1 Fixed&#10;修正了林蒙力-新年版人格的小错误&#10;修复了中途设置时监听名单无法修改的Bug&#10;提供了新年版的民酱人格&#10;调整temperature为1.3&#10;更新了lists.json" />
   </component>
 </project>

@@ -16,7 +16,7 @@
 pip install wxauto
 ```
 
-我还引入了openai和ollama，用于链接部署在本地的AI模型（在AIConnect.py中）
+我还引入了openai和ollama，用于链接部署在本地的AI模型（在AIConnect.py和Vision.py中）
 
 ```bash
 pip install ollama
@@ -27,7 +27,7 @@ pip install openai
 
 在根目录下创建一个名为AISetting.json的文件，格式大致为：
 
-注意替换为你自己的AI文件
+注意替换为你自己的AI文件。对于本地AI，这里采用ollama配置管理，url默认为ollama默认端口11434，api任意
 
 ```json
 [
@@ -72,6 +72,8 @@ pip install openai
 然后在AIConnect.py的函数会读取并让你选择API
 
 在API被读取之后，AI会连接
+
+<mark>注意code>1000的表示本地模型！</mark>
 
 ### 1.3 微信
 

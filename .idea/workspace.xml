@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="2.1.1 Ultimate&#10;修正了Setting的逻辑：在开机时叉掉可以关机，取消不管用；在中途叉掉不管用，取消可以退出设置并不保存&#10;更新了lists.json">
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="2.1.1 Ultimate Fixed&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小">
       <change afterPath="$PROJECT_DIR$/AISetting.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Update_2025_1_25_8_50____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行Update之前于_2025_1_25_下午8_50_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History/History.py" beforeDir="false" afterPath="$PROJECT_DIR$/History/History.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logger/Logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Logger/Logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Setting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Console_Command.py" beforeDir="false" afterPath="$PROJECT_DIR$/Console_Command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HandleError.py" beforeDir="false" afterPath="$PROJECT_DIR$/HandleError.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/喵酱-农历新年版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/喵酱-农历新年版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-农历新年版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-农历新年版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/民酱-农历新年版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/民酱-农历新年版.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lists.json" beforeDir="false" afterPath="$PROJECT_DIR$/lists.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/responders.py" beforeDir="false" afterPath="$PROJECT_DIR$/responders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/升级预期2.md" beforeDir="false" afterPath="$PROJECT_DIR$/升级预期2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,10 +111,12 @@
     "Python.scratch_16.executor": "Run",
     "Python.scratch_17.executor": "Run",
     "Python.scratch_18.executor": "Run",
+    "Python.scratch_19.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/python_learn/WeChatRobot",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/python_learn/程序（杂乱）/Web_Front_End_Learn",
     "settings.editor.selected.configurable": "preferences.intentionPowerPack"
   },
   "keyToStringList": {
@@ -361,7 +371,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738302154631</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="2.1.1 Ultimate Fixed&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小">
+      <option name="closed" value="true" />
+      <created>1738303122804</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1738303122804</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -407,6 +425,7 @@
     <MESSAGE value="2.1.1&#10;新写了两个人格，三个新年版本。完善了设置界面，并提供了中途的设置界面。完善了vision功能，优化了黑白名单给定方式&#10;&#10;卡皮巴拉、民酱两个人格，以及新年版的喵酱、林蒙力、民酱&#10;&#10;设置界面提供人格、模型、三个名单，中途设置界面可以更改除了人格以外的所有参数。&#10;注意：因为我要用CC打开设置界面，而CC无法返回设置结果，即client和几个list，所以我新建了全局变量 G_error_code，用于指示设置的启动，然后在Main中调用设置函数&#10;&#10;修复了在交替使用kimi的vision模型和其他模型时历史记录不兼容的问题，同时提供了本地模型运行图片分析的支持。&#10;注意，本地模型只提供在vision函数中修改choice参数的方式，默认3，即我的AISetting.json中的kimi的视觉模型。没给图形界面，实际上本地也不是很好用&#10;&#10;黑白名单从responder调整到Main，设置界面集成黑白名单设置功能" />
     <MESSAGE value="2.1.1 Fixed&#10;修正了林蒙力-新年版人格的小错误&#10;修复了中途设置时监听名单无法修改的Bug&#10;提供了新年版的民酱人格&#10;调整temperature为1.3&#10;更新了lists.json" />
     <MESSAGE value="2.1.1 Ultimate&#10;修正了Setting的逻辑：在开机时叉掉可以关机，取消不管用；在中途叉掉不管用，取消可以退出设置并不保存&#10;更新了lists.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.1.1 Ultimate&#10;修正了Setting的逻辑：在开机时叉掉可以关机，取消不管用；在中途叉掉不管用，取消可以退出设置并不保存&#10;更新了lists.json" />
+    <MESSAGE value="2.1.1 Ultimate Fixed&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.1.1 Ultimate Fixed&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小" />
   </component>
 </project>

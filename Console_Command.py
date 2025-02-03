@@ -10,8 +10,9 @@ import Setting
 
 # 为了方便，CC中的越界操作通过专用的全局变量完成
 
-def Console_Command(logger, message, folder_path_History, client, wx = "None", role = 0):
+def Console_Command(logger, message, client, role=0):
     cache_dialogue = Role.return_role_words(logger=logger, role_code=role, role_key="1000")
+    role_keyword = Role.return_role_words(logger, role_key="0001", role_code=role)
     if "清理内存" in message:
         logger.info("【Console】内存清理")
         global_state.G_conversation_History = History.clear_n_percent_of_history(logger, global_state.G_conversation_History, 25)  # 调用清理函数，随机删除25%聊天数据
@@ -22,18 +23,20 @@ def Console_Command(logger, message, folder_path_History, client, wx = "None", r
         # 保存对话历史到文件。我为了方便，不加别的定时保存逻辑，只在90%占用时保存对话历史
         # 保存对话历史到文件
         History.save_conversation_history_to_file(logger, global_state.G_conversation_History, role=role)
-        return Role.return_role_words(logger, role_code=role, role_key="2000")
+        return f'【{role_keyword}】【Console_Command】{Role.return_role_words(logger, role_code=role, role_key="2000")}'
 
     elif ("删除" in message) and ("聊天记录" in message):
         pattern = r'[-+]?\d*\.?\d+'
-        continuous_numbers = re.findall(pattern, message)# 用正则表达式读取识别message中的数字# 会返回一个列表，里面是字符串形式的多个数字
+        continuous_numbers = re.findall(pattern, message)
+        # 用正则表达式读取识别message中的数字# 会返回一个列表，里面是字符串形式的多个数字
         if continuous_numbers:
             global_state.G_conversation_History = History.delete_n_messages(logger, global_state.G_conversation_History, int(continuous_numbers[0]))#这里我们取第一个
             logger.info("【Console】已删除指定数量的聊天记录")
-            return "已删除指定数量的聊天记录"
-        else:# 如果是空列表，会返回[]
+            return f'【{role_keyword}】【Console_Command】已删除指定数量的聊天记录'
+        else:
+            # 如果是空列表，会返回[]
             logger.warning("【Console】未指定要删除的聊天记录数量")
-            return "未指定要删除的聊天记录数量"
+            return f'【{role_keyword}】【Console_Command】未指定要删除的聊天记录数量'
 
 
     elif "初始化" in message:
@@ -53,7 +56,7 @@ def Console_Command(logger, message, folder_path_History, client, wx = "None", r
         return Role.return_role_words(logger, role_code=role, role_key="2002")
     elif "好好说话" in message:
         logger.info("【Console】请求：重申初始设定")
-        return Chatting.chat_with_AI(logger, Role.return_role_words(logger, role_code=role, role_key="2003"), client, "system", role=role)
+        return f'【{role_keyword}】【Console_Command】{Chatting.chat_with_AI(logger, Role.return_role_words(logger, role_code=role, role_key="2003"), client, "system", role=role)}'
     # elif "余额" in message:
     #     logger.info("【Console】请求余额查询")
     #     balance = Chatting.get_api_balance(logger, AIConnect.read_api_key('AISetting.json', logger, cache_choice=2))
@@ -74,15 +77,22 @@ def Console_Command(logger, message, folder_path_History, client, wx = "None", r
     elif "挂起" in message:
         logger.info("【Console】请求更换程序挂起状态")
         global_state.G_Suspend = not global_state.G_Suspend
-        return "更换挂起状态，当前状态：" + str(global_state.G_Suspend)
+        return f'【{role_keyword}】【Console_Command】更换挂起状态，当前状态：" + {str(global_state.G_Suspend)}'
 
     elif "设置" in message:
         logger.info("【Console】请求设置，已设置G_error_code为2")
         global_state.G_error_code = 2
-        return "设置启动成功！"
+        return f'【{role_keyword}】【Console_Command】设置启动成功！'
 
     else:
-        return "未知的Console Command指令"
+        return (f'【{role_keyword}】【Console_Command】未知的指令，以下是指令表：\n'
+                f'#cc清理内存\n'
+                f'#cc删除n条聊天记录（必须是阿拉伯数字整数）\n'
+                f'#cc初始化\n'
+                f'#cc日志\n'
+                f'#cc好好说话\n'
+                f'#cc挂起\n'
+                f'#cc设置')
 
 
 

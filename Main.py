@@ -106,7 +106,8 @@ while 1:
                 logger.info("【ConsoleCommand】用户已取消设置")
 
 
-    try:# 连接错误的处理，后期考虑放到HE函数那边
+    try:
+        # 连接错误的处理，后期考虑放到HE函数那边
         msgs = wx.GetListenMessage()
 
     except Exception as e:
@@ -185,14 +186,10 @@ while 1:
                 print("【ConsoleCommand】挂起中")
                 continue
 
-
-
-
             if msg.type == 'sys':
-                logger.info('【ConsoleCommand】接收到新消息'+ f'【系统消息】{msg.content}')
+                logger.info('【ConsoleCommand】接收到新消息' + f'【系统消息】{msg.content}')
 
             elif msg.type == 'friend':
-                logger.info('【ConsoleCommand】接收到新消息' + f'【好友消息】{msg.sender}：{msg.content}')
 
                 if "WeChatRobot\wxauto文件" in msg.content:
                     image_list.append({"sender": msg.sender, "path": msg.content})
@@ -202,18 +199,23 @@ while 1:
                 if role_keyword in f'{msg.content}':
                     logger.info('【ConsoleCommand】接收到关键词' + f'{msg.sender}：{msg.content}')
                     chat.SendMsg(
-                        responders.Authenticator_Distributor(logger, msg, client, role=role_code, special_0=image_list, black_list=black_list,
-                                                             admin_list=admin_list, VIP_list=VIP_list), at=msg.sender)
+                        responders.Authenticator_Distributor(logger, msg, client, role=role_code, special_0=image_list,
+                                                             black_list=black_list,admin_list=admin_list,
+                                                             VIP_list=VIP_list), at=msg.sender)
 
             elif msg.type == 'self':
                 sender = msg.sender  # 这里可以将msg.sender改为msg.sender_remark，获取备注名
-                print("【ConsoleCommand】接收到新消息" + f'【控制台消息】{sender}：{msg.content}')
-                logger.info("【ConsoleCommand】接收到新消息" + f'【控制台消息】{sender}：{msg.content}')
-                if chat.who == "文件传输助手":# 仅接收从文件传输助手接收到的#指令
-                    if "WeChatRobot\wxauto文件" in msg.content:
-                        image_list.append({"sender": msg.sender, "path": msg.content})
-                        print(image_list)
-                        # 存储所有的图片路径
+                if "WeChatRobot\wxauto文件" in msg.content:
+                    image_list.append({"sender": msg.sender, "path": msg.content})
+                    print(image_list)
+                    # 存储所有的图片路径
+
+                if (f'【{role_keyword}】' not in msg.content) and (role_keyword in f'{msg.content}'):
+                    # 带有【xxx】的都是机器人回复，剔除
+                    print("【ConsoleCommand】接收到新消息" + f'【控制台消息】{sender}：{msg.content}')
+                    logger.info("【ConsoleCommand】接收到新消息" + f'【控制台消息】{sender}：{msg.content}')
+
+
                     # ！！！ 回复收到，此处为`chat`而不是`wx` ！！！
                     if (role_keyword + "@@退出") in f'{msg.content}':
                         logger.warning('【SuperCommand】请求：退出')
@@ -222,39 +224,23 @@ while 1:
                         chat.SendMsg(Start_Close.generate_exit_message(logger, role=role_code))
                         # 保存对话历史到文件
 
-                        History.save_conversation_history_to_file(logger, global_state.G_conversation_History, role=role_code)
+                        History.save_conversation_history_to_file(logger, global_state.G_conversation_History,
+                                                                  role=role_code)
+
                         logger.info("【SuperCommand】对话总消耗：" + str(global_state.G_Consumption) + "tokens")
                         break
                     elif "#" in f'{msg.content}':
-                        if "#sys" in f'{msg.content}' and role_keyword in f'{msg.content}':
-                            print("【ConsoleCommand】system请求")
-                            logger.info('【ConsoleCommand】【system】请求：' + f'{msg.content}')
-                            chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code, black_list=black_list,
-                                                             admin_list=admin_list, VIP_list=VIP_list))
+                        print("【ConsoleCommand】控制台发起对话请求")
+                        # 防止崩溃，我自己在文件传输助手里面聊天需要加一个#
+                        if role_keyword in f'{msg.content}':
+                            logger.info('【ConsoleCommand】接收到主人新消息' + f'{sender}：{msg.content}')
+                            chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code,
+                                                                              special_0=image_list,
+                                                                              black_list=black_list,
+                                                                              admin_list=admin_list,
+                                                                              VIP_list=VIP_list
+                                                                              ))
 
-                        elif "#cc" in f'{msg.content}' and role_keyword in f'{msg.content}':
-                            print("【ConsoleCommand】【Console】请求")
-                            logger.info('【ConsoleCommand】【Console】请求：' + f'{msg.content}')
-                            chat.SendMsg("【Console Command】" + responders.Authenticator_Distributor(logger, msg, client,
-                                                                                                    role=role_code,
-                                                                                                    black_list=black_list,
-                                                                                                    admin_list=admin_list,
-                                                                                                    VIP_list=VIP_list))  # 跳转到鉴权，再跳转到控制台指令处理
-                        else:
-                            print("【ConsoleCommand】主人在控制台发起对话请求")# 防止崩溃，我自己在文件传输助手里面聊天需要加一个#
-                            if role_keyword in f'{msg.content}':
-                                logger.info('【ConsoleCommand】接收到主人新消息' + f'{sender}：{msg.content}')
-                                chat.SendMsg(responders.Authenticator_Distributor(logger, msg, client, role=role_code,
-                                                                                  special_0=image_list,
-                                                                                  black_list=black_list,
-                                                                                  admin_list=admin_list,
-                                                                                  VIP_list=VIP_list
-                                                                                  ))
-
-                else:
-                    if ("#cc" in f'{msg.content}') or ((role_keyword + "@@退出") in f'{msg.content}') or ("#sys" in f'{msg.content}'):
-                        logger.warning("接收到本机不来自控制台的控制台消息：" + f'{sender.rjust(20)}：{msg.content}')
-                        print("接收到本机不来自控制台的控制台消息：" + f'{sender.rjust(20)}：{msg.content}')
 
 
 

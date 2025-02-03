@@ -24,7 +24,7 @@ def  Authenticator_Distributor(logger, msg, client, role = 0, black_list = None,
         logger.info("【Authenticator_Distributor】接收到管理员消息")
         if "#cc" in f'{msg.content}':
             logger.info("【Authenticator_Distributor】接收到管理员【ConsoleCommand】指令：" + user_input)
-            return Console_Command.Console_Command(logger, f'{msg.content}', '/History/Histories', client, role=role)
+            return Console_Command.Console_Command(logger, f'{msg.content}', client, role=role)
         elif "#sys" in f'{msg.content}':
             logger.info("【Authenticator_Distributor】接收到管理员【system】指令：" + user_input)
             return respond_sys(logger, user_input, client, role=role)
@@ -64,10 +64,15 @@ def  Authenticator_Distributor(logger, msg, client, role = 0, black_list = None,
 
 
 def respond_user(logger, user_input, client, role_code = 0):
-    AI_reply = Chatting.chat_with_AI(logger, user_input, client, 'user', role=role_code)
+    role_key_word = Role.return_role_words(logger, "0001", role_code)
+    if "#f" in user_input:
+        logger.warning("【respond_user】接收到来自普通用户的function请求，请求被驳回！")
+        return f'【{role_key_word}】没有function权限！'
+    else:
+        AI_reply = Chatting.chat_with_AI(logger, user_input, client, 'user', role=role_code)
 
     print(Role.return_role_words(logger, "0003", role_code) + f"说: {AI_reply}")
-    role_key_word = Role.return_role_words(logger, "0001", role_code)
+
     if f'{AI_reply}' != "":
         logger.info('【respond_user】【大模型回复】【' + role_key_word + f'】{AI_reply}')
     else:

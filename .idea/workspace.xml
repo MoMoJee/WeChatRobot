@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="2.1.1 Ultimate Fixed&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小">
+    <list default="true" id="c5707436-8b57-4a7e-a41d-a384bfd6e8c0" name="更改" comment="2.1.2&#10;优化控制台方式，不再必须在“文件传输助手”发送#控制指令和@@关机指令&#10;提供#cc指令表发送&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小&#10;优化了日志项&#10;优化了HandleError函数&#10;优化了人格提示词">
       <change afterPath="$PROJECT_DIR$/AISetting.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Update_2025_1_25_8_50____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行Update之前于_2025_1_25_下午8_50_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/喵酱-喵喵星版.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Role_and_Context/roles/喵酱-立春版.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Console_Command.py" beforeDir="false" afterPath="$PROJECT_DIR$/Console_Command.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HandleError.py" beforeDir="false" afterPath="$PROJECT_DIR$/HandleError.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/喵酱-农历新年版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/喵酱-农历新年版.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-农历新年版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/林蒙力-农历新年版.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles/民酱-农历新年版.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles/民酱-农历新年版.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lists.json" beforeDir="false" afterPath="$PROJECT_DIR$/lists.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/responders.py" beforeDir="false" afterPath="$PROJECT_DIR$/responders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/升级预期2.md" beforeDir="false" afterPath="$PROJECT_DIR$/升级预期2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chatting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Chatting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Role_and_Context/roles.json" beforeDir="false" afterPath="$PROJECT_DIR$/Role_and_Context/roles.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,68 +69,70 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="sortKey" value="BY_TIME_DESCENDING" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.AIConnect.executor": "Run",
-    "Python.Chatting.executor": "Run",
-    "Python.Chatting1_0.executor": "Run",
-    "Python.Console_Command1_0.executor": "Run",
-    "Python.History1_0.executor": "Run",
-    "Python.History1_1.executor": "Run",
-    "Python.Main.executor": "Run",
-    "Python.Main2.0.executor": "Run",
-    "Python.Main2.executor": "Run",
-    "Python.Main2_0.executor": "Run",
-    "Python.Main2_0_1.executor": "Run",
-    "Python.Main2_0_2.executor": "Run",
-    "Python.Main2_0_regularly_reminder.executor": "Run",
-    "Python.Reminder.executor": "Run",
-    "Python.Reminder1_0.executor": "Run",
-    "Python.Reminder1_1.executor": "Run",
-    "Python.Role.executor": "Run",
-    "Python.Setting.executor": "Run",
-    "Python.Start_Close1_0.executor": "Run",
-    "Python.Vision.executor": "Run",
-    "Python.function_console_command.executor": "Run",
-    "Python.logger1_0.executor": "Run",
-    "Python.responders.executor": "Run",
-    "Python.responders1_1.executor": "Run",
-    "Python.role1_0.executor": "Run",
-    "Python.scratch.executor": "Run",
-    "Python.scratch_10.executor": "Run",
-    "Python.scratch_15.executor": "Run",
-    "Python.scratch_16.executor": "Run",
-    "Python.scratch_17.executor": "Run",
-    "Python.scratch_18.executor": "Run",
-    "Python.scratch_19.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/python_learn/程序（杂乱）/Web_Front_End_Learn",
-    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.AIConnect.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Chatting.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Chatting1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Console_Command.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Console_Command1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.History1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.History1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2.0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main2_0_regularly_reminder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Reminder1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Role.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Setting.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Start_Close1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Vision.executor&quot;: &quot;Run&quot;,
+    &quot;Python.function_console_command.executor&quot;: &quot;Run&quot;,
+    &quot;Python.logger1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.responders.executor&quot;: &quot;Run&quot;,
+    &quot;Python.responders1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.role1_0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_10.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_15.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_16.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_17.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_18.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch_19.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/python_learn/WeChatRobot/Role_and_Context/roles&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
-      "Python",
-      "PythonRegExp"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件&quot;: [
+      &quot;Python&quot;,
+      &quot;PythonRegExp&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\python_learn\WeChatRobot" />
       <recent name="D:\python_learn\WeChatRobot\Role_and_Context\roles" />
+      <recent name="D:\python_learn\WeChatRobot" />
       <recent name="D:\python_learn\WeChatRobot\History\Example_History" />
       <recent name="D:\python_learn\WeChatRobot\Main" />
       <recent name="D:\python_learn\WeChatRobot\Functions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\python_learn\WeChatRobot\History\Example_History" />
       <recent name="D:\python_learn\WeChatRobot" />
       <recent name="D:\python_learn\WeChatRobot\Role_and_Context" />
-      <recent name="D:\python_learn\WeChatRobot\History\Example_History" />
       <recent name="D:\python_learn\WeChatRobot\Functions" />
     </key>
   </component>
@@ -379,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738303122804</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="2.1.2&#10;优化控制台方式，不再必须在“文件传输助手”发送#控制指令和@@关机指令&#10;提供#cc指令表发送&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小&#10;优化了日志项&#10;优化了HandleError函数&#10;优化了人格提示词">
+      <option name="closed" value="true" />
+      <created>1738586301822</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1738586301822</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -426,6 +429,7 @@
     <MESSAGE value="2.1.1 Fixed&#10;修正了林蒙力-新年版人格的小错误&#10;修复了中途设置时监听名单无法修改的Bug&#10;提供了新年版的民酱人格&#10;调整temperature为1.3&#10;更新了lists.json" />
     <MESSAGE value="2.1.1 Ultimate&#10;修正了Setting的逻辑：在开机时叉掉可以关机，取消不管用；在中途叉掉不管用，取消可以退出设置并不保存&#10;更新了lists.json" />
     <MESSAGE value="2.1.1 Ultimate Fixed&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.1.1 Ultimate Fixed&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小" />
+    <MESSAGE value="2.1.2&#10;优化控制台方式，不再必须在“文件传输助手”发送#控制指令和@@关机指令&#10;提供#cc指令表发送&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小&#10;优化了日志项&#10;优化了HandleError函数&#10;优化了人格提示词" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.1.2&#10;优化控制台方式，不再必须在“文件传输助手”发送#控制指令和@@关机指令&#10;提供#cc指令表发送&#10;&#10;修复了日志和历史记录遗留的绝对路径问题&#10;修改了设置窗口大小&#10;优化了日志项&#10;优化了HandleError函数&#10;优化了人格提示词" />
   </component>
 </project>

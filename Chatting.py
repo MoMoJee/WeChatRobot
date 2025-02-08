@@ -18,9 +18,9 @@ def chat_with_AI(logger, user_message, client, user_role, role = 0, retry_count=
 
     # 将当前时间格式化为字符串，格式为：年-月-日 时:分:秒
     time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
-    global_state.G_conversation_History.append({"role": user_role, "content": f'{time_str},{user_message}'})
 
     try:
+        global_state.G_conversation_History.append({"role": user_role, "content": f'{time_str},{user_message}'})
         if global_state.G_model_code > 1000:
             completion = ollama.chat(
                 model=global_state.G_model,
@@ -36,7 +36,10 @@ def chat_with_AI(logger, user_message, client, user_role, role = 0, retry_count=
                 model=global_state.G_model,  # AIConnect函数会更改这个
                 messages=global_state.G_conversation_History,
                 temperature=1.3,
-                max_tokens=200# 限制回复长度
+                frequency_penalty=0.5,
+                # 减少重复词
+                max_tokens=200
+                # 限制回复长度
             )
 
             # 将AI的回复添加到对话历史中
